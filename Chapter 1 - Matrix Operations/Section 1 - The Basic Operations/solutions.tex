@@ -1,0 +1,822 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\begin{document}
+\title{Chapter 1: Matrix Operations \\ Section 1: `The Basic Operations}
+\author{Alec Mouri}
+
+\maketitle
+\section*{Exercises}
+\begin{itemize}
+\item[(1)]
+$a_{21} = 2, s_{23} = 8$
+\item[(2)]
+\begin{itemize}
+\item[(a)]
+$$AB = \begin{bmatrix}
+1 & 2 & 3 \\
+3 & 3 & 1
+\end{bmatrix}\begin{bmatrix}
+-8 & -4 \\
+9 & 5 \\
+-3 & -2
+\end{bmatrix} = \begin{bmatrix}
+1 & 0 \\
+0 & 1
+\end{bmatrix}$$
+$$BA = \begin{bmatrix}
+-8 & -4 \\
+9 & 5 \\
+-3 & -2
+\end{bmatrix}\begin{bmatrix}
+1 & 2 & 3 \\
+3 & 3 & 1
+\end{bmatrix} = \begin{bmatrix}
+-20 & -28 & - 28 \\
+24 & 33 & 33 \\
+-9 & -12 & -11
+\end{bmatrix}$$
+\item[(b)]
+$$AB = \begin{bmatrix}
+1 & 4 \\
+1 & 2
+\end{bmatrix}\begin{bmatrix}
+6 & -4 \\
+-3 & 2
+\end{bmatrix} = \begin{bmatrix}
+-6 & -4 \\
+0 & 0
+\end{bmatrix}$$
+$$BA = \begin{bmatrix}
+6 & -4 \\
+-3 & 2
+\end{bmatrix}\begin{bmatrix}
+1 & 4 \\
+1 & 2
+\end{bmatrix} = \begin{bmatrix}
+2 & 16 \\
+-1 & -8
+\end{bmatrix}$$
+\item[(c)]
+$$AB = \begin{bmatrix}
+1 \\
+-1 \\
+0
+\end{bmatrix}\begin{bmatrix}
+1 & 2 & 1
+\end{bmatrix} = \begin{bmatrix}
+1 & 2 & 1 \\
+-1 & -2 & -1 \\
+0 & 0 & 0
+\end{bmatrix}$$
+$$BA = \begin{bmatrix}
+1 & 2 & 1
+\end{bmatrix}\begin{bmatrix}
+1 \\
+-1 \\
+0
+\end{bmatrix} = \begin{bmatrix}
+-1
+\end{bmatrix}$$
+\end{itemize}
+\item[(3)]
+$$AB = \begin{bmatrix}
+a_1 & \hdots & a_n
+\end{bmatrix}\begin{bmatrix}
+b_1 \\
+\vdots \\
+b_n
+\end{bmatrix} = \begin{bmatrix}
+a_1b_1 + ... + a_nb_n
+\end{bmatrix}$$
+$$BA = \begin{bmatrix}
+b_1 \\
+\vdots \\
+b_n
+\end{bmatrix}\begin{bmatrix}
+a_1 & \hdots & a_n
+\end{bmatrix} = \begin{bmatrix}
+a_1b_1 & a_2b_1 & \hdots & a_nb_1 \\
+a_1b_2 & a_2b_2 & \hdots & a_nb_2 \\
+\vdots & \vdots & \ddots & \vdots \\
+a_1b_n & a_2b_n & \hdots & a_nb_n
+\end{bmatrix}$$
+\item[(4)]
+$$\left( \begin{bmatrix}
+1 & 2 \\
+0 & 1
+\end{bmatrix}\begin{bmatrix}
+0 & 1 & 2 \\
+1 & 1 & 3
+\end{bmatrix} \right)\begin{bmatrix}
+1 \\
+4 \\
+3
+\end{bmatrix} = \begin{bmatrix}
+2 & 3 & 8 \\
+1 & 1 & 3
+\end{bmatrix}\begin{bmatrix}
+1 \\
+4 \\
+3
+\end{bmatrix} = \begin{bmatrix}
+38 \\
+14
+\end{bmatrix}$$
+$$\begin{bmatrix}
+1 & 2 \\
+0 & 1
+\end{bmatrix} \left(\begin{bmatrix}
+0 & 1 & 2 \\
+1 & 1 & 3
+\end{bmatrix}\begin{bmatrix}
+1 \\
+4 \\
+3
+\end{bmatrix} \right) = \begin{bmatrix}
+1 & 2 \\
+0 & 1
+\end{bmatrix}\begin{bmatrix}
+10 \\
+14
+\end{bmatrix} = \begin{bmatrix}
+38 \\
+14
+\end{bmatrix}$$
+\item[(5)]
+$$\begin{bmatrix}
+1 & a \\
+& 1
+\end{bmatrix}\begin{bmatrix}
+1 & b \\
+& 1
+\end{bmatrix} = \begin{bmatrix}
+1 & a + b \\
+& 1
+\end{bmatrix}$$
+\item[(6)]
+I claim that
+$$\begin{bmatrix}
+1 & 1 \\
+& 1
+\end{bmatrix}^n = \begin{bmatrix}
+1 & n \\
+& 1
+\end{bmatrix}$$
+Let $n = 1$. Then
+$$\begin{bmatrix}
+1 & 1 \\
+& 1
+\end{bmatrix}$$
+So the statement is trivially true for $n = 1$. Suppose the statement is true for $n = k - 1$. Then
+$$\begin{bmatrix}
+1 & 1 \\
+& 1
+\end{bmatrix}^k = \begin{bmatrix}
+1 & 1 \\
+& 1
+\end{bmatrix}^{k-1}\begin{bmatrix}
+1 & 1 \\
+& 1
+\end{bmatrix} = \begin{bmatrix}
+1 & k - 1 \\
+& 1
+\end{bmatrix}\begin{bmatrix}
+1 & 1 \\
+& 1
+\end{bmatrix} = \begin{bmatrix}
+1 & k \\
+& 1
+\end{bmatrix}$$
+\item[(7)]
+I claim that
+$$\begin{bmatrix}
+1 & 1 & 1 \\
+& 1 & 1 \\
+& & 1
+\end{bmatrix}^n = \begin{bmatrix}
+1 & n & T_n \\
+& 1 & n \\
+& & 1
+\end{bmatrix}$$
+Where $T_n = \sum_{i=1}^n i$
+
+Suppose $n = 1$. Then
+$$\begin{bmatrix}
+1 & 1 & 1 \\
+& 1 & 1 \\
+& & 1
+\end{bmatrix}^n = \begin{bmatrix}
+1 & 1 & 1 \\
+& 1 & 1 \\
+& & 1
+\end{bmatrix}$$
+Since $T_1 = 1$, then the statement is true. Suppose the statement is true for $n = k - 1$. Then
+$$\begin{bmatrix}
+1 & 1 & 1 \\
+& 1 & 1 \\
+& & 1
+\end{bmatrix}^k = \begin{bmatrix}
+1 & 1 & 1 \\
+& 1 & 1 \\
+& & 1
+\end{bmatrix}^{k-1}\begin{bmatrix}
+1 & 1 & 1 \\
+& 1 & 1 \\
+& & 1
+\end{bmatrix}$$
+$$ = \begin{bmatrix}
+1 & k-1 & T_{k-1} \\
+& 1 & k-1 \\
+& & 1
+\end{bmatrix}\begin{bmatrix}
+1 & 1 & 1 \\
+& 1 & 1 \\
+& & 1
+\end{bmatrix} = \begin{bmatrix}
+1 & k-1 + 1 & T_{k-1} + k-1 + 1 \\
+& 1 & k -1 + 1 \\
+& & 1 
+\end{bmatrix}$$
+$$= \begin{bmatrix}
+1 & k & T_k \\
+& 1 & k \\
+& & 1
+\end{bmatrix}$$
+\item[(8)]
+$$\begin{bmatrix} 
+\begin{array}{cc|cc}
+1 & 1 & 1 & 5 \\
+0 & 1 & 0 & 1 \\
+\hline
+1 & 0 & 0 & 1 \\
+0 & 1 & 1 & 0
+\end{array}
+\end{bmatrix}\begin{bmatrix} 
+\begin{array}{cc|cc}
+1 & 2 & 1 & 0 \\
+0 & 1 & 0 & 1 \\
+\hline
+1 & 0 & 0 & 1 \\
+0 & 1 & 1 & 3
+\end{array}
+\end{bmatrix}$$
+$$= \begin{bmatrix}
+\begin{array}{c|c}
+
+\begin{bmatrix}
+1 & 1 \\
+0 & 1
+\end{bmatrix} \begin{bmatrix}
+1 & 2 \\
+0 & 1
+\end{bmatrix} + \begin{bmatrix}
+1 & 5 \\
+0 & 1
+\end{bmatrix}\begin{bmatrix}
+1 & 0 \\
+0 & 1
+\end{bmatrix} & \begin{bmatrix}
+1 & 1 \\
+0 & 1
+\end{bmatrix} \begin{bmatrix}
+1 & 0 \\
+0 & 1
+\end{bmatrix} + \begin{bmatrix}
+1 & 5 \\
+0 & 1
+\end{bmatrix}\begin{bmatrix}
+0 & 1 \\
+1 & 3
+\end{bmatrix} \\
+\hline
+\begin{bmatrix}
+1 & 0 \\
+0 & 1
+\end{bmatrix} \begin{bmatrix}
+1 & 2 \\
+0 & 1
+\end{bmatrix} + \begin{bmatrix}
+0 & 1 \\
+1 & 0
+\end{bmatrix}\begin{bmatrix}
+1 & 0 \\
+0 & 1
+\end{bmatrix} & \begin{bmatrix}
+1 & 0 \\
+0 & 1
+\end{bmatrix} \begin{bmatrix}
+1 & 0 \\
+0 & 1
+\end{bmatrix} + \begin{bmatrix}
+0 & 1 \\
+1 & 0
+\end{bmatrix}\begin{bmatrix}
+0 & 1 \\
+1 & 3
+\end{bmatrix}
+\end{array}
+\end{bmatrix}$$
+$$= \begin{bmatrix}
+\begin{array}{c|c}
+\begin{bmatrix}
+1 & 3 \\
+0 & 1
+\end{bmatrix} + \begin{bmatrix}
+1 & 5 \\
+0 & 1
+\end{bmatrix} & \begin{bmatrix}
+1 & 1 \\
+0 & 1
+\end{bmatrix} + \begin{bmatrix}
+5 & 16 \\
+1 & 3
+\end{bmatrix} \\
+\hline
+\begin{bmatrix}
+1 & 2 \\
+0 & 1
+\end{bmatrix} + \begin{bmatrix}
+0 & 1 \\
+1 & 0
+\end{bmatrix} & \begin{bmatrix}
+1 & 0 \\
+0 & 1
+\end{bmatrix} + \begin{bmatrix}
+1 & 3 \\
+0 & 1
+\end{bmatrix}
+\end{array}
+\end{bmatrix} = \begin{bmatrix}
+2 & 8 & 6 & 17 \\
+0 & 2 & 1 & 4 \\
+1 & 3 & 2 & 3 \\
+1 & 1 & 0 & 1
+\end{bmatrix}$$
+$$\begin{bmatrix} 
+\begin{array}{c|cc}
+0 & 1 & 2 \\
+\hline
+0 & 1 & 0 \\
+3 & 0 & 1
+\end{array}
+\end{bmatrix}\begin{bmatrix} 
+\begin{array}{c|cc}
+1 & 2 & 3 \\
+\hline
+4 & 2 & 3 \\
+5 & 0 & 4
+\end{array}
+\end{bmatrix}$$
+$$= \begin{bmatrix} 
+\begin{array}{c|c}
+\begin{bmatrix}
+0
+\end{bmatrix}\begin{bmatrix}
+1
+\end{bmatrix} + \begin{bmatrix}
+1 & 2
+\end{bmatrix}\begin{bmatrix}
+4 \\
+5
+\end{bmatrix} & \begin{bmatrix}
+0
+\end{bmatrix}\begin{bmatrix}
+2 & 3
+\end{bmatrix} + \begin{bmatrix}
+1 & 2
+\end{bmatrix}\begin{bmatrix}
+2 & 3 \\
+0 & 4
+\end{bmatrix} \\
+\hline
+\begin{bmatrix}
+0 \\
+3
+\end{bmatrix}\begin{bmatrix}
+1
+\end{bmatrix} + \begin{bmatrix}
+1 & 0 \\
+0 & 1
+\end{bmatrix}\begin{bmatrix}
+4 \\
+5
+\end{bmatrix} & \begin{bmatrix}
+0 \\
+3
+\end{bmatrix}\begin{bmatrix}
+2 & 3
+\end{bmatrix} + \begin{bmatrix}
+1 & 0 \\
+0 & 1
+\end{bmatrix}\begin{bmatrix}
+2 & 3 \\
+0 & 4
+\end{bmatrix}
+\end{array}
+\end{bmatrix}$$
+$$= \begin{bmatrix}
+\begin{array}{c|c}
+\begin{bmatrix}
+0
+\end{bmatrix} + \begin{bmatrix}
+14
+\end{bmatrix} & \begin{bmatrix}
+0 & 0
+\end{bmatrix} + \begin{bmatrix}
+2 & 11
+\end{bmatrix} \\
+\hline
+\begin{bmatrix}
+0 \\
+3
+\end{bmatrix} + \begin{bmatrix}
+4 \\
+5
+\end{bmatrix} & \begin{bmatrix}
+0 & 0 \\
+6 & 9
+\end{bmatrix} + \begin{bmatrix}
+2 & 3 \\
+0 & 4
+\end{bmatrix}
+\end{array}
+\end{bmatrix} = \begin{bmatrix}
+14 & 2 & 11 \\
+4 & 2 & 3 \\
+8 & 6 & 13
+\end{bmatrix}$$
+\item[(9)]
+Let $M$ be a $m \times n$ matrix and $M'$ be a $n \times p$ matrix where 
+$$M = \begin{bmatrix}
+\begin{array}{c|c}
+A & B \\
+\hline
+C & D
+\end{array}
+\end{bmatrix} = \begin{bmatrix}
+\begin{array}{cccc|cccc}
+a_{11} & a_{12} & \hdots & a_{1i} & b_{11} & b_{12} & \hdots & b_{1 n-i} \\
+a_{21} & a_{22} & \hdots & a_{2i} & b_{21} & b_{22} & \hdots & b_{2 n-i} \\
+\vdots & \vdots & \ddots & \vdots & \vdots & \vdots & \ddots & \vdots \\
+a_{j1} & a_{j2} & \hdots & a_{ji} & b_{j1} & b_{j2} & \hdots & b_{j n-i} \\
+\hline
+c_{11} & c_{12} & \hdots & c_{1i} & d_{11} & d_{12} & \hdots & d_{1 n-i} \\
+c_{21} & c_{22} & \hdots & c_{2i} & d_{21} & d_{22} & \hdots & d_{2 n-i} \\
+\vdots & \vdots & \ddots & \vdots & \vdots & \vdots & \ddots & \vdots \\
+c_{m-j 1} & c_{m-j 2} & \hdots & c_{m-j i} & d_{m-j 1} & d_{m-j 2} & \hdots & d_{m-j n-i} \\
+\end{array}
+\end{bmatrix}$$
+$$M' = \begin{bmatrix}
+\begin{array}{c|c}
+A' & B' \\
+\hline
+C' & D'
+\end{array}
+\end{bmatrix} = \begin{bmatrix}
+\begin{array}{cccc|cccc}
+a'_{11} & a'_{12} & \hdots & a'_{1x} & b'_{11} & b'_{12} & \hdots & b'_{1 p-x} \\
+a'_{21} & a'_{22} & \hdots & a'_{2x} & b'_{21} & b'_{22} & \hdots & b'_{2 p-x} \\
+\vdots & \vdots & \ddots & \vdots & \vdots & \vdots & \ddots & \vdots \\
+a'_{i1} & a'_{i2} & \hdots & a'_{ix} & b'_{i1} & b'_{i2} & \hdots & b'_{i p-x} \\
+\hline
+c'_{11} & c'_{12} & \hdots & c'_{1x} & d'_{11} & d'_{12} & \hdots & d'_{1 p-x} \\
+c'_{21} & c'_{22} & \hdots & c'_{2x} & d'_{21} & d'_{22} & \hdots & d'_{2 p-x} \\
+\vdots & \vdots & \ddots & \vdots & \vdots & \vdots & \ddots & \vdots \\
+c'_{n-i 1} & c'_{n-i 2} & \hdots & c'_{n-i x} & d'_{n-i 1} & d'_{n-i 2} & \hdots & d'_{n-i p-x} \\
+\end{array}
+\end{bmatrix}$$
+Then
+$$MM' = \begin{bmatrix}
+\sum_{k=1}^i a_{1k}a'_{k1} + \sum_{k=1}^{n-i} b_{1k}c'_{k1} & \hdots & \sum_{k=1}^i a_{1k}b'_{k p-x} + \sum_{k=1}^{n-i} b_{1k}d'_{k p-x} \\
+\vdots & \ddots & \vdots \\
+ \sum_{k=1}^i c_{1k}a'_{k1} + \sum_{k=1}^{n-i} d_{1k}c'_{k1} & \hdots & \sum_{k=1}^i c_{1k}b'_{k p-x} + \sum_{k=1}^{n-i} d_{1k}d'_{k p-x}
+\end{bmatrix}$$
+$$= \begin{bmatrix}
+\begin{array}{c|c}
+AA' + AC' & A'B + BD' \\
+\hline
+CA' + DC' & CB' + DD'
+\end{array}
+\end{bmatrix}$$
+\item[(10)]
+\begin{itemize}
+\item[(a)]
+$$A^2 - B^2 = (A + B)(A - B) = A^2 + BA - AB - B^2 \rightarrow BA = AB$$
+\item[(b)]
+$$(A + B)^3 = (A + B)(A^2 + AB + BA + B^2)$$
+$$= A^3 + A^2B + ABA + AB^2 + BA^2 + BAB + B^2A + B^3$$
+\end{itemize}
+\item[(11)]
+\begin{itemize}
+\item[(a)]
+$$DA = \begin{bmatrix}
+d_1a_{11} & d_1a_{12} & \hdots & d_1a_{1n} \\
+d_2a_{21}& d_2a_{22} & \hdots & d_2a_{2n} \\
+\vdots & \vdots & \ddots & \vdots \\
+d_na_{n1} & d_na_{n2} & \vdots & d_na_{nn}
+\end{bmatrix}$$
+$$AD = \begin{bmatrix}
+d_1a_{11} & d_2a_{12} & \hdots & d_na_{1n} \\
+d_1a_{21} & d_2a_{22} & \hdots & d_na_{2n} \\
+\vdots & \vdots & \ddots & \vdots \\
+d_1a_{n1} & d_2a_{n2} & \hdots & d_na_{nn}
+\end{bmatrix}$$
+\item[(b)]
+Let $D, D'$ be $n \times n$ diagonal matrices with entries $d_{ii}$ and $d'_{ii}$ respectively. Then
+$$DD' = \begin{bmatrix}
+d_{11}d'_{11} & & & \\
+& d_{22}d'_{22} & & \\
+& & \ddots & \\
+& & & d_{nn}d'_{nn}
+\end{bmatrix}$$
+\item[(c)]
+From part (a), each diagonal entry $i$ of either product $DA$ or $AD$ equals $d_ia_{ii}$. If $A$ is an inverse of $D$, then each $d_ia_{ii} = 1$, implying each diagonal entry of $D$ must be nonzero.
+\end{itemize}
+\item[(12)]
+Let $A, B$ be $n \times n$ upper triangular matrices. Then
+$$(AB)_{ij} = \sum_{k=1}^n a_{ik}b_{kj} = \sum_{k=i}^j a_{ik}b_{kj}$$
+Since $i > j$, then $(AB)_{ij} = 0$. Therefore, $AB$ is upper triangular.
+\item[(13)]
+\begin{itemize}
+\item[(a)]
+$$\begin{bmatrix}
+1 & 0 \\
+0 & 0
+\end{bmatrix}\begin{bmatrix}
+a & b \\
+c & d
+\end{bmatrix} = \begin{bmatrix}
+a & b \\
+c & d
+\end{bmatrix}\begin{bmatrix}
+1 & 0 \\
+0 & 0
+\end{bmatrix}$$
+$$\rightarrow \begin{bmatrix}
+a & b \\
+0 & 0
+\end{bmatrix} = \begin{bmatrix}
+a & 0 \\
+c & 0
+\end{bmatrix}$$
+Thus, a matrix that commutes has the form
+$$\begin{bmatrix}
+a & 0 \\
+0 & 0
+\end{bmatrix}$$
+\item[(b)]
+$$\begin{bmatrix}
+0 & 1 \\
+0 & 0
+\end{bmatrix}\begin{bmatrix}
+a & b \\
+c & d
+\end{bmatrix} = \begin{bmatrix}
+a & b \\
+c & d
+\end{bmatrix}\begin{bmatrix}
+0 & 1 \\
+0 & 0
+\end{bmatrix}$$
+$$\rightarrow \begin{bmatrix}
+c & d \\
+0 & 0
+\end{bmatrix} = \begin{bmatrix}
+0 & a \\
+0 & c
+\end{bmatrix}$$
+Thus, a matrix that commutes has the form
+$$\begin{bmatrix}
+0 & a \\
+0 & 0
+\end{bmatrix}$$
+\item[(c)]
+$$\begin{bmatrix}
+2 & 0 \\
+0 & 6
+\end{bmatrix}\begin{bmatrix}
+a & b \\
+c & d
+\end{bmatrix} = \begin{bmatrix}
+a & b \\
+c & d
+\end{bmatrix}\begin{bmatrix}
+2 & 0 \\
+0 & 6
+\end{bmatrix}$$
+$$\rightarrow \begin{bmatrix}
+2a & 2b \\
+6c & 6d
+\end{bmatrix} = \begin{bmatrix}
+2a & 6b \\
+2c & 6d
+\end{bmatrix}$$
+Thus, a matrix that commutes has the form
+$$\begin{bmatrix}
+a & 0 \\
+0 & d
+\end{bmatrix}$$
+\item[(d)]
+$$\begin{bmatrix}
+1 & 3 \\
+0 & 1
+\end{bmatrix}\begin{bmatrix}
+a & b \\
+c & d
+\end{bmatrix} = \begin{bmatrix}
+a & b \\
+c & d
+\end{bmatrix}\begin{bmatrix}
+1 & 3 \\
+0 & 1
+\end{bmatrix}$$
+$$\rightarrow \begin{bmatrix}
+a + 3c & b + 3d \\
+c & d
+\end{bmatrix} = \begin{bmatrix}
+a & 3a + b \\
+c & 3c + d
+\end{bmatrix}$$
+Thus, a matrix that commutes has the form
+$$\begin{bmatrix}
+a & b \\
+0 & a
+\end{bmatrix}$$
+\item[(e)]
+$$\begin{bmatrix}
+2 & 3 \\
+0 & 6
+\end{bmatrix}\begin{bmatrix}
+a & b \\
+c & d
+\end{bmatrix} = \begin{bmatrix}
+a & b \\
+c & d
+\end{bmatrix}\begin{bmatrix}
+2 & 3 \\
+0 & 6
+\end{bmatrix}$$
+$$\rightarrow \begin{bmatrix}
+2a + 3c & 2b + 3d \\
+6c & 6d
+\end{bmatrix} = \begin{bmatrix}
+2a & 3a + 6b \\
+2c & 3c + 6d
+\end{bmatrix}$$
+Thus, a matrix that commutes has the form
+$$\begin{bmatrix}
+a & \frac{3}{4}(d - a) \\
+0 & d
+\end{bmatrix}$$
+\end{itemize}
+\item[(14)]
+Let $A = (a_{ij})$ be an $n \times n$ matrix. Then
+$$0 + A = \begin{bmatrix}
+0 & \hdots & 0 \\
+\vdots & \ddots & \vdots \\
+0 & \hdots & 0
+\end{bmatrix} + \begin{bmatrix}
+a_{11} & \hdots & a_{1n} \\
+\vdots & \ddots & \vdots \\
+a_{n1} & \hdots & a_{nn}
+\end{bmatrix}$$
+$$= \begin{bmatrix}
+0 + a_{11} & \hdots & 0 + a_{1n} \\
+\vdots & \ddots & \vdots \\
+0 + a_{n1} & \hdots & 0 + a_{nn}
+\end{bmatrix} = \begin{bmatrix}
+a_{11} & \hdots & a_{1n} \\
+\vdots & \ddots & \vdots \\
+a_{n1} & \hdots & a_{nn}
+\end{bmatrix} = A$$
+$$0A = \begin{bmatrix}
+0 & \hdots & 0 \\
+\vdots & \ddots & \vdots \\
+0 & \hdots & 0
+\end{bmatrix}\begin{bmatrix}
+a_{11} & \hdots & a_{1n} \\
+\vdots & \ddots & \vdots \\
+a_{n1} & \hdots & a_{nn}
+\end{bmatrix}$$
+$$ = \begin{bmatrix}
+0a_{11} + \hdots + 0a_{n1} & \hdots & 0a_{1n} + \hdots + 0a_{nn} \\
+\vdots & \ddots & \vdots \\
+0a_{11} + \hdots + 0a_{n1} & \hdots & 0a_{1n} + \hdots + 0a_{nn}
+\end{bmatrix} = \begin{bmatrix}
+0 & \hdots & 0 \\
+\vdots & \ddots & \vdots \\
+0 & \hdots & 0
+\end{bmatrix} = 0$$
+$$A0 = \begin{bmatrix}
+a_{11} & \hdots & a_{1n} \\
+\vdots & \ddots & \vdots \\
+a_{n1} & \hdots & a_{nn}
+\end{bmatrix}\begin{bmatrix}
+0 & \hdots & 0 \\
+\vdots & \ddots & \vdots \\
+0 & \hdots & 0
+\end{bmatrix}$$
+$$= \begin{bmatrix}
+0a_{11} + \hdots + 0a_{1n} & \hdots & 0a_{11} + \hdots + 0a_{1n} \\
+\vdots & \ddots & \vdots \\
+0a_{n1} + \hdots + 0a_{nn} & \hdots & 0a_{n1} + \hdots + 0a_{nn}
+\end{bmatrix} = \begin{bmatrix}
+0 & \hdots & 0 \\
+\vdots & \ddots & \vdots \\
+0 & \hdots & 0
+\end{bmatrix} = 0$$
+\item[(15)]
+Suppose an $n \times n$ $A$ matrix has a row $i$ of zeros. Then for any $n \times n$ matrix $B$,
+$$(AB)_{ii} = \sum_{k=1}^n a_{ik}b_{ki} = 0$$
+So $B$ cannot be an inverse of $A$, so $A$ is not invertible.
+\item[(16)]
+Suppose $k = 1$. Then $A = 0$, so trivially $I + A = I$ is invertible: its inverse is $I$.
+
+Suppose $k > 1$. Consider $B = I + \sum_{i=1}^{k-1}(-1)^iA^i$. Then
+$$(I+A)B = I + \sum_{i=1}^{k-1}\left((-1)^iA^i + (-1)^iA^{i+1}\right)$$
+$$= I + (-1)^kA^k + \sum_{i=1}^{k-1}
+\left( (-1)^{i-1}A^i + (-1)^iA^i \right) = I$$
+Furthermore,
+$$B(I+A) = I + \sum_{i=1}^{k-1}\left((-1)^iA^i + (-1)^iA^{i+1}\right)$$
+$$= I + (-1)^kA^k + \sum_{i=1}^{k-1}
+\left( (-1)^{i-1}A^i + (-1)^iA^i \right) = I$$
+Thus, $(I + A)^{-1} = B$
+\item[(17)]
+\begin{itemize}
+\item[(a)]
+Consider the $2 \times 3$ matrix $B$ that is a left inverse of $A$, where
+$$B = \begin{bmatrix}
+a & b & c \\
+d & e & f
+\end{bmatrix}$$
+Then
+$$BA = \begin{bmatrix}
+a & b & c \\
+d & e & f
+\end{bmatrix}\begin{bmatrix}
+2 & 3 \\
+1 & 2 \\
+2 & 5
+\end{bmatrix}$$
+$$= \begin{bmatrix}
+2a + b + 2c & 3a + 2b + 5c \\
+2d + e + 2f & 3d + 2e + 5f
+\end{bmatrix} = \begin{bmatrix}
+1 & 0 \\
+0 & 1
+\end{bmatrix}$$
+Thus
+$$B = \begin{bmatrix}
+2 + c & -3 - 4c & c \\
+f - 1 & 2 - 4f & f
+\end{bmatrix}$$
+\item[(b)]
+Consider the $2 \times 3$ matrix $C$, where
+$$C = \begin{bmatrix}
+a & b & c \\
+d & e & f
+\end{bmatrix}$$
+Suppose $C$ is a right inverse of $A$. Then
+$$AC = \begin{bmatrix}
+2 & 3 \\
+1 & 2 \\
+2 & 5
+\end{bmatrix}\begin{bmatrix}
+a & b & c \\
+d & e & f
+\end{bmatrix}$$
+$$ = \begin{bmatrix}
+2a + 3d & 2b + 3e & 2c + 3f \\
+a + 2d & b + 2e & c + 2f \\
+2a + 5d & 2a + 5e & 2a + 5f
+\end{bmatrix} = \begin{bmatrix}
+1 & & \\
+& 1 & \\
+& & 1
+\end{bmatrix} $$
+In particular, $a + 2d = 2a + 5d = 0$ implies that $a = 0$ and $d = 0$. But then $0 = 2a + 3d = 1$, a contradiction. Thus $C$ cannot be a right inverse of $A$.
+\end{itemize}
+\item[(18)]
+Assume $A, B$ are invertible. We can then check if $B^{-1}A^{-1}$ is the inverse of $AB$:
+$$(AB)(B^{-1}A^{-1}) = A(BB^{-1})A^{-1} = A(I)A^{-1} = AA^{-1} = I$$
+Similarly,
+$$(B^{-1}A^{-1})(AB) = B^{-1}(A^{-1}A)B = B^{-1}(I)B = B^{-1}B = I$$
+\item[(19)]
+\begin{itemize}
+\item[(a)]
+Let $C = A + B$. Then $c_{ij} = a_{ij} + b_{ij}$. So
+$$\text{tr }C = \sum_{i=1}^n c_{ii} = \sum_{i=1}^n a_{ii} + \sum_{i=1}^n b_{ii} = \text{tr }A + \text{tr }B$$
+Let $D = AB$ and $E = BA$. Then $d_{ij} = \sum_{k=1}^n a_{ik}b_{kj}$, and $e_{ij} = \sum_{k=1}^n b_{ik}a_{kj}$. So
+$$\text{tr }D = \sum_{i = 1}^n d_{ii} = \sum_{i=1}^n\sum_{k=1}^n a_{ik}b_{ki} = \sum_{k=1}^n\sum_{i=1}^n b_{ki}a_{ik} = \sum_{k=1}^n e_{kk} = \text{tr }E$$
+\item[(b)]
+Let $C = BA$. Then
+$$\text{tr }BAB^{-1} = \text{tr }CB^{-1} \text{tr }B^{-1}C = \text{tr }B^{-1}BA = \text{tr }A$$
+\end{itemize}
+\item[(20)]
+Note that $\text{tr }I = n$. Furthermore, for any matrix $A$ and a constant $c$, 
+$$\text{tr }cA = ca_{11} + ca_{22} + ... + ca_{nn} = c(a_{11} + a_{22} + ... + a_{nn}) = c \cdot \text{tr }A$$ 
+But
+$$\text{tr }(AB - BA) = \text{tr }AB + \text{tr }(-1)BA = \text{tr }AB - \text{tr }BA = 0$$
+Therefore, $AB - BA \neq I$.
+\end{itemize}
+\end{document}
