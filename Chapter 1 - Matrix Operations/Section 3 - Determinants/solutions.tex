@@ -1,0 +1,513 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, mathdots}
+\begin{document}
+\title{Chapter 1: Matrix Operations \\ Section 3: Determinants}
+\author{Alec Mouri}
+
+\maketitle
+\section*{Exercises}
+\begin{itemize}
+\item[(1)]
+\begin{itemize}
+\item[(a)]
+$$\det\begin{bmatrix}
+1 & i \\
+2 - i & 3
+\end{bmatrix} = (1)(3) - (i)(2 - i) = 3 - 2i + i^2 = 2 - 2i$$
+\item[(b)]
+$$\det\begin{bmatrix}
+1 & 1 \\
+1 & -1
+\end{bmatrix} = (1)(-1) - (1)(1) = -1 - 1 = -2$$
+\item[(c)]
+$$\det\begin{bmatrix}
+2 & 0 & 1 \\
+0 & 1 & 0 \\
+1 & 0 & 2
+\end{bmatrix} = 2\det\begin{bmatrix}
+1 & 0 \\
+0 & 2
+\end{bmatrix} - 0\det\begin{bmatrix}
+0 & 1 \\
+0 & 2
+\end{bmatrix} + 1\det\begin{bmatrix}
+0 & 1 \\
+1 & 0
+\end{bmatrix}$$
+$$= 2((1)(2) - (0)(0)) + 1((0)(0) - (1)(1)) = 4 - 1 = 3$$
+\item[(d)]
+$$\det\begin{bmatrix}
+1 & 0 & 0 & 0 \\
+5 & 2 & 0 & 0 \\
+8 & 6 & 3 & 0 \\
+0 & 9 & 7 & 4
+\end{bmatrix} = \det\begin{bmatrix}
+1 & 5 & 8 & 0 \\
+0 & 2 & 6 & 9 \\
+0 & 0 & 3 & 7 \\
+0 & 0 & 0 & 4
+\end{bmatrix} $$
+$$= 1\det\begin{bmatrix}
+2 & 6 & 9 \\
+0 & 3 & 7 \\
+0 & 0 & 4
+\end{bmatrix} = 2\det\begin{bmatrix}
+3 & 7 \\
+0 & 4
+\end{bmatrix} = 2((3)(4) - (7)(0)) = 24$$
+\item[(e)]
+$$\det\begin{bmatrix}
+1 & 4 & 1 & 3 \\
+2 & 3 & 5 & 0 \\
+4 & 1 & 0 & 0 \\
+2 & 0 & 0 & 0
+\end{bmatrix} = -\det\begin{bmatrix}
+3 & 4 & 1 & 1 \\
+0 & 3 & 5 & 2 \\
+0 & 1 & 0 & 4 \\
+0 & 0 & 0 & 2 \\
+\end{bmatrix} = \det\begin{bmatrix}
+3 & 1 & 4 & 1 \\
+0 & 5 & 3 & 2 \\
+0 & 0 & 1 & 4 \\
+0 & 0 & 0 & 2
+\end{bmatrix}$$
+$$= 3\det\begin{bmatrix}
+5 & 3 & 2 \\
+0 & 1 & 4 \\
+0 & 0 & 2
+\end{bmatrix} = 15\begin{bmatrix}
+1 & 4 \\
+0 & 2
+\end{bmatrix} = 15(2 - 0) = 30$$
+\end{itemize}
+\item[(2)]
+$$\det\begin{bmatrix}
+1 & 2 & 5 & 6 \\
+3 & 1 & 7 & 7 \\
+0 & 0 & 2 & 3 \\
+4 & 2 & 1 & 5
+\end{bmatrix} = -\det\begin{bmatrix}
+2 & 1 & 5 & 6 \\
+1 & 3 & 7 & 7 \\
+0 & 0 & 2 & 3 \\
+2 & 4 & 1 & 5
+\end{bmatrix}$$
+$$= -\det\begin{bmatrix}
+2 & 1 & 5 & 6-5 \\
+1 & 3 & 7 & 7-7 \\
+0 & 0 & 2 & 3-2 \\
+2 & 4 & 1 & 5-1
+\end{bmatrix} = -\det\begin{bmatrix}
+2 & 1 & 5 & 1 \\
+1 & 3 & 7 & 0 \\
+0 & 0 & 2 & 1 \\
+2 & 4 & 1 & 4
+\end{bmatrix}$$
+\item[(3)]
+$$\det A = (2)(4) - (1)(3) = 5$$
+$$\det B = (1)(-2) - (5)(1) = -7$$
+$$\det AB = \det\begin{bmatrix}
+17 & -4 \\
+21 & -7
+\end{bmatrix} = (17)(-7) - (21)(-4) = -119 + 84 = -35$$
+$$\det AB = -35 = (5)(-7) = (\det A)(\det B)$$
+\item[(4)]
+\begin{itemize}
+\item[(a)]
+Let $A$ be an $n \times n$ matrix, where
+$$A = \begin{bmatrix}
+& & & & 1 \\
+& & & 1 & \\
+& & \iddots & & \\
+& 1 & & & \\
+1 & & & &
+\end{bmatrix}$$
+I claim that $\det A = 1$. 
+
+Suppose $n = 1$. Then clearly $\det A = 1$. Suppose for $n = k - 1$, that $\det A = 1$. Then, if $n = k$,
+$$A = \begin{bmatrix}
+\begin{array}{c|c}
+& A' \\
+\hline
+1 & 
+\end{array}
+\end{bmatrix}$$
+Where $A'$ has dimensions $k - 1 \times k - 1$. Note that $\det A' = 1$, from the inductive hypothesis. Then
+$$\det A = 1\det A' = 1$$
+\item[(b)]
+Let $A$ be an $n \times n$ matrix, where
+$$A = \begin{bmatrix}
+2 & -1 \\
+-1 & 2 & -1 \\
+& -1 & 2 & -1 \\
+& & -1 & \ddots \\
+& & & & 2 & -1 \\
+& & & & -1 & 2
+\end{bmatrix}$$
+I claim that $\det A = n + 1$.
+
+Suppose $n = 1$. Then clearly $\det A = 2$. Suppose for $n = i$, where $i < k$, that $\det A = i + 1$. Then, if $n = k$,
+$$A = \begin{bmatrix}
+\begin{array}{c|ccc}
+2 & -1 & 0 & \cdots \\
+\hline
+-1 & \\
+0 & & A' \\
+\vdots &
+\end{array}
+\end{bmatrix}$$
+Where $A'$ has dimensions $k - 1 \times k - 1$. In particular,
+$$A' = \begin{bmatrix}
+\begin{array}{c|ccc}
+2 & -1 & 0 & \cdots \\
+\hline
+-1 & \\
+0 & & A" \\
+\vdots &
+\end{array}
+\end{bmatrix}$$
+Where $A"$ has dimensions $k - 2 \times k - 2$. 
+Note that $\det A' = k$, and $\det A" = k - 1$, from the inductive hypothesis. Then
+$$\det A = 2\det A' - (-1)\det\begin{bmatrix}
+\begin{array}{c|cc}
+-1 & 0 & \cdots\\
+\hline
+-1 & \\
+0 & & A" \\
+\vdots &
+\end{array}
+\end{bmatrix}$$
+$$= 2k + \det\begin{bmatrix}
+\begin{array}{c|ccc}
+-1 & -1 & 0 & \cdots \\
+\hline
+0 & \\
+0 & & A"^\top \\
+\vdots &
+\end{array}
+\end{bmatrix} = 2k - \det A"^\top$$
+$$= 2k - \det A" = 2k - (k - 1) = k + 1$$
+\end{itemize}
+\item[(5)]
+Lemma: Let $A$ be a $n \times n$ upper triangular matrix. Then $\det A = a_{11}a_{22}...a_{nn}$. Proof: If $A$ is a $1 \times 1$ matrix, then trivially $\det A = a_{11}$. Suppose the statement is true for all $k - 1 \times k - 1$ matrices. Suppose $A$ is a $k \times k$ matrix, ie.
+$$A = \begin{bmatrix}
+\begin{array}{c|c}
+a_{11} & * \\
+& A'
+\end{array}
+\end{bmatrix}$$
+where $A'$ is a $k - 1 \times k - 1$ matrix, and $*$ is a $1 \times k - 1$ matrix. Then $\det A = a_{11}\det A' = a_{11}a_{22}...a_{nn}$.
+
+Thus, via the Lemma,
+$$\det\begin{bmatrix}
+1 & 2 & 3 & \cdots & n \\
+2 & 2 & 3 & & \vdots \\
+3 & 3 & 3 & & \vdots \\
+\vdots & & & \ddots & \vdots \\
+n & \cdots & \cdots & \cdots & n
+\end{bmatrix} = \det\begin{bmatrix}
+-1 & 2 & 3 & \cdots & n \\
+0 & 2 & 3 & & \vdots \\
+0 & 3 & 3 & & \vdots \\
+\vdots & & & \ddots & \vdots \\
+0 & n & \cdots & \cdots & n
+\end{bmatrix}$$
+$$= ... = \det\begin{bmatrix}
+-1 & -1 & -1 & \cdots & -1 & n \\
+0 & -1 & -1 & \cdots & -1 & n \\
+0 & 0 & -1 & \cdots & -1 & n \\
+\vdots & & & \ddots & \vdots & \vdots \\
+0 & 0 & \cdots & \cdots & 0 & n
+\end{bmatrix} = (-1)^{n-1}n$$
+\item[(6)]
+$$\det\begin{bmatrix}
+2 & 1 \\
+1 & 2 & 1 \\
+& 1 & 2 & 1 \\
+& & 1 & 2 & 1 \\
+& & & 1 & 2 & 1 & & 1\\
+& & & & 1 & 2 & 1 \\
+& & & & & 1 & 2 \\
+& & & & 1 & & & 2
+\end{bmatrix} = \frac{1}{2}\det\begin{bmatrix}
+2 & 1 \\
+2 & 4 & 2 \\
+& 1 & 2 & 1 \\
+& & 1 & 2 & 1 \\
+& & & 1 & 2 & 1 & & 1\\
+& & & & 1 & 2 & 1 \\
+& & & & & 1 & 2 \\
+& & & & 1 & & & 2
+\end{bmatrix}$$
+$$= \frac{1}{2}\det\begin{bmatrix}
+2 & 1 \\
+& 3 & 2 \\
+& 1 & 2 & 1 \\
+& & 1 & 2 & 1 \\
+& & & 1 & 2 & 1 & & 1\\
+& & & & 1 & 2 & 1 \\
+& & & & & 1 & 2 \\
+& & & & 1 & & & 2
+\end{bmatrix} = \frac{1}{6}\det\begin{bmatrix}
+2 & 1 \\
+& 3 & 2 \\
+& 3 & 6 & 3 \\
+& & 1 & 2 & 1 \\
+& & & 1 & 2 & 1 & & 1\\
+& & & & 1 & 2 & 1 \\
+& & & & & 1 & 2 \\
+& & & & 1 & & & 2
+\end{bmatrix}$$
+$$= \frac{1}{6}\det\begin{bmatrix}
+2 & 1 \\
+& 3 & 2 \\
+& & 4 & 3 \\
+& & 1 & 2 & 1 \\
+& & & 1 & 2 & 1 & & 1\\
+& & & & 1 & 2 & 1 \\
+& & & & & 1 & 2 \\
+& & & & 1 & & & 2
+\end{bmatrix} = \frac{1}{24}\det\begin{bmatrix}
+2 & 1 \\
+& 3 & 2 \\
+& & 4 & 3 \\
+& & 4 & 8 & 4 \\
+& & & 1 & 2 & 1 & & 1\\
+& & & & 1 & 2 & 1 \\
+& & & & & 1 & 2 \\
+& & & & 1 & & & 2
+\end{bmatrix}$$
+$$= \frac{1}{24}\det\begin{bmatrix}
+2 & 1 \\
+& 3 & 2 \\
+& & 4 & 3 \\
+& & & 5 & 4 \\
+& & & 1 & 2 & 1 & & 1\\
+& & & & 1 & 2 & 1 \\
+& & & & & 1 & 2 \\
+& & & & 1 & & & 2
+\end{bmatrix} = \frac{1}{120}\det\begin{bmatrix}
+2 & 1 \\
+& 3 & 2 \\
+& & 4 & 3 \\
+& & & 5 & 4 \\
+& & & 5 & 10 & 5 & & 5\\
+& & & & 1 & 2 & 1 \\
+& & & & & 1 & 2 \\
+& & & & 1 & & & 2
+\end{bmatrix}$$
+$$= \frac{1}{120}\det\begin{bmatrix}
+2 & 1 \\
+& 3 & 2 \\
+& & 4 & 3 \\
+& & & 5 & 4 \\
+& & & & 6 & 5 & & 5\\
+& & & & 1 & 2 & 1 \\
+& & & & & 1 & 2 \\
+& & & & 1 & & & 2
+\end{bmatrix}$$
+$$= \frac{1}{4320}\det\begin{bmatrix}
+2 & 1 \\
+& 3 & 2 \\
+& & 4 & 3 \\
+& & & 5 & 4 \\
+& & & & 6 & 5 & & 5\\
+& & & & 6 & 12 & 6 \\
+& & & & & 1 & 2 \\
+& & & & 6 & & & 12
+\end{bmatrix} = \frac{1}{4320}\det\begin{bmatrix}
+2 & 1 \\
+& 3 & 2 \\
+& & 4 & 3 \\
+& & & 5 & 4 \\
+& & & & 6 & 5 & & 5\\
+& & & & & 7 & 6 & -5\\
+& & & & & 1 & 2 \\
+& & & & & -5 & & 7
+\end{bmatrix}$$
+$$= \frac{1}{5292000}\det\begin{bmatrix}
+2 & 1 \\
+& 3 & 2 \\
+& & 4 & 3 \\
+& & & 5 & 4 \\
+& & & & 6 & 5 & & 5\\
+& & & & & 35 & 30 & -25\\
+& & & & & 35 & 70 \\
+& & & & & -35 & & 49
+\end{bmatrix}$$
+$$= \frac{1}{5292000}\det\begin{bmatrix}
+2 & 1 \\
+& 3 & 2 \\
+& & 4 & 3 \\
+& & & 5 & 4 \\
+& & & & 6 & 5 & & 5\\
+& & & & & 35 & 30 & -25\\
+& & & & & & 40 & 25\\
+& & & & & & 30 & 24
+\end{bmatrix}$$
+$$= \frac{1}{63504000}\det\begin{bmatrix}
+2 & 1 \\
+& 3 & 2 \\
+& & 4 & 3 \\
+& & & 5 & 4 \\
+& & & & 6 & 5 & & 5\\
+& & & & & 35 & 30 & -25\\
+& & & & & & 120 & 75\\
+& & & & & & 120 & 96
+\end{bmatrix}$$
+$$= \frac{1}{63504000}\det\begin{bmatrix}
+2 & 1 \\
+& 3 & 2 \\
+& & 4 & 3 \\
+& & & 5 & 4 \\
+& & & & 6 & 5 & & 5\\
+& & & & & 35 & 30 & -25\\
+& & & & & & 120 & 75\\
+& & & & & & & 21
+\end{bmatrix}$$
+From the Lemma of the previous exercise, then we have
+$$\frac{1}{63504000}(2\cdot 3 \cdot 4 \cdot 5 \cdot 6 \cdot 35 \cdot 120 \cdot 21) = 1$$
+\item[(7)]
+Suppose $A$ is a $1 \times 1$ matrix. Then for an arbitrary $1 \times 1$ matrix $B$, $\det(A + B) = a_{11} + b_{11} = \det A + \det B$. Furthermore, if $C = [ca_{11}]$, then $\det C = ca_{11} = c\det A$.
+
+Suppose for all $n - 1 \times n - 1$ matrices, the determinant operates linearly on rows. Consider the $n \times n$ matrices $A, B, C$, where for some $k$, $a_{kj} \neq b_{kj}$, and $c_{kj} = a_{kj} + b_{kj}$. Otherwise, if $i \neq k$, $a_{ij} = b_{ij} = c_{ij}$. In particular, $A_{i1} = B_{i1} = C_{i1}$, and by the inductive hypothesis $\det C_{k1} = \det A_{k1} + \det B_{k1}$. Then
+$$\det C = \sum_{i=1}^n (-1)^{i+1}c_{i1}\det C_{i1}$$
+$$= (-1)^{k+1}(a_{k1} + b_{k1})\det A_{k1} + \sum_{i \neq k}(-1)^{i+1}a_{i1}(\det A_{i1} + \det B_{i1})$$
+$$= \sum_{i=1}^n (-1)^{i+1}a_{i1}\det A_{i1} + \sum_{i=1}^n (-1)^{i+1} b_{i1} \det B_{i1} = \det A + \det B$$
+
+Now consider the $n \times n$ matrices $A', B'$, where for some $k$, $b_{kj} = ca_{kj}$, Otherwise, if $i \neq k$, $a_{ij} = b_{ij}$. In particular, $A_{i1} = B_{i1}$, and by the inductive hypothesis $\det B_{k1} = c\det A_{k1}$. Then
+$$\det B = \sum_{i=1}^n (-1)^{i+1}b_{i1}\det B_{i1}$$
+$$= (-1)^{k+1}ca_{kj}\det A_{k1} + \sum_{i \neq k}(-1)^{i + 1}a_{i1}(c\det A_{k1})$$ 
+$$= c\sum_{i=1}^n (-1)^{k+1}a_{i1}\det A_{i1} = c\det A$$
+\item[(8)]
+$$\det(-A) = \det\begin{bmatrix}
+-A_1 \\
+\hline
+-A_2 \\
+\hline
+\vdots \\
+\hline
+-A_n
+\end{bmatrix} = (-1)^n\det\begin{bmatrix}
+A_1 \\
+\hline
+A_2 \\
+\hline
+\vdots \\
+\hline
+A_n
+\end{bmatrix} = (-1)^{n}\det A$$
+\item[(9)]
+Lemma: Let $E$ be an elementary matrix. Then $\det E = \det E^\top$. Proof: If $E = I + ae_{ij}$ is an elementary matrix of the first kind, then $E^\top = I + ae_{ji}$. Clearly, $E^\top$ is also an elementary matrix of the first kind, so $\det E = \det E^\top = 1$. If $E = I + e_{ij} + e_{ji} - e_{ii} - e_{jj}$ is an elementary matrix of the second kinda, then $E^\top = I + e_{ji} + e_{ij} - e_{ii} - e_{jj} = E$, so $\det E = \det E^\top$. If $E = I + (c - 1)e_{ii}$ is an elementary matrix of the third kind, then $E^\top = I +  (c - 1)e_{ii} = E$, so $\det E = \det E^\top$. 
+
+Suppose $A$ is not invertible. Then $A^\top$ is also not invertible, and therefore $\det A = \det A^\top = 0$.
+
+Suppose $A$ is invertible. Then $A^\top$ is also invertible, and for some elementary matrices $E_1, ..., E_p$, $\det E_p...\det E_1\det A = \det A^\top \det E_1^\top ... \det E_p^\top = \det I = 1$. Note that from the Lemma, $\det E_i = \det E_i^\top$. Therefore, $\det A = \det A^\top$.
+\item[(10)]
+$$\det\begin{bmatrix}
+a & b \\
+c & d
+\end{bmatrix} = \det\begin{bmatrix}
+a & 0 \\
+c & d
+\end{bmatrix} + \det\begin{bmatrix}
+0 & b \\
+c & d
+\end{bmatrix}$$
+$$ad\det\begin{bmatrix}
+1 & 0 \\
+c/d & 1
+\end{bmatrix} - \det\begin{bmatrix}
+c & d \\
+0 & b
+\end{bmatrix} = ad\det\begin{bmatrix}
+1 & 0 \\
+c/d & 1
+\end{bmatrix} - cb\det\begin{bmatrix}
+1 & d/c \\
+0 & 1
+\end{bmatrix}$$
+$$= ad\left(\det\begin{bmatrix}
+1 & 0 \\
+0 & 1
+\end{bmatrix} + \det\begin{bmatrix}
+1 & 0 \\
+c/d & 0
+\end{bmatrix}\right) - bc\left(\det\begin{bmatrix}
+1 & 0 \\
+0 & 1
+\end{bmatrix} + \det\begin{bmatrix}
+0 & d/c \\
+0 & 1
+\end{bmatrix}\right)$$
+$$= ad\left(1 + \frac{c}{d}\det\begin{bmatrix}
+1 & 0 \\
+1 & 0
+\end{bmatrix}\right) - bc\left(1 + \frac{d}{c}\det\begin{bmatrix}
+0 & 1 \\
+0 & 1
+\end{bmatrix}\right) = ad - bc$$
+\item[(11)]
+$$\det(AB) = (\det A)(\det B) = (\det B)(\det A) = \det(BA)$$
+\item[(12)]
+Suppose $A$ is a $1 \times 1$ submatrix. Then trivially
+$$\det\begin{bmatrix}
+A & B \\
+0 & D
+\end{bmatrix} = (\det A)(\det D)$$
+Suppose the statement is true for all $k - 1 \times k - 1$ submatrices $A$. Let $A'$ be a $k \times k$ submatrix. Let 
+$$X = \begin{bmatrix}
+A' & B' \\
+0 & D'
+\end{bmatrix}$$
+Then
+$$\det X = \sum_{i=1}^k (-1)^{i+1}a'_{i1}\det X_{i1} = \sum_{i=1}^k (-1)^{i+1}a'_{i1}(\det A'_{i1})(\det D)$$
+$$= (\det D)\sum_{i=1}^k (-1)^{i+1}a'_{i1}(\det A'_{i1}) = (\det D)(\det A')$$
+\item[(13)]
+Let
+$$X = \begin{bmatrix}
+I_n \\
+-C & A
+\end{bmatrix}, Y = \begin{bmatrix}
+A & B \\
+C & D
+\end{bmatrix}$$
+Then
+$$XY = \begin{bmatrix}
+A & B \\
+-CA + AC & -CB + AD
+\end{bmatrix} = \begin{bmatrix}
+A & B \\
+& AD - CB
+\end{bmatrix}$$
+Note that $\det X = \det X^\top = \det A$ and  $(\det X)(\det Y) = \det XY = (\det A)(\det (AD - CB))$. Thus $\det Y = \det(AD - CB)$.
+
+Let
+$$A = \begin{bmatrix}
+1 & 1 \\
+0 & 1
+\end{bmatrix}, B = \begin{bmatrix}
+1 & 0 \\
+1 & 0
+\end{bmatrix}, C = \begin{bmatrix}
+1 & 0 \\
+0 & 0
+\end{bmatrix}, D = \begin{bmatrix}
+1 & 0 \\
+1 & 0
+\end{bmatrix}$$
+Note that $BC \neq CB$.
+$$AD - CB = \begin{bmatrix}
+2 & 0 \\
+1 & 0
+\end{bmatrix} - \begin{bmatrix}
+1 & 1 \\
+0 & 0
+\end{bmatrix} = \begin{bmatrix}
+1 & -1 \\
+1 & 0
+\end{bmatrix}$$
+Note that $\det Y = 0$, but $\det (AD - CB) = 1$. Thus the formula does not hold.
+\end{itemize}
+\end{document}
