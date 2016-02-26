@@ -371,7 +371,7 @@ $$\frac{1}{63504000}(2\cdot 3 \cdot 4 \cdot 5 \cdot 6 \cdot 35 \cdot 120 \cdot 2
 \item[(7)]
 Suppose $A$ is a $1 \times 1$ matrix. Then for an arbitrary $1 \times 1$ matrix $B$, $\det(A + B) = a_{11} + b_{11} = \det A + \det B$. Furthermore, if $C = [ca_{11}]$, then $\det C = ca_{11} = c\det A$.
 
-Suppose for all $n - 1 \times n - 1$ matrices, the determinant operates linearly on rows. Consider the $n \times n$ matrices $A, B, C$, where for some $k$, $a_{kj} \neq b_{kj}$, and $c_{kj} = a_{kj} + b_{kj}$. Otherwise, if $i \neq k$, $a_{ij} = b_{ij} = c_{ij}$. In particular, $A_{i1} = B_{i1} = C_{i1}$, and by the inductive hypothesis $\det C_{k1} = \det A_{k1} + \det B_{k1}$. Then
+Suppose for all $n - 1 \times n - 1$ matrices, the determinant operates linearly on rows. Consider the $n \times n$ matrices $A, B, C$, where for some $k$, $c_{kj} = a_{kj} + b_{kj}$. Otherwise, if $i \neq k$, $a_{ij} = b_{ij} = c_{ij}$. In particular, $A_{i1} = B_{i1} = C_{i1}$, and by the inductive hypothesis $\det C_{k1} = \det A_{k1} + \det B_{k1}$. Then
 $$\det C = \sum_{i=1}^n (-1)^{i+1}c_{i1}\det C_{i1}$$
 $$= (-1)^{k+1}(a_{k1} + b_{k1})\det A_{k1} + \sum_{i \neq k}(-1)^{i+1}a_{i1}(\det A_{i1} + \det B_{i1})$$
 $$= \sum_{i=1}^n (-1)^{i+1}a_{i1}\det A_{i1} + \sum_{i=1}^n (-1)^{i+1} b_{i1} \det B_{i1} = \det A + \det B$$
