@@ -1,0 +1,229 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, mathdots}
+\begin{document}
+\title{Chapter 1: Matrix Operations \\ Section 4: Permutation Matrices}
+\author{Alec Mouri}
+
+\maketitle
+\section*{Exercises}
+\begin{itemize}
+\item[(1)]
+\begin{itemize}
+\item[(a)]
+$$P = \begin{bmatrix}
+0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 1 \\
+1 & 0 & 0 & 0 \\
+0 & 0 & 1 & 0
+\end{bmatrix}$$
+\item[(b)]
+Define the transpositions 
+$$a: 1 \rightarrow 3, 3 \rightarrow 1$$
+$$b: 2 \rightarrow 1, 1 \rightarrow 2$$
+$$c: 2 \rightarrow 4, 4 \rightarrow 2$$
+Then $cba = 1 \rightarrow 3, 2 \rightarrow 1, 3 \rightarrow 4, 4 \rightarrow 2 = p$. Let $A, B, C$ be the matrices corresponding to $a, b, c$ respectively. Then
+$$A = \begin{bmatrix}
+0 & 0 & 1 & 0 \\
+0 & 1 & 0 & 0 \\
+1 & 0 & 0 & 0 \\
+0 & 0 & 0 & 1
+\end{bmatrix}, B = \begin{bmatrix}
+0 & 1 & 0 & 0 \\
+1 & 0 & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1
+\end{bmatrix}, C = \begin{bmatrix}
+1 & 0 & 0 & 0 \\
+0 & 0 & 0 & 1 \\
+0 & 0 & 1 & 0 \\
+0 & 1 & 0 & 0
+\end{bmatrix}$$
+Then
+$$CBA = \begin{bmatrix}
+1 & 0 & 0 & 0 \\
+0 & 0 & 0 & 1 \\
+0 & 0 & 1 & 0 \\
+0 & 1 & 0 & 0
+\end{bmatrix}\begin{bmatrix}
+0 & 1 & 0 & 0 \\
+1 & 0 & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1
+\end{bmatrix}\begin{bmatrix}
+0 & 0 & 1 & 0 \\
+0 & 1 & 0 & 0 \\
+1 & 0 & 0 & 0 \\
+0 & 0 & 0 & 1
+\end{bmatrix}$$
+$$= \begin{bmatrix}
+1 & 0 & 0 & 0 \\
+0 & 0 & 0 & 1 \\
+0 & 0 & 1 & 0 \\
+0 & 1 & 0 & 0
+\end{bmatrix}\begin{bmatrix}
+0 & 1 & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+1 & 0 & 0 & 0 \\
+0 & 0 & 0 & 1
+\end{bmatrix} = \begin{bmatrix}
+0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 1 \\
+1 & 0 & 0 & 0 \\
+0 & 0 & 1 & 0
+\end{bmatrix} = P$$
+\item[(c)]
+$$\text{sign } p = \det P = (\det C)(\det B)(\det A) = (-1)^3 = -1$$
+\end{itemize}
+\item[(2)]
+Consider the $n \times n$ permutation matrix $P$. $P$ has the form of
+$$P = \begin{bmatrix}
+\begin{array}{c|c}
+I_{n-m} \\
+\hline
+& P_m
+\end{array}
+\end{bmatrix}$$
+where $P_m$ is a $m \times m$ permutation matrix. Let $m = 1$. Then $P = I_n$, so $P$ is a product of transpositions (namely, the trivial transposition). Suppose for $m = k - 1$, that $P$ is a product of transpositions. Now let $m = k$ and that $P_{kk} = 0$. So for some $i > k$, then $P_{ki} = 1$. Let $E$ be the elementary matrix of the second kind corresponding to interchanging rows $i$ and $k$. Then
+$$P = \begin{bmatrix}
+\begin{array}{c|c}
+I_{n-k} \\
+\hline
+& P_k
+\end{array}
+\end{bmatrix} = E
+\begin{bmatrix}
+\begin{array}{c|c}
+I_{n-k+1} \\
+\hline
+& P_{k-1}
+\end{array}
+\end{bmatrix}$$
+By the inductive hypothesis, then $P$ is a product of transpositions.
+\item[(3)]
+Let $P$ be a $n \times n$ matrix with a single 1 in each row and column. Suppose for each $i \leq n$, $\alpha_i$ is the location of the 1 in row $i$ in $P$. Ie. $P_{i, \alpha_i} = 1$, and for all $j \neq \alpha_i$, $P_{i, j} = 0$. Note that $\alpha_1 \neq ... \neq \alpha_n$. Then for some matrix $X$ with rows $X_1, ..., X_n$, then
+$$(PX)_{i,j} = \sum_{k=1}^n P_{i,k}X_{k,i} = X_{\alpha_i, i} \rightarrow PX = \begin{bmatrix}
+X_{\alpha_1} \\
+\vdots \\
+X_{\alpha_n}
+\end{bmatrix}$$
+So $P$ permutes the rows of $X$, thus $P$ is a permutation matrix.
+\item[(4)]
+Let $P$ be a permutation matrix. Then $P = E_m...E_1$, where $E_1, ..., E_m$ are transpositions. Note that for each $i$, $\det E_i = -1$, and therefore $\det E_i^{-1} = -1$. Therefore,
+$$\text{sign }p = \det P = \det (E_m...E_1) = (\det E_m)...(\det E_1)$$
+$$= (\det E_m^{-1})...(\det E_1^{-1}) = \det(E_1^{-1}...E_m^{-1}) = \det P^{-1} = \text{sign }p^{-1}$$
+\item[(5)]
+Lemma: Let $E$ be an elementary matrix of the second kind. Then $E = E^\top = E^{-1}$. Proof: suppose $E$ transposes rows $i$ and $j$. We can then write $E = I + e_{ij} + e_{ji} - e_{ii} - e_{jj}$. Furthermore, $E^\top = I + e_{ji} + e_{ij} - e_{ii} - e_{jj} = E$, and $E^{-1} = I + e_{ij} + e_{ji} - e_{ii} - e_{jj} = E$.
+
+Suppose $P$ is a permutation matrix. We can write $P$ as a product of transpositions $E_1, ..., E_m$. Ie. $P = E_m...E_1$. Then 
+$$P^\top = (E_m...E_1)^\top = E_1^\top...E_m^\top = E_1^{-1}...E_m^{-1} = (E_m...E_1)^{-1} = P^{-1}$$
+\item[(6)]
+$$P = \begin{bmatrix}
+& & & & 1 &\\
+& & & 1 \\
+& & \iddots \\
+& 1 \\
+1 \\
+& & & & & 1
+\end{bmatrix}$$
+Let $x$ be a column matrix. Then
+$$Px = \begin{bmatrix}
+& & & & 1 &\\
+& & & 1 \\
+& & \iddots \\
+& 1 \\
+1 \\
+& & & & & 1
+\end{bmatrix}\begin{bmatrix}
+x_1 \\
+x_2 \\
+\vdots \\
+x_{n-2} \\
+x_{n-1} \\
+x_n
+\end{bmatrix} = \begin{bmatrix}
+x_{n-1} \\
+x_{n-2} \\
+\vdots \\
+x_2 \\
+x_1 \\
+x_n
+\end{bmatrix}$$
+\item[(7)]
+\begin{itemize}
+\item[(a)]
+$$\det\begin{bmatrix}
+a_{11} & a_{12} & a_{13} \\
+a_{21} & a_{22} & a_{23} \\
+a_{31} & a_{32} & a_{33}
+\end{bmatrix}$$
+$$= a_{11}a_{22}a_{33} + a_{12}a_{23}a_{31} + a_{13}a_{21}a_{32} - a_{11}a_{23}a_{32} - a_{12}a_{21}a_{33} - a_{13}a_{22}a_{31}$$
+\item[(b)]
+Complete Expansion:
+$$\det\begin{bmatrix}
+1 & 1 & 2 \\
+2 & 4 & 2 \\
+0 & 2 & 1
+\end{bmatrix}$$
+$$= (1)(4)(1) + (1)(2)(0) + (2)(2)(2)$$
+$$- (1)(2)(2) - (1)(2)(1) - (2)(4)(0) = 6$$
+$$\det\begin{bmatrix}
+4 & -1 & 1 \\
+1 & 1 & -2 \\
+1 & -1 & 1
+\end{bmatrix}$$
+$$= (4)(1)(1) + (-1)(-2)(1) + (1)(1)(-1)$$ 
+$$- (4)(-2)(-1) - (-1)(1)(1) - (1)(1)(1) = -3$$
+$$\det\begin{bmatrix}
+a & b & c \\
+1 & 0 & 1 \\
+1 & 1 & 1
+\end{bmatrix} = (a)(0)(1) + (b)(1)(1) + (c)(1)(1)$$
+$$- (a)(1)(1) - (b)(1)(1) - (c)(0)(1) = c - a$$
+Other methods:
+$$\det\begin{bmatrix}
+1 & 1 & 2 \\
+2 & 4 & 2 \\
+0 & 2 & 1
+\end{bmatrix} = 1((4)(1) - (2)(2)) - 2((1)(1) - (2)(2)) = 6$$
+$$\det\begin{bmatrix}
+4 & -1 & 1 \\
+1 & 1 & -2 \\
+1 & -1 & 1
+\end{bmatrix} = 4((1)(1) - (-1)(-2)) - 1((-1)(1) - (1)(-1))$$
+$$+ 1((-1)(-2) - (1)(1)) = -3$$
+$$\det\begin{bmatrix}
+a & b & c \\
+1 & 0 & 1 \\
+1 & 1 & 1
+\end{bmatrix} = a((0)(1) - (1)(1)) - (1)((b)(1) - (c)(1))$$
+$$+ (1)((b)(1) - (c)(0)) = -a - b + c + b = c - a$$
+\end{itemize}
+\item[(8)]
+Denote 
+$$D(A) = \sum_{\text{perm }p}(\text{sign }p)a_{1p(1)}...a_{np(n)}$$
+to be the complete expansion of $A$. Then
+$$D(I) (1)...(1) = 1$$
+Let $A$, $B$, $C$ be $n \times n$ matrices with rows $\alpha_i, \beta_i, \gamma_i$. For some $k$, $\gamma_k = \alpha_k + \beta_k$, and for all $i \neq k$, $\alpha_i = \beta_i = \gamma_i$. Then
+$$D(C) = \sum_{\text{perm }p}(\text{sign }p)c_{1p(1)}...c_{np(n)}$$
+$$= \sum_{\text{perm }p}(\text{sign }p)c_{1p(1)}...c_{(k-1)p(k-1)}c_{kp(k)}c_{(k+1)p(k+1)}...c_{np(n)}$$
+$$= \sum_{\text{perm }p}(\text{sign }p)c_{1p(1)}...c_{(k-1)p(k-1)}(a_{kp(k)} + b_{kp(k)})c_{(k+1)p(k+1)}...c_{np(n)}$$
+$$= \sum_{\text{perm }p}(\text{sign }p)a_{1p(1)}...a_{np(n)} + \sum_{\text{perm }p}(\text{sign }p)b_{1p(1)}...b_{np(n)}$$
+$$= D(A) + D(B)$$
+Now suppose $A$ and $B$ are $n \times n$ matrices with rows $\alpha_i, \beta_i$. For some $k$, $\beta_k = c\alpha_k$, and for all $i \neq k$, $\alpha_i = \beta_i$. Then
+$$D(B) = \sum_{\text{perm }p}(\text{sign }p)b_{1p(1)}...b_{np(n)}$$
+$$= \sum_{\text{perm }p}(\text{sign }p)b_{1p(1)}...b_{(k-1)p(k-1)}b_{kp(k)}b_{(k+1)p(k+1)}...b_{np(n)}$$
+$$= \sum_{\text{perm }p}(\text{sign }p)b_{1p(1)}...b_{(k-1)p(k-1)}ca_{kp(k)}b_{(k+1)p(k+1)}...b_{np(n)}$$
+$$= c\sum_{\text{perm }p}(\text{sign }p)a_{1p(1)}...a_{np(n)} = cD(A)$$
+Now suppose we have a $n \times n$ matrix where rows $k$ and $k + 1$ are equivalent. Let $P$ be the set of all permutations, and let $P_<$ be the set of permutations such that $p(k) < p(k+1)$, and let $P_>$ be the set of permutations such that $p(k) > p(k+1)$. Note that $P = P_< \cup P_>$, and that $P_<$ and $P_>$ are disjoint. Furthermore, for some $p \in P_<$ and $p' \in P_>$ where $p(k) = p'(k+1), p(k+1)= p'(k)$, and for all $i \neq k$, $p(i) = p'(i+1)$, then $\text{sign }p = -\text{sign }p'$. Then
+$$D(A) = \sum_{\text{perm }p}(\text{sign }p)a_{1p(1)}...a_{np(n)}$$
+$$= \sum_{\text{perm }p}(\text{sign }p)a_{1p(1)}...a_{kp(k)}a_{(k+1)p(k+1)}...a_{np(n)}$$
+$$= \sum_{p \in P_<}(\text{sign }p)a_{1p(1)}...a_{kp(k)}a_{(k+1)p(k+1)}...a_{np(n)}$$
+$$+ \sum_{p \in P_>}(\text{sign }p)a_{1p(1)}...a_{kp(k)}a_{(k+1)p(k+1)}...a_{np(n)}$$
+$$= \sum_{p \in P_<}((\text{sign }p)a_{1p(1)}...a_{kp(k)}a_{(k+1)p(k+1)}...a_{np(n)}$$
+$$- (\text{sign }p)a_{1p(1)}...a_{kp(k+1)}a_{(k+1)p(k)}...a_{np(n)}) = 0$$
+\item[(9)]
+Note that $\text{sign }p = \text{sign }p^{-1}$. Then
+$$\det A = \sum_{\text{perm }p}(\text{sign }p)a_{p(1)1}...a_{p(n)n}$$
+$$= \sum_{\text{perm }p}(\text{sign }p)a_{1p^{-1}(1)}...a_{np^{-1}(n)} = \sum_{\text{perm }q}(\text{sign }q)a_{1q(1)}...a_{nq(n)}$$
+\end{itemize}
+\end{document}
