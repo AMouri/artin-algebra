@@ -1,0 +1,309 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\begin{document}
+\title{Chapter 1: Matrix Operations \\ Section 5: Cramer's Rule}
+\author{Alec Mouri}
+
+\maketitle
+\section*{Exercises}
+\begin{itemize}
+\item[(1)]
+$$A^{-1} = \frac{1}{ad - bc}\begin{bmatrix}
+d & -b \\
+-c & d
+\end{bmatrix} = \begin{bmatrix}
+d & -b \\
+-c & d
+\end{bmatrix}$$
+\item[(2)]
+$$\text{adj }\begin{bmatrix}
+1 & 2 \\
+3 & 4
+\end{bmatrix} = \begin{bmatrix}
+4 & -2 \\
+-3 & 1
+\end{bmatrix}$$
+$$\det\begin{bmatrix}
+1 & 2 \\
+3 & 4
+\end{bmatrix} = (1)(4) - (2)(3) = -2$$
+$$\begin{bmatrix}
+4 & -2 \\
+-3 & 1
+\end{bmatrix}\begin{bmatrix}
+1 & 2 \\
+3 & 4
+\end{bmatrix} = \begin{bmatrix}
+-2 & 0 \\
+0 & -2
+\end{bmatrix}$$
+$$\begin{bmatrix}
+1 & 2 \\
+3 & 4
+\end{bmatrix}\begin{bmatrix}
+4 & -2 \\
+-3 & 1
+\end{bmatrix} = \begin{bmatrix}
+-2 & 0 \\
+0 & -2
+\end{bmatrix}$$
+$$\text{adj }\begin{bmatrix}
+1 & 1 & 2 \\
+2 & 4 & 2 \\
+0 & 2 & 1
+\end{bmatrix} = \begin{bmatrix}
+\det\begin{bmatrix}
+4 & 2 \\
+2 & 1
+\end{bmatrix} & - \det\begin{bmatrix}
+1 & 2 \\
+2 & 1
+\end{bmatrix} & \det\begin{bmatrix}
+1 & 2 \\
+4 & 2
+\end{bmatrix} \\
+-\det\begin{bmatrix}
+2 & 2 \\
+0 & 1
+\end{bmatrix} & \det\begin{bmatrix}
+1 & 2 \\
+0 & 1
+\end{bmatrix} & -\det\begin{bmatrix}
+1 & 2 \\
+2 & 2
+\end{bmatrix} \\
+\det\begin{bmatrix}
+2 & 4 \\
+0 & 2
+\end{bmatrix} & -\det\begin{bmatrix}
+1 & 1 \\
+0 & 2
+\end{bmatrix} & \det\begin{bmatrix}
+1 & 1 \\
+2 & 4
+\end{bmatrix}
+\end{bmatrix}$$
+$$= \begin{bmatrix}
+0 & 3 & -6 \\
+-2 & 1 & 2 \\
+4 & -2 & 2
+\end{bmatrix}$$
+$$\det\begin{bmatrix}
+1 & 1 & 2 \\
+2 & 4 & 2 \\
+0 & 2 & 1
+\end{bmatrix} = 1(4 - 4) - 2(1 - 4) = 6$$
+$$\begin{bmatrix}
+1 & 1 & 2 \\
+2 & 4 & 2 \\
+0 & 2 & 1
+\end{bmatrix}\begin{bmatrix}
+0 & 3 & -6 \\
+-2 & 1 & 2 \\
+4 & -2 & 2
+\end{bmatrix} = \begin{bmatrix}
+6 & 0 & 0 \\
+0 & 6 & 0 \\
+0 & 0 & 6
+\end{bmatrix}$$
+$$\begin{bmatrix}
+0 & 3 & -6 \\
+-2 & 1 & 2 \\
+4 & -2 & 2
+\end{bmatrix}\begin{bmatrix}
+1 & 1 & 2 \\
+2 & 4 & 2 \\
+0 & 2 & 1
+\end{bmatrix} = \begin{bmatrix}
+6 & 0 & 0 \\
+0 & 6 & 0 \\
+0 & 0 & 6
+\end{bmatrix}$$
+$$\text{adj }\begin{bmatrix}
+4 & -1 & 1 \\
+1 & 1 & -2 \\
+1 & -1 & 1
+\end{bmatrix}$$
+$$= \begin{bmatrix}
+\det\begin{bmatrix}
+1 & -2 \\
+-1 & 1
+\end{bmatrix} & -\det\begin{bmatrix}
+-1 & 1 \\
+-1 & 1
+\end{bmatrix} & \det\begin{bmatrix}
+-1 & 1 \\
+1 & -2
+\end{bmatrix} \\
+-\det\begin{bmatrix}
+1 & -2 \\
+1 & 1
+\end{bmatrix} & \det\begin{bmatrix}
+4 & 1 \\
+1 & 1
+\end{bmatrix} & -\det\begin{bmatrix}
+4 & 1 \\
+1 & -2
+\end{bmatrix} \\
+\det\begin{bmatrix}
+1 & 1 \\
+1 & -1
+\end{bmatrix} & -\det\begin{bmatrix}
+4 & -1 \\
+1 & -1
+\end{bmatrix} & \det\begin{bmatrix}
+4 & -1 \\
+1 & 1
+\end{bmatrix}
+\end{bmatrix}$$
+$$= \begin{bmatrix}
+-1 & 0 & 1 \\
+-3 & 3 & 9 \\
+-2 & 3 & 5
+\end{bmatrix}$$
+$$\det\begin{bmatrix}
+4 & -1 & 1 \\
+1 & 1 & -2 \\
+1 & -1 & 1
+\end{bmatrix} = 4\det\begin{bmatrix}
+1 & -2 \\
+-1 & 1
+\end{bmatrix} - \det\begin{bmatrix}
+-1 & 1 \\
+-1 & 1
+\end{bmatrix} + \det\begin{bmatrix}
+-1 & 1 \\
+1 & -2
+\end{bmatrix} $$
+$$= 4(1 - 2) - (-1 + 1) + (2 - 1) = -3$$
+$$\begin{bmatrix}
+4 & -1 & 1 \\
+1 & 1 & -2 \\
+1 & -1 & 1
+\end{bmatrix}\begin{bmatrix}
+-1 & 0 & 1 \\
+-3 & 3 & 9 \\
+-2 & 3 & 5
+\end{bmatrix} = \begin{bmatrix}
+-3 & 0 & 0 \\
+0 & -3 & 0 \\
+0 & 0 & -3
+\end{bmatrix}$$
+$$\begin{bmatrix}
+-1 & 0 & 1 \\
+-3 & 3 & 9 \\
+-2 & 3 & 5
+\end{bmatrix}\begin{bmatrix}
+4 & -1 & 1 \\
+1 & 1 & -2 \\
+1 & -1 & 1
+\end{bmatrix} = \begin{bmatrix}
+-3 & 0 & 0 \\
+0 & -3 & 0 \\
+0 & 0 & -3
+\end{bmatrix}$$
+$$\text{adj }\begin{bmatrix}
+a & b & c \\
+1 & 0 & 1 \\
+1 & 1 & 1
+\end{bmatrix} = \begin{bmatrix}
+\det\begin{bmatrix}
+0 & 1 \\
+1 & 1
+\end{bmatrix} & -\det\begin{bmatrix}
+b & c \\
+1 & 1
+\end{bmatrix} & \det\begin{bmatrix}
+b & c \\
+0 & 1
+\end{bmatrix} \\
+-\det\begin{bmatrix}
+1 & 1 \\
+1 & 1
+\end{bmatrix} & \det\begin{bmatrix}
+a & c \\
+1 & 1
+\end{bmatrix} & -\det\begin{bmatrix}
+a & c \\
+1 & 1
+\end{bmatrix} \\
+\det\begin{bmatrix}
+1 & 0 \\
+1 & 1
+\end{bmatrix} & -\det\begin{bmatrix}
+a & b \\
+1 & 1
+\end{bmatrix} & \det\begin{bmatrix}
+a & b \\
+1 & 0
+\end{bmatrix}
+\end{bmatrix}$$
+$$= \begin{bmatrix}
+-1 & c - b & b \\
+0 & a - c & c - a \\
+1 & b - a & -b
+\end{bmatrix}$$
+$$\det\begin{bmatrix}
+a & b & c \\
+1 & 0 & 1 \\
+1 & 1 & 1
+\end{bmatrix} = a\begin{bmatrix}
+0 & 1 \\
+1 & 1
+\end{bmatrix} - \begin{bmatrix}
+b & c \\
+1 & 1
+\end{bmatrix} + \begin{bmatrix}
+b & c \\
+0 & 1
+\end{bmatrix}$$
+$$= a(0 - 1) - (b - c) + (b - 0) = c - a$$
+$$\begin{bmatrix}
+a & b & c \\
+1 & 0 & 1 \\
+1 & 1 & 1
+\end{bmatrix}\begin{bmatrix}
+-1 & c - b & b \\
+0 & a - c & c - a \\
+1 & b - a & -b
+\end{bmatrix}$$
+$$= \begin{bmatrix}
+c - a & ac - ab + ab - bc + bc - ac & ab + bc  - ab - bc \\
+-1 + 1 & c - b + b - a & b - b \\
+-1 + 1 & c - b + a - c + b - a & b + c - a - b
+\end{bmatrix} $$
+$$= \begin{bmatrix}
+c - a & 0 & 0 \\
+0 & c - a & 0 \\
+0 & 0 & c - a
+\end{bmatrix}$$
+$$\begin{bmatrix}
+-1 & c - b & b \\
+0 & a - c & c - a \\
+1 & b - a & -b
+\end{bmatrix}\begin{bmatrix}
+a & b & c \\
+1 & 0 & 1 \\
+1 & 1 & 1
+\end{bmatrix}$$
+$$= \begin{bmatrix}
+-a + c - b + b & -b + b & -c + c - b + b \\
+a - c + c - a & c - a & a - c + c - a \\
+a + b - a - b & b - b & c + b - a - b
+\end{bmatrix} = \begin{bmatrix}
+c - a & 0 & 0 \\
+0 & c - a & 0 \\
+0 & 0 & c - a
+\end{bmatrix}$$
+\item[(3)]
+Suppose $A^{-1}$ has integer entries. we have that
+$$\det(A^{-1}A) = \det I = 1$$
+and
+$$\det(A^{-1}A) = \det A^{-1}\det A$$
+Since $A$ has integer entries, then $\det A$ and $\det A^{-1}$ are also integers. So, we have $\det A = \frac{1}{\det A^{-1}}$, and therefore $\det A^{-1} = \pm 1$.
+
+Suppose $\det A = \pm 1$. Then $A^{-1} = \frac{1}{\det A}\text{adj }A = \pm \text{adj }A$. Since $\pm\text{adj}_{ij} = \pm(-1)^{ij}\det A_{ji}$ is composed from the multiplication and addition of integers, then $\pm \text{adj A}$ has entirely integer entries. Therefore, $A^{-1}$ has entirely integer entries.
+\item[(4)]
+$$\det A = \det A^\top = \sum_{i=1}^n a_{1i}\det A_{1i}^\top = \sum_{i=1}^n a_{1i}\det A_{1i}$$
+\end{itemize}
+\end{document}
