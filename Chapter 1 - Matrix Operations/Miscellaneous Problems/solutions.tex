@@ -1,0 +1,414 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\begin{document}
+\title{Chapter 1: Matrix Operations \\ Miscellaneous Problems}
+\author{Alec Mouri}
+
+\maketitle
+\section*{Exercises}
+\begin{itemize}
+\item[(1)]
+$$A = \begin{bmatrix}
+1 & 2 \\
+3 & 4
+\end{bmatrix} \rightarrow \begin{bmatrix}
+1 & 2 \\
+0 & -2
+\end{bmatrix} \rightarrow \begin{bmatrix}
+1 & 2 \\
+0 & 1
+\end{bmatrix} \rightarrow \begin{bmatrix}
+1 & 0 \\
+0 & 1
+\end{bmatrix}$$
+$$\rightarrow A = \begin{bmatrix}
+1 & 0 \\
+3 & 1
+\end{bmatrix}\begin{bmatrix}
+1 & 0 \\
+0 & -2
+\end{bmatrix}\begin{bmatrix}
+1 & 2 \\
+0 & 1
+\end{bmatrix}$$
+We must now show that there does not exist a pair of elementary matrices $E_1, E_2$ such that $A = E_1E_2$, or equivalently $E_1^{-1}A = E_2$. Let $E$ be the set of all elementary matrices. We will proceed by brute force: suppose 
+$$E_1 = \begin{bmatrix}
+1 & c \\
+0 & 1
+\end{bmatrix} \rightarrow E_1^{-1} = \begin{bmatrix}
+1 & -c \\
+0 & 1
+\end{bmatrix}$$
+where $c \neq 0$. Then
+$$E_1^{-1}A = \begin{bmatrix}
+1 & -c \\
+0 & 1
+\end{bmatrix}\begin{bmatrix}
+1 & 2 \\
+3 & 4
+\end{bmatrix} = \begin{bmatrix}
+1 - 3c & 2 - 4c \\
+3 & 4
+\end{bmatrix} \not \in E$$
+Suppose
+$$E_1 = \begin{bmatrix}
+1 & 0 \\
+c & 1
+\end{bmatrix} \rightarrow E_1^{-1} = \begin{bmatrix}
+1 & 0 \\
+-c & 1
+\end{bmatrix}$$
+where $c \neq 0$. Then
+$$E_1^{-1}A = \begin{bmatrix}
+1 & 0 \\
+-c & 1
+\end{bmatrix}\begin{bmatrix}
+1 & 2 \\
+3 & 4
+\end{bmatrix} = \begin{bmatrix}
+1 & 2 \\
+3 - c & 4 - 2c
+\end{bmatrix} \not \in E$$
+Suppose
+$$E_1 = \begin{bmatrix}
+0 & 1 \\
+1 & 0
+\end{bmatrix} \rightarrow E_1^{-1} = \begin{bmatrix}
+0 & 1 \\
+1 & 0
+\end{bmatrix}$$
+Then
+$$E_1^{-1}A = \begin{bmatrix}
+0 & 1 \\
+1 & 0
+\end{bmatrix}\begin{bmatrix}
+1 & 2 \\
+3 & 4
+\end{bmatrix} = \begin{bmatrix}
+3 & 4 \\
+1 & 2
+\end{bmatrix} \not \in E$$
+Suppose
+$$E_1 = \begin{bmatrix}
+c & 0 \\
+0 & 1
+\end{bmatrix} \rightarrow E_1^{-1} = \begin{bmatrix}
+1/c & 0 \\
+0 & 1
+\end{bmatrix}$$
+where $c \neq 0, 1$. Then
+$$E_1^{-1}A = \begin{bmatrix}
+1/c & 0 \\
+0 & 1
+\end{bmatrix}\begin{bmatrix}
+1 & 2 \\
+3 & 4
+\end{bmatrix} = \begin{bmatrix}
+1/c & 2/c \\
+3 & 4
+\end{bmatrix} \not \in E$$
+Suppose
+$$E_1 = \begin{bmatrix}
+1 & 0 \\
+0 & c
+\end{bmatrix} \rightarrow E_1^{-1} = \begin{bmatrix}
+c & 0 \\
+0 & 1/c
+\end{bmatrix}$$
+where $c \neq 0, 1$. Then
+$$E_1^{-1}A = \begin{bmatrix}
+1 & 0 \\
+0 & 1/c
+\end{bmatrix}\begin{bmatrix}
+1 & 2 \\
+3 & 4
+\end{bmatrix} = \begin{bmatrix}
+1 & 2 \\
+3/c & 4/c
+\end{bmatrix} \not \in E$$
+\item[(2)]
+Let
+$$A = \begin{bmatrix}
+0 & -1 \\
+1 & 0
+\end{bmatrix}$$
+Then
+$$A^2 = \begin{bmatrix}
+0 & -1 \\
+1 & 0
+\end{bmatrix}\begin{bmatrix}
+0 & -1 \\
+1 & 0
+\end{bmatrix} = \begin{bmatrix}
+-1 & 0 \\
+0 & -1
+\end{bmatrix} = -I$$
+So, the complex number $a + bi$ can be represented by the matrix
+$$\begin{bmatrix}
+a & -b \\
+b & a
+\end{bmatrix}$$
+Then, we can add two complex numbers $(a + bi) + (c + di) = (a + c) + (b + d)i$:
+$$\begin{bmatrix}
+a & -b \\
+b & a
+\end{bmatrix} + \begin{bmatrix}
+c & -d \\
+d & c
+\end{bmatrix} = \begin{bmatrix}
+a + c & -(b + d) \\
+b + d & a + c
+\end{bmatrix}$$
+And we can multiply two complex numbers $(a + bi)(c + di) = (ac - bd) + (ad + bc)i$:
+$$\begin{bmatrix}
+a & -b \\
+b & a
+\end{bmatrix}\begin{bmatrix}
+c & -d \\
+d & c
+\end{bmatrix} = \begin{bmatrix}
+ac - bd & -(ad + bc) \\
+ad + bc & ac - bd
+\end{bmatrix}$$
+\item[(3)]
+\begin{itemize}
+\item[(a)]
+$$\det\begin{bmatrix}
+1 & 1 & 1 \\
+a & b & c \\
+a^2 & b^2 & c^2
+\end{bmatrix} = \det\begin{bmatrix}
+b & c \\
+b^2 & c^2
+\end{bmatrix} - \det\begin{bmatrix}
+a & c \\
+a^2 & c^2
+\end{bmatrix} + \det\begin{bmatrix}
+a & b \\
+a^2 & b^2
+\end{bmatrix}$$
+$$= (bc^2 - b^2c) - (ac^2 - a^2c) + (ab^2 - a^2b) = c(bc  - b^2 + a^2 - ac) + ab(b - a)$$
+$$= c((a - b)(a + b) + c(b - a)) + ab(b - a) = -c(b - a)(a + b - c) + ab(b - a)$$
+$$= (b - a)(ab - ac - bc + c^2) = (b - a)(a(b - c) - c(b - c)$$
+$$= (b - a)(b - c)(a - c) = (b - a)(c - a)(c - b)$$
+\item[(b)]
+Let 
+$$A = \begin{bmatrix}
+1 & 1 & 1 & \cdots & 1 \\
+a_1 & a_2 & a_3 & \cdots & a_k \\
+a_1^2 & a_2^2 & a_3^2 & \cdots & a_k^2 \\
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+a_1^{k-1} & a_2^{k-1} & a_3^{k-1} & \cdots & a_k^{k-1}
+\end{bmatrix}$$
+I claim that $\det A = \prod_{i < j}(a_j - a_i)$. Suppose $n = 2$. Then $\det A = (a_2 - a_1)$, so the statement is valid for $n = 2$. Suppose the statement is true for $n = k - 1$. Then for $n = k$,
+$$\det A = \det\begin{bmatrix}
+1 & 1 & 1 & \cdots & 1 \\
+a_1 & a_2 & a_3 & \cdots & a_k \\
+a_1^2 & a_2^2 & a_3^2 & \cdots & a_k^2 \\
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+a_1^{k-1} & a_2^{k-1} & a_3^{k-1} & \cdots & a_k^{k-1}
+\end{bmatrix}$$ 
+$$= \det\begin{bmatrix}
+0 & 1 - a_2/a_1 & 1 - a_3/a_1 & \cdots & 1 - a_k/a_1 \\
+0 & a_2 - a_2^2/a_1 & a_3 - a_3^2/a_1 & \cdots & a_k - a_k^2/a_1 \\
+0 & a_2^2 - a_2^3/a_1 & a_3^2 - a_3^3/a_1 & \cdots & a_k^2 - a_k^3/a_1 \\
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+0 & a_2^{k-2} - a_2^{k-1}/a_1 & a_3^{k-2} - a_3^{k-1}/a_1 & \cdots & a_k^{k-2} - a_k^{k-1}/a_1 \\
+a_1^{k-1} & a_2^{k-1} & a_3^{k-1} & \cdots & a_k^{k-1}
+\end{bmatrix}$$
+$$= \frac{1}{a_1^{k-1}}\det\begin{bmatrix}
+0 & a_1 - a_2 & a_1 - a_3 & \cdots & a_1 - a_k \\
+0 & a_2(a_1 - a_2) & a_3(a_1 - a_3) & \cdots & a_k(a_1 - a_k) \\
+0 & a_2^2(a_1 - a_2) & a_3^2(a_1 - a_3) & \cdots & a_k^2(a_1 - a_k) \\
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+0 & a_2^{k-2}(a_1 - a_2) & a_3^{k-2}(a_1 - a_3) & \cdots & a_k^{k-2}(a_1 - a_k) \\
+a_1^{k-1} & a_2^{k-1} & a_3^{k-1} & \cdots & ^{k-1}
+\end{bmatrix}$$
+$$= \frac{(a_1 - a_2)(a_1 - a_3)...(a_1 - a_k)}{a_1^{k-1}}\det\begin{bmatrix}
+0 & 1 & 1 & \cdots & 1 \\
+0 & a_2 & a_3 & \cdots & a_k \\
+0 & a_2^2 & a_3^2 & \cdots & a_k^2 \\
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+0 & a_2^{k-2} & a_3^{k-2} & \cdots & a_k^{k-2} \\
+a_1^{k-1} & a_2^{k-1} & a_3^{k-1} & \cdots & a_k^{k-1}
+\end{bmatrix}$$
+$$= (-1)^{k-1}(a_1 - a_2)(a_1 - a_3)...(a_1 - a_k)\det\begin{bmatrix}
+1 & 1 & \cdots & 1 \\
+a_2 & a_3 & \cdots & a_k \\
+a_2^2 & a_3^2 & \cdots & a_k^2 \\
+\vdots & \vdots & \ddots & \vdots \\
+a_2^{k-2} & a_3^{k-2} & \cdots & a_k^{k-2} \\
+a_2^{k-1} & a_3^{k-1} & \cdots & a_k^{k-1}
+\end{bmatrix}$$
+$$= \prod_{i < j}(a_j - a_i)$$
+\end{itemize}
+\item[(4)]
+$X$ need not exist if $m > n$. For instance, let
+$$A = \begin{bmatrix}
+3 \\
+0
+\end{bmatrix}, B = \begin{bmatrix}
+3 \\
+1
+\end{bmatrix}$$
+Then $A$ has a left inverse
+$$A' = \begin{bmatrix}
+\frac{1}{3} & 0
+\end{bmatrix}$$
+Then
+$$X = \begin{bmatrix}
+\frac{1}{3} & 0
+\end{bmatrix}\begin{bmatrix}
+3 \\
+1
+\end{bmatrix} = [1]$$
+But clearly
+$$AX = \begin{bmatrix}
+3 \\
+0
+\end{bmatrix}[1] = \begin{bmatrix}
+3 \\
+0
+\end{bmatrix} \neq B$$
+Note that if $m = n$ and $A$ has a left inverse, then $A$ also has a right inverse, and so the procedure is valid.
+\item[(5)]
+\begin{itemize}
+\item[(a)]
+Consider $A_1 = (1, 0)$ and $A_2 = (0, 1)$. Then
+$$A = \begin{bmatrix}
+1 & 0 \\
+0 & 1
+\end{bmatrix}$$
+Clearly, $\det A = \text{area } P = 1$. Now consider arbitrary $A_1, A_2$. 
+
+Suppose without loss of generality that $A_1 \mapsto A_1 + cA_2$ for some $c \neq 0$. Since $A_1$ is translated parallel to $\overline{A_2}$, then the area of the parallelogram remains constant. Accordingly, the operation corresponds to an elementary operation of the first kind, so the determinant remains unchanged.
+
+Suppose $A_1 \mapsto A_2$ and $A_2 \mapsto A_1$. Clearly, the area remains unchanged. Accordingly, the operation corresponds to an elementary operation of the second kind, so the determinant changes by a factor of $-1$.
+
+Suppose without loss of generality that $A_1 \mapsto cA_1$ for some $c \neq 0$. Let $\theta$ be the angle between $\overline{A_1}$ and $\overline{A_2}$. Since $|\sin\theta|$ remains constant, then the area changes by a factor of $|c|$. Accordingly, the operation corresponds to an elementary operation of the third kind, so the determinant changes by a factor of $c$.
+
+Since we can arrive at any $A_1, A_2$ by applying a series of these operations to $(1, 0)$ and $(0, 1)$, then $|\det A| = \text{area }P$.
+\item[(b)]
+Consider $A_1 = (1, 0, ..., 0)$, $A_2 = (0, 1, 0, ..., 0)$, ..., $A_n = (0, ..., 0, 1)$. Then $A = I_n$. Clearly, $\det A = \text{vol } P = 1$. Now consider arbitrary $A_1, A_2, ..., A_n$. 
+
+Suppose without loss of generality that $A_1 \mapsto A_1 + cA_2$ for some $c \neq 0$. Since $A_1$ is translated parallel to $\overline{A_2}$, then the volume of the parallelepiped remains constant. Accordingly, the operation corresponds to an elementary operation of the first kind, so the determinant remains unchanged.
+
+Suppose withou loss of generality that $A_1 \mapsto A_2$ and $A_2 \mapsto A_1$. Clearly, the area remains unchanged. Accordingly, the operation corresponds to an elementary operation of the second kind, so the determinant changes by a factor of $-1$.
+
+Suppose without loss of generality that $A_1 \mapsto cA_1$ for some $c \neq 0$. Let $\theta_i$ be the angle between $\overline{A_1}$ and $\overline{A_i}$, for $i \neq 1$. Since $|\sin\theta_i|$ remains constant, then the volume changes by a factor of $|c|$. Accordingly, the operation corresponds to an elementary operation of the third kind, so the determinant changes by a factor of $c$.
+
+Since we can arrive at any $A_1, A_2, ..., A_n$ by applying a series of these operations to $(1, 0, ..., 0)$, ..., $(0, ..., 0, 1)$, then $|\det A| = \text{vol }P$.
+\end{itemize}
+\item[(6)]
+\begin{itemize}
+\item[(a)]
+We will proceed by means of induction: suppose $A$ is a $1 \times 1$ matrix. Then clearly $A = LU$, where $L = A$ and $U = I_1$, and also $L$ and $U$ are unique. Suppose for all $k - 1 \times k - 1$ matrices $A'$, there exists unique $L'$ and $U'$ such that $A' = L'U'$. Now consider the $k \times k$ matrix $A$. We can express $A$ as
+$$A = \begin{bmatrix}
+\begin{array}{c|c}
+A' & a \\
+\hline
+b & c
+\end{array}
+\end{bmatrix}$$
+where $A'$ has dimensions $k - 1 \times k - 1$, $a$ has dimensions $k - 1 \times 1$, $b$ has dimensions $1 \times k - 1$, and $c$ has dimensions $1 \times 1$. I claim that if $A = LU$, then $L$ and $U$ are unique. Decomposing $L$ and $U$ into submatrices with the same dimensions as the submatrices of $A$, we can write
+$$A = LU = \begin{bmatrix}
+\begin{array}{c|c}
+L' & d \\
+\hline
+e & f
+\end{array}
+\end{bmatrix}\begin{bmatrix}
+\begin{array}{c|c}
+U' & g \\ 
+\hline
+h & i
+\end{array}
+\end{bmatrix} = \begin{bmatrix}
+\begin{array}{c|c}
+L'U' + dh & L'g + di \\
+\hline
+eU' + fh & eg + fi
+\end{array}
+\end{bmatrix}$$
+$$\begin{bmatrix}
+\begin{array}{c|c}
+L'U' & L'g \\
+\hline
+eU' & eg + fi
+\end{array}
+\end{bmatrix} = \begin{bmatrix}
+\begin{array}{c|c}
+A' & a \\
+\hline
+b & c
+\end{array}
+\end{bmatrix}$$
+Note that $L'$ is lower triangular and $U'$ is upper triangular only 1s on its diagonal. Thus by the inductive hypothesis, $L'$ and $U'$ are unique. It now suffices to show that $g, e, f, i$ are unique.
+
+Consider $L'g = a$. Consider the 1st row of $a$: $a_1 = L'_1g = L'_{11}g_1 \rightarrow g_1 = \frac{a_1}{L'_{11}}$. Suppose we can uniquely determine $g_i$ for $i < k$. For $i = k$, then $a_k = L'_kg = \sum_{j=1}^k L'_{kj}g_j \rightarrow g_k = \frac{1}{L'_{kk}}(a_k - \sum_{j=1}^{k-1}L'_{kj}g_j)$
+
+Consider $eU' = b$. Consider the 1st column of $b$: $b_1 = eU'_1 = e_1U'_{11} \rightarrow e_1 = b_1$. Suppose we can uniquely determine $e_i$, for $i < k$. For $i = k$, then $b_k = eU'_k = \sum_{j=1}^k e_jU'_{jk} \rightarrow e_k = b_k - \sum_{j=1}^{k-1} e_jU'_{jk}$.
+
+Consider $eg + fi = c$. Since $U_{x} = 1$ for all $x$, then $i = 1$. So, $f = c - eg = c - \sum_{i=1}^{k-1}e_1g_1$. By the uniqueness of $e$ and $g$ above, $f$ is then unique.
+
+Since we have found unique $g, e, f, i$, then $L$ and $U$ are unique.
+\item[(b)]
+From part (a), then for $i, j$ where $i > j$ we have the following recursive formulae:
+$$\ell_{11} = a_{11}$$
+$$u_{ii} = 1$$
+$$\ell_{ji} = u_{ij} = 0$$
+$$\ell_{ij} = a_{ij} - \sum_{k=1}^{j-1} \ell_{ik}u_{kj}$$
+$$u_{ji} = \frac{1}{\ell_{jj}}\left( a_{ji} - \sum_{k=1}^{j-1} \ell_{jk}u_{ki}\right)$$
+$$\ell_{ii} = a_{ii} - \sum_{k=1}^{i-1}\ell_{ik}u_{ki}$$
+Solving these formulae allows us to compute $L$ and $U$.
+\item[(c)]
+Consider the $m \times n$ matrix $A$. Define $A'$ to be the row-permuted form of $A$, where there eixsts a series of permutations such that we can transform $A'$ into $A"$ holding these properties:
+\begin{itemize}
+\item[1.] The first nonzero entry in every row is 1. This is a pivot
+\item[2.]The first nonzero entry of row $i + 1$ is to the right of the first nonzero entry of $i$.
+\end{itemize} 
+
+We can use the following procedure to row reduce $A$ into a matrix $A'$:
+
+If $n = 1$, then normalize the matrix using a Type 3 operation.
+
+If $m = 1$, then find the first row containing a nonzero entry, normalize the entry using a Type 3 operation, and clear out the entries below that row using Type 1 operations
+
+Find the first column that contains a nonzero entry. Find the first row in that column that contains a nonzero entry: denote this entry $a_{ij}$. Normalize this entry using a Type 3 operation. Then clear out the entries in column $j$ below row $i$ using Type 1 operations. Now inductively row reduce $A_{ij}$ to $A'_{ij}$: ie. row reduce the matrix $A$ without all columns $\leq j$, and row $i$.
+
+Each Type 1 operation is a lower triangular matrix, and each Type 3 operation is a diagonal matrix. Therefore, letting $L$ be the sequence of Type 1 and Type 3 operations we have performed, we have $LA = A'$. Since $U = A" = PA'$ for some permutations $P$, then we have $PLA = U \rightarrow A = L^{-1}P^{-1}U$. It is easy to see that $L^{-1}$ is also a lower triangular matrix (since the inverse of a Type 1 operation that is lower triangular is also lower triangular and the inverse of a Type 3 operation is also diagonal), and the inverse of a permutation matrix is also a permutation matrix. Furthermore, since $A$ is invertible, then every column of $A"$ has a pivot, and we can transform $A"$ into the identity using a series of upper triangular Type 3 operations. Therefore, we have $A = LPU$ for a lower triangular $L$, a permutation $P$, and an upper triangular $U$.
+\end{itemize}
+\item[(7)]
+\begin{itemize}
+\item[(a)]
+If $\det A \neq 0$, then $A$ is invertible. So, we have
+$$X = A^{-1}B$$
+Since by Cramer's Rule $A^{-1} = \frac{1}{\det A}\text{adj }A$, and since $\text{adj }A$ has integer entries (since each $\det A_{ij}$ is an integer), then $A^{-1}$ has rational entries. Since $B$ also has integer entries, then $X$ has rational entries.
+\item[(b)]
+Consider
+$$A = \begin{bmatrix}
+2 & 2 \\
+0 & 1
+\end{bmatrix}, B = \begin{bmatrix}
+3 \\
+1
+\end{bmatrix}$$
+Then necessarily
+$$X = \begin{bmatrix}
+\frac{1}{2} \\
+1
+\end{bmatrix}$$
+$X$ is a rational solution, but there are no additional solutions, so there is not an additional integer solution.
+\end{itemize}
+\item[(8)]
+Suppose $C = I_m - AB$ is invertible. Let $D = I_n - BA$. Consider $E = (I_n + BC^{-1}A)$. Then
+$$DE = (I_n - BA)(I_n + BC^{-1}A) = I_n - BA + BC^{-1}A - BABC^{-1}A$$
+$$= I_n - BA + B(C^{-1} - ABC^{-1})A = I_n - BA + B((I_m - AB)C^{-1})A$$
+$$= I_n - BA + B(CC^{-1})A = I_n - BA + BA = I_n$$
+Similarly,
+$$ED = (I_n + BC^{-1}A)(I_n - BA) = I_n + BC^{-1}A - BA - BC^{-1}ABA$$
+$$= I_n - BA + B(C^{-1} - C^{-1}AB)A = I_n - BA + B(C^{-1}(I_m - AB))A$$
+$$= I_n - BA + B(C^{-1}C)A = I_n - BA + BA = I_n$$
+Therefore, $D$ is invertible. We can similarly show that if $D$ is invertible, then $C$ is also invertible.
+\end{itemize}
+\end{document}
