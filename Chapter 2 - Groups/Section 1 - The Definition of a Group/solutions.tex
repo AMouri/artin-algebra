@@ -1,0 +1,155 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb}
+\begin{document}
+\title{Chapter 2: Groups \\ Section 1: The Definition of a Group}
+\author{Alec Mouri}
+
+\maketitle
+\section*{Exercises}
+\begin{itemize}
+\item[(1)]
+\begin{itemize}
+\item[(a)]
+$$1 = \begin{bmatrix}
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & 1
+\end{bmatrix}, x = \begin{bmatrix}
+0 & 1 & 0 \\
+0 & 0 & 1 \\
+1 & 0 & 0
+\end{bmatrix}, y = \begin{bmatrix}
+0 & 1 & 0 \\
+1 & 0 & 0 \\
+0 & 0 & 1
+\end{bmatrix}$$
+$$x^2 = \begin{bmatrix}
+0 & 0 & 1 \\
+1 & 0 & 0 \\
+0 & 1 & 0
+\end{bmatrix}, xy = \begin{bmatrix}
+1 & 0 & 0 \\
+0 & 0 & 1 \\
+0 & 1 & 0
+\end{bmatrix}, x^2y = \begin{bmatrix}
+0 & 0 & 1 \\
+0 & 1 & 0 \\
+1 & 0 & 0
+\end{bmatrix}$$
+$$x^3 = \begin{bmatrix}
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & 1
+\end{bmatrix}, y^2 = \begin{bmatrix}
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & 1
+\end{bmatrix}, yx = \begin{bmatrix}
+0 & 0 & 1 \\
+0 & 1 & 0 \\
+1 & 0 & 0
+\end{bmatrix} = x^2y$$
+\item[(b)]
+\begin{tabular}{| c || c | c | c | c | c | c |}
+\hline
+& 1 & $x$ & $x^2$ & $y$ & $xy$ & $x^2y$ \\
+\hline \hline
+1 & 1 & $x$ & $x^2$ & $y$ & $xy$ & $x^2y$ \\
+\hline
+$x$ & $x$ & $x^2$ & 1 & $xy$ & $x^2y$ & $y$ \\
+\hline
+$x^2$ & $x^2$ & 1 & $x$ & $x^2y$ & $y$ & $xy$ \\
+\hline
+$y$ & $y$ & $x^2y$ & $xy$ & 1 & $x^2$ & $x$ \\
+\hline
+$xy$ & $xy$ & $y$ & $x^2y$ & $x$ & 1 & $x^2$ \\
+\hline
+$x^2y$ & $x^2y$ & $xy$ & $y$ & $x^2$ & $x$ & $x^3$ \\
+\hline
+\end{tabular}
+\end{itemize}
+\item[(2)]
+\begin{itemize}
+\item[(a)]
+Let $A, B, C \in GL(\mathbb{R})$. 
+
+Note that $\det(AB) = \det(A)\det(B) \neq 0$, so $AB \in GL(\mathbb{R})$, so multiplication is a law of composition of $GL(\mathbb{R})$.
+
+Further for $1 \leq i,j \leq n$,
+$$((AB)C)_{ij} = \sum_{k=1}^n (AB)_{ik}c_{kj} = \sum_{k=1}^n\left(\sum_{m=1}^n a_{im}b_{mk}\right)c_{kj} $$
+$$= \sum_{k=1}^n\sum_{m=1}^n a_{im}b_{mk}c_{kj} = \sum_{m=1}^na_{im}\left(\sum_{k=1}^n b_{mk}c_{kj}\right)$$
+$$= \sum_{m=1}^na_{im}(BC)_{mj} = (A(BC))_{ij}$$
+So multiplication is associative on $GL(\mathbb{R})$.
+
+Note that $I \in GL(\mathbb{R})$, and $AI = IA = A$, so $GL(\mathbb{R})$ contains the identity matrix.
+
+Since $\det A \neq 0$, then $A$ is invertible. Necessarily, $\det A^{-1} \neq 0$, and $AA^{-1} = A^{-1}A = I$, so $A$ has an inverse. 
+
+Thus, $GL(\mathbb{R})$ is a group.
+\item[(b)]
+Let $X, Y, Z \in S_n$. Then for some $a, b, c \in 1...n$, $(XY)(a) = X(Y(a)) = X(b) = c$. So we have a law of composition of $S_n$.
+
+Further,
+$$((XY)Z)(a) = (XYZ)(a) = (X(YZ))(a)$$
+So the law of composition is associative.
+
+Note that $i \in S_n$, and $(Xi)(a) = X(i(a)) = X(a) = b$, and $(iX)(a) = i(X(a)) = i(b) = b$. so $S_n$ contains the identity permutation.
+
+Suppose $X$ is a permutation such that $X(a) = b, X(b) = c$. Then there exists a permutation $Y$ such that $Y(b) = a, Y(c) = b$. So then $(XY)(b) = X(Y(b)) = X(a) = b$, and $(YX)(b) = Y(X(b)) = Y(c) = b$. Thus $X$ is invertible, and its inverse is $Y$.
+\end{itemize}
+\item[(3)]
+Let $T = \left\lbrace s \in S | \text{\emph{s} is invertible} \right\rbrace$. Note that $I \in T$, since $II = I$. Let $t \in T$. $t$ is invertible, and has inverse $w$. Since $tw = I$, and $wt = I$, then $w$ is also invertible with inverse $t$. Thus, $w \in T$. Thus, since $T$ has an associative law of composition and the identity, then $T$ is a group.
+\item[(4)]
+$$xyz^{-1}w = 1 \rightarrow yz^{-1}w = x^{-1} \rightarrow yz^{-1} = x^{-1}w^{-1} \rightarrow y = x^{-1}w^{-1}z$$
+\item[(5)]
+$$xyz = 1 \rightarrow yz = x^{-1} \rightarrow yzx = 1$$
+It does not follow that $yxz = 1$. Let $a = x, b = y, c = xy$. Then $abc = 1$. But $bac = yxxy = yx^2y = yyx = y^2x = x \neq 1$.
+\item[(6)]
+$$(abcd), a(bcd), (abc)d, (ab)(cd), (ab)cd, a(bc)d, ab(cd), abcd$$
+\item[(7)]
+Let $a, b, c \in S$. Then
+$$(ab)c = ac = a = ab = a(bc)$$
+Thus, the law of composition is associative.
+\item[(8)]
+Let $$A = \begin{bmatrix}
+0 & 1 \\
+1 & 0
+\end{bmatrix}, B = \begin{bmatrix}
+1 & 1 \\
+0 & 0
+\end{bmatrix}$$
+Note that
+$$A^{-1} = \begin{bmatrix}
+0 & 1 \\
+1 & 0
+\end{bmatrix}$$
+So
+$$A^{-1}B = \begin{bmatrix}
+0 & 0 \\
+1 & 1
+\end{bmatrix}$$
+But
+$$BA^{-1} = \begin{bmatrix}
+1 & 1 \\
+0 & 0
+\end{bmatrix}$$
+So $A^{-1}B \neq BA^{-1}$
+\item[(9)]
+$$ab = a \rightarrow a^{-1}ab = a^{-1}a \rightarrow b = 1$$
+$$ab = 1 \rightarrow a^{-1}ab = a^{-1} \rightarrow b = a^{-1}$$
+\item[(10)]
+$$ax = b \rightarrow x = a^{-1}b$$
+Since $a, b$ are distinct elements, then $x$ is unique.
+\item[(11)]
+Let $a, b, c \in G^\circ$. Since $a \circ b = ba \in G$, then $\circ$ is a law of composition in $G$. And,
+$$(a \circ b) \circ c = (ba) \circ c = cba = (cb)a = a \circ (cb) = a \circ (b \circ c)$$
+So $\circ$ is associative.
+
+Since $I \in G$, then $a \circ I = Ia = a = aI = I \circ a$, so $I \in G^\circ$.
+
+Let $a^{-1}$ be the inverse of $a$ in $G$. Then
+$$a \circ a^{-1} = a^{-1}a = I = aa^{-1} = a^{-1} \circ a$$
+
+So therefore $a$ has an inverse in $G^\circ$, namely $a^{-1}$. Thus $G^\circ$ is a group.
+\end{itemize}
+\end{document}
