@@ -1,0 +1,242 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb}
+\begin{document}
+\title{Chapter 2: Groups \\ Section 3: Isomorphisms}
+\author{Alec Mouri}
+
+\maketitle
+\section*{Exercises}
+\begin{itemize}
+\item[(1)]
+Let $\varphi(x) = 2^x$. Then for $a, b \in \mathbb{R}^+$, $\varphi(a + b) = 2^{a + b} = 2^a2^b = \varphi(a)\varphi(b)$. Since $2^x > 0$ for all $x$, then $\varphi$ is injective. And, $\log_2(2^x) = x$, so $\varphi$ is surjective, and is therefore bijective. So, $\varphi$ is an isomorphism from $\mathbb{R}^+$ to $P$. Thus, $\mathbb{R}^+$ and $P$ are isomorphic.
+\item[(2)]
+$a(ba)a^{-1} = ab$, so $ab$ and $ba$ are conjugate elements.
+\item[(3)]
+Suppose $a = a'$. Then
+$$a = bab^{-1} \rightarrow ab = ba$$
+Now suppose $ab = ba$. Then
+$$ab = ba \rightarrow b^{-1}ab = a \rightarrow a = a'$$
+\item[(4)]
+\begin{itemize}
+\item[(a)]
+Suppose for $n - 1 \geq 1$, $b'^{n-1} = ab^{n-1}a^{-1}$. Then 
+$$b'^n = (aba^{-1})^n = aba^{-1}(aba^{-1})^{n-1} = aba^{-1}ab^{n-1}a^{-1} = ab^na^{-1}$$
+If $n = 0$, Then $ab^0a^{-1} = 1 = b'^0$.
+
+If $n \leq -1$, then
+$$b'^n = (b^{-n})^{-1} = (ab^{-n}a^{-1})^{-1} = ab^{n}a^{-1}$$
+\item[(b)]
+Note that $ab = b^2a$. Then
+$$a^3ba^{-3} = a^2b^2a^{-2} = ab^2aba^{-2} = ab^4a^{-1} = b^8$$
+\end{itemize}
+\item[(5)]
+Since $\varphi$ is a bijection, then $\varphi^{-1}$ is also a bijection. And, for $c, d \in G'$, then for some $a, b \in G$, $\varphi(a) = c$ and $\varphi(b) = d$. Then 
+$$\varphi^{-1}(cd) = \varphi^{-1}(\varphi(a)\varphi(b)) = \varphi^{-1}(\varphi(ab)) = ab = \varphi^{-1}(c)\varphi^{-1}(d)$$
+Thus, $\varphi^{-1}$ is an isomorphism.
+\item[(6)]
+\begin{itemize}
+\item[(a)]
+Let $n, m$ be the orders of $x$ and $x'$ respectively. Then
+$$1 = \varphi(1) = \varphi(x^n) = \varphi(x)^n = x'^n$$
+So $m \leq n$. But
+$$1 = x'^m = \varphi(x)^m = \varphi(x^m) \rightarrow x^m = 1$$
+So, $n \leq m$. Therefore, $n = m$.
+\item[(b)]
+$$x'y'x' = \varphi(x)\varphi(y)\varphi(x) = \varphi(xyx) = \varphi(yxy)$$
+$$= \varphi(y)\varphi(x)\varphi(y) = y'x'y'$$
+\item[(c)]
+Since
+$$1 = \varphi(1) = \varphi(xx^{-1}) = \varphi(x)\varphi(x^{-1})$$
+Then
+$$\varphi(x^{-1}) = \varphi(x)^{-1} = x'^{-1}$$
+\end{itemize}
+\item[(7)]
+Note that
+$$\begin{bmatrix}
+& 1 \\
+1 &
+\end{bmatrix}\begin{bmatrix}
+1 & 1 \\
+& 1
+\end{bmatrix}\begin{bmatrix}
+& 1 \\
+1 &
+\end{bmatrix} = \begin{bmatrix}
+& 1 \\
+1
+\end{bmatrix}\begin{bmatrix}
+1 & 1 \\
+1
+\end{bmatrix} = \begin{bmatrix}
+1 \\
+1 & 1
+\end{bmatrix}$$
+Thus,
+$$\begin{bmatrix}
+1 & 1 \\
+& 1
+\end{bmatrix}\begin{bmatrix}
+1 \\
+1 & 1
+\end{bmatrix}$$
+are conjugate elements in $GL_2(\mathbb{R})$.
+Now, let
+$$A = \begin{bmatrix}
+a & b \\
+c & d
+\end{bmatrix} \in SL_2(\mathbb{R})$$
+Then
+$$A^{-1} = \begin{bmatrix}
+d & -b \\
+-c & a
+\end{bmatrix}$$
+So if the two matrices are conjugate, then now we have
+$$\begin{bmatrix}
+1 & \\
+1 & 1
+\end{bmatrix} = \begin{bmatrix}
+a & b \\
+c & d
+\end{bmatrix}\begin{bmatrix}
+1 & 1 \\
+& 1
+\end{bmatrix}\begin{bmatrix}
+d & -b \\
+-c & a
+\end{bmatrix}$$ 
+$$= \begin{bmatrix}
+a & b \\
+c & d
+\end{bmatrix}\begin{bmatrix}
+d - c & a - b \\
+-c & a
+\end{bmatrix} = \begin{bmatrix}
+ad - ac - bc & a^2 \\
+-c^2 & ac + ad - bc
+\end{bmatrix} $$
+$$= \begin{bmatrix}
+-ac & a^2 \\
+-c^2 & ac
+\end{bmatrix}$$
+So, we have $1 = ac$ and $a^2 = 0$. So $a = 0$. But then we have $1 = 0$, a contradiction. Thus, they are not conjugate in the group $SL_n(\mathbb{R})$.
+\item[(8)]
+Let
+$$A = \begin{bmatrix}
+1 & 3 \\
+& 1
+\end{bmatrix}, A^{-1} = \begin{bmatrix}
+1 & -3 \\
+& 1
+\end{bmatrix}$$
+Then
+$$\begin{bmatrix}
+1 & 3 \\
+& 1
+\end{bmatrix}\begin{bmatrix}
+1 \\
+& 2
+\end{bmatrix}\begin{bmatrix}
+1 & -3 \\
+& 1
+\end{bmatrix} = \begin{bmatrix}
+1 & 3 \\
+& 1
+\end{bmatrix}\begin{bmatrix}
+1 & -3 \\
+& 2
+\end{bmatrix} = \begin{bmatrix}
+1 & 3 \\
+& 2
+\end{bmatrix}$$
+So,
+$$\begin{bmatrix}
+1 \\
+& 2
+\end{bmatrix}, \begin{bmatrix}
+1 & 3 \\
+& 2
+\end{bmatrix}$$
+are conjugate elements in $GL_2(\mathbb{R})$.
+\item[(9)]
+Denote $\cdot$ to be the group operation of $G^0$. Consider $\varphi(x) = x^{-1}$. Since $x = \varphi(x)^{-1}$, then $\varphi$ is a bijection. Then for $a, b \in G$,
+$$\varphi(ab) = (ab^{-1}) = b^{-1}a^{-1} = a^{-1} \cdot b^{-1} = \varphi(a) \cdot \varphi(b)$$
+Thus, $\varphi$ is an isomorphism between $G$ and $G^0$.
+\item[(10)]
+Denote $\varphi(A) = (A^\top)^{-1}$. Since 
+$$\varphi(A^\top)^{-1}) = (((A^\top)^{-1})^\top)^{-1} = (((A^\top)^{-1})^{-1})^\top = A$$
+Then $\varphi$ is a bijection. Then for $A, B \in GL_n(\mathbb{R})$,
+$$\varphi(AB) = ((AB)^\top)^{-1} = (B^\top A^\top)^{-1} = (A^\top)^{-1}(B^\top)^{-1} = \varphi(A)\varphi(B)$$
+Thus, $\varphi$ is an automorphism of $GL_n(\mathbb{R})$.
+\item[(11)]
+Consider $\varphi, \tau \in \text{Aut }G$. Let $a, b \in G$. Then
+$$(\varphi \circ \tau)(ab) \varphi(\tau(a)\tau(b)) = \varphi(\tau(a))\varphi(\tau(b)) = (\varphi \circ \tau)(a)(\varphi \circ \tau)(b)$$
+Furthermore, $\varphi^{-1}$ and $\tau^{-1}$ exist since $\varphi$ and $\tau$ are bijections. Then $((\tau^{-1} \circ \varphi^{-1}) \circ (\varphi \circ \tau))(a) = a$, so $\varphi \circ \tau$ is a bijection. Therefore, function composition is a law of composition of $\text{Aut }G$. Further, function composition is associative. 
+
+Let $e$ be the trivial automorphism, ie. $e(a) = a$. Note that $\varphi \circ e = e \circ \varphi$. So, $e$ is the identity automorphism.
+
+Further, $\varphi \circ \varphi^{-1} = \varphi^{-1} \circ \varphi = e$. so $\text{Aut }G$ is closed under inverses, and is therefore a group.
+\item[(12)]
+\begin{itemize}
+\item[(a)]
+$\varphi(x^{-1} = x$, so $\varphi$ is bijective.
+\item[(b)]
+Suppose $\varphi$ is an automorphism. Then for $x, y \in G$, then
+$$y^{-1}x^{-1} = \varphi(xy) = \varphi(x)\varphi(y) = x^{-1}y^{-1} \rightarrow xy = yx$$
+So, $G$ is abelian.
+
+Now suppose $G$ is abelian. Then
+$$\varphi(xy) = (xy)^{-1} = (yx)^{-1} = x^{-1}y^{-1} = \varphi(x)\varphi(y)$$
+So, $\varphi$ is an automorphism.
+\end{itemize}
+\item[(13)]
+\begin{itemize}
+\item[(a)]
+Suppose for some $a \in G$, that $a^n = 1$, where $n > 4$. Then $1, a, a^2, a^3, a^4$ are all distinct (if $a^i = a^j$ for some $i, j$, $n > j > i$, then $a^{j - i} = 1$, so $|a| < n$). So, $|G| \geq 5$, a contradiction. Thus, $n \leq 4$. Suppose $n = 3$. Then for some $b \in G$, $1 \neq a \neq a^2 \neq b$. Consider the product $ab$. If $ab = b$, then $a = 1$, a contradiction. For $i = 1,2$, if $ab = a^i$, then $b = a^{i - 1}$, a contradiction. And, if $ab = 1$, then $b = a^{-1} = a^2$, a contradiction. Therefore, $ab \not \in G$, so therefore if $G$ has order 4, then no element can have order 3.
+\item[(b)]
+\begin{itemize}
+\item[(i)]
+Consider $a \in G$, where $|a| = 4$. Then $1, a, a^2, a^3$ are distinct. Since $|G| = 4$, then $a$ generates $G$, so $G$ is a cyclic group of order 4.
+\item[(ii)]
+Consider $a \in G$. If $a^1 = 1$, then $a = 1$. If $a^2 = 1$, then $a = a^{-1}$. So, the elements of $G$ are their own inverses.
+\end{itemize}
+\end{itemize}
+\item[(14)]
+\begin{itemize}
+\item[(a)]
+Let $\varphi$ be an automorphism of $\mathbb{Z}^+$. Note that for $n \in \mathbb{Z}^+$,
+$$\varphi(n) = \varphi(n1) = n\varphi(1)$$
+So, if $\varphi(1) = a$, then $an = \varphi(n)$, ie. $\varphi$ is determined by the mapping $1 \mapsto a$. Furthermore, since $\varphi^{-1}(n) = \frac{n}{a}$, then $\frac{1}{a}$, then for all $n$, $a$ divides $n$. Thus, $a = 1, -1$. So, $\varphi$ is the mapping determined by $1 \mapsto \left\lbrace -1, 1 \right\rbrace$.
+\item[(b)]
+Let $G$ be a cyclic group of order 10 generated by $g$. For an automorphism $\varphi$ of $G$ and $x \in G$, then $|x| = |\varphi(x)|$. So, $g$ maps to one of $g, g^3, g^7, g^9$. Then for all $i$, $\varphi(g^i) = \varphi(g)^i = g^{ik}$, where $k = 1, 3, 7, 9$. For $i, j$, if $g^{ik} = g^{jk}$, then $g^{k(j - i)} = 1$. Then $j = i$, so therefore each $g^{ik}$ is distinct. Thus, $\varphi$ is the mapping determined by $g \mapsto \left\lbrace g, g^3, g^7, g^9 \right\rbrace$.
+\item[(c)]
+Let
+$$x = \begin{bmatrix}
+& 1 \\
+& & 1 \\
+1
+\end{bmatrix}, y = \begin{bmatrix}
+& 1 \\
+1 \\
+& & 1
+\end{bmatrix}$$
+Let $\varphi$ be an automorphism of $S_3$. Then for $0 \leq i \leq 2,  0\leq j \leq 1$, 
+$$\varphi(x^iy^j) = \varphi(x)^i\varphi(y)^j$$
+Ie. $\varphi$ is determined by $\varphi(x)$ and $\varphi(y)$. Since $|x| = |x^2|$ and $|y| = |xy| = |x^2y|$, then $x$ maps to one of $x, x^2$, and $y$ maps to one of $y, xy, x^2y$. Thus, $\varphi$ is the mapping determined by $x \mapsto \left\lbrace x, x^2 \right\rbrace$ and $y \mapsto \left\lbrace y, xy, x^2y \right\rbrace$.
+\end{itemize}
+\item[(15)]
+First, denote $e(x) = x$. Note that for some function $f$, $e(f(x)) = f(x) = f(e(x))$, so $e(x)$ is an identity function. Further,
+$$f^2(x) = \frac{1}{\frac{1}{x}} = x = e(x)$$
+$$g^2(x) = \frac{\frac{x-1}{x} - 1}{\frac{x-1}{x}} = \frac{x- 1 - x}{x - 1} = \frac{-1}{x-1}$$
+$$g^3(x) = \frac{\frac{-1}{x-1}-1}{\frac{-1}{x-1}} = \frac{-1 - (x-1)}{-1} = x = e(x)$$
+$$(g \circ f)(x) = \frac{\frac{1}{x} - 1}{\frac{1}{x}} = \frac{1 - x}{x}$$
+$$(g^2 \circ f)(x) = \frac{-1}{\frac{1}{x} - 1} = \frac{-x}{1 - x}$$
+$$(f \circ g)(x) = \frac{1}{\frac{x-1}{x}} = \frac{x}{x-1} = (g^2 \circ f)(x)$$
+So, $f$ has order 2 and $g$ has order 3. So, we can write any composition of functions as $g^if^j$, where $0 \leq i \leq 2, 0 \leq j \leq 1$. Define $\varphi$ such that $\varphi(f) = y$ and $\varphi(g) = x$ and $\varphi(g^if^j) = x^iy^j$. Since $\varphi^{-1}(x^iy^j) = g^if^j$, then $\varphi$ is a bijection. Then let $(g^af^b)(g^cf^d) = g^mf^n$, so then $(x^ay^b)(x^ay^b) = x^my^n$. Then $$\varphi((g^af^b)(g^cf^d)) = \varphi(g^mf^n) = x^my^n = (x^ay^b)(x^cy^d) = \varphi(g^af^b)\varphi(g^cf^d)$$
+So $f$ and $g$ generates a group $G$ where $G$ is isomorphic to $S_3$.
+\item[(16)]
+Consider groups $G$ and $S_3$ from the previous exercise. Consider $\tau(f) = x^2y$ and $\tau(g) = x$, and $\tau(g^if^j) = x^i(x^2y)^j$. If $j = 0$, then $\tau(g^i) = x^i$. If $j = 1$, then $\tau(g^if) = x^ix^2y = x^{i+2}y$. Since $\tau^{-1}(x^iy^j)$, then $g^if^j$, then $\tau$ is a bijection. Let $(g^af^b)(g^cf^d) = g^mf^n$, so then $(x^a(x^2y)^b)(x^a(x^2y)^b) = x^m(x^2y)^n$. Then
+$$\tau((g^af^b)(g^cf^d)) = \tau(g^mf^n) = x^m(x^2y)^n$$
+$$= (x^a(x^2y)^b)(x^a(x^2y)^b) = \tau(g^af^b)(g^cf^d)$$
+So, $\tau$ is an isomorphism. But, $\varphi(f) = y$, but $\tau(f) = x^2y$. So, $\varphi \neq \tau$. So, there is more than one isomorphism between $f$ and $g$.
+\end{itemize}
+\end{document}
