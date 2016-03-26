@@ -1,0 +1,491 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb}
+\begin{document}
+\title{Chapter 2: Groups \\ Section 4: Homomorphisms}
+\author{Alec Mouri}
+
+\maketitle
+\section*{Exercises}
+\begin{itemize}
+\item[(1)]
+For $x, y \in G$, then for $u, v \in H$ such that $\varphi(x) = u$ and $\varphi(y) = v$, then $\varphi(x \# y) = u \circ v = \varphi(x) \circ \varphi(y)$, so $\varphi$ is a homomorphism.
+\item[(2)] Let $k = 2$. Then clearly $\varphi(a_1a_2) = \varphi(a_1)\varphi(a_2)$. Suppose for $k = n - 1$, $\varphi(a_1...a_k) = \varphi(a_1)...\varphi(a_k)$, Then, for $k = n$,
+$$\varphi(a_1...a_{n-1}a_n) = \varphi((a_1...a_{n-1})a_n) = \varphi(a_1...a_{n-1})\varphi(a_n) = \varphi(a_1)...\varphi(a_n)$$
+\item[(3)]
+Let $\varphi: G \rightarrow G'$ by a homomorphism.
+
+Let $K$ be the kernel of $\varphi$. So for $a \in G$, $\varphi(a) = 1$. Let $a, b \in G$, then $\varphi(ab) = \varphi(a)\varphi(b) = 1$, so $ab \in G$. And $\varphi(1) = 1$ so $1 \in G$. And, $\varphi(a^{-1}) = \varphi(a)^{-1} = 1^{-1} = $, so $a^{-1} \in G$. Thus, $K$ is a subgroup.
+
+Let $I$ be the image of $\varphi$. So for $x \in G'$, then for some $a \in G$, $\varphi(a) = x$. Let $x, y \in G'$, where $\varphi(a) = x, \varphi(b) = y$. Then $\varphi(ab) = \varphi(a)\varphi(b) = xy$, so $xy \in I$. And, $\varphi(1) = 1$, so $1 \in I$. And, $\varphi(a^{-1}) = \varphi(a)^{-1} = x^{-1}$, so $x^{-1}$, then $x^{-1} \in I$. Thus, $I$ is a subgroup.
+\item[(4)] Let $a, b \in \mathbb{Z}$. Then for a homomorphism $\varphi$, then $\varphi(a+b) = \varphi(a) + \varphi(b)$. And, $\varphi(a) = a\varphi(1)$ if $a >0$, and $\varphi(a) = (-a)\varphi(-1) = a\varphi(1)$ if $a < 0$. So, $\varphi(a) = a\varphi(1)$.
+
+Suppose $\varphi(1) \rightarrow 0$. Since $\varphi(a) = 0$ for all $a$, then $\varphi$ is neither subjective nor injective.
+
+Suppose $\varphi(1) \rightarrow n$, for $n \neq 0$. Then for $a \neq b$, then $\varphi(a) = a\varphi(1) \neq b\varphi(1) = \varphi(b)$. So, $\varphi$ is injective.
+
+Suppose $\varphi(1) \rightarrow k$, where $k = 1$ or $-1$. Then $\varphi(a) = a\varphi(1) = a$, or $\varphi(a) = -a$, ie. $\varphi(a) = ka$. Define $\varphi^2(a) = a$. So, $\varphi$ is surjective.
+
+Suppose $k > |1|$. Then, $\varphi(1) = k$. But, there is no inverse map such that $\varphi^{-1}(k) = 1$. Thus, $\varphi$ is not surjective.
+\item[(5)]
+For $a, b \in G$, then
+$$\varphi(ab) = (ab)^n = a^nb^n = \varphi(a)\varphi(b)$$
+So, $\varphi$ is a homomorphism.
+\item[(6)]
+For $a, b \in \mathbb{R}$, then
+$$f(a+b) = e^{i(a+b)} = e^{ia}e^{ib} = f(a)f(b)$$
+So, $f$ is a homomorphism. 
+
+Let $K$ be the kernel of $f$. For $x \in K$, then $0 = f(x) = e^{ix}$. But since there is no such $x$, then $K = \emptyset$.
+
+Let $I$ be the image of $f$. For $y \in I$, then $y = e^{ix}$ for some $x$. Since $e^{i2\pi} = e^0$, then $I = \left\lbrace e^{ix}, 0 \leq x < 2\pi \right\rbrace$. 
+\item[(7)]
+Let $a + bi, c + di \in \mathbb{R}^\times$. Then
+$$|(a+bi)(c+di)| = |ac - bd + (ad + bc)i| = \sqrt{(ac-bd)^2 + (ad+bc)^2}$$
+$$= \sqrt{a^2c^2 - 2abcd + b^2d^2 + a^2d^2 + 2abcd + b^2c^2}$$ 
+$$= \sqrt{a^2(c^2 + d^2) + b^2(c^2 + d^2)} = \sqrt{a^2+b^2}\sqrt{c^2+d^2} = |a+bi||c+di|$$
+Thus, the absolute value map is a homomorphism.
+
+Let $K$ be the kernel of the map. For $x \in K$, then $0 = |a + bi| = \sqrt{a^2 + b^2} \rightarrow a = b = 0$. So, $K = \left\lbrace 0 \right\rbrace$.
+
+Let $I$ be the image of the map. For $y \in I$, then $y = \sqrt{a^2 + b^2}$ for $a + bi \in \mathbb{C}$. Clearly, $y \geq 0$. So, $I = \left\lbrace x, x \geq 0 \right\rbrace$.
+\item[(8)]
+\begin{itemize}
+\item[(a)]
+$$\left\lbrace \begin{bmatrix}
+1 \\
+& 1 \\
+& & 1
+\end{bmatrix} \right\rbrace, \left\lbrace \begin{bmatrix}
+1 \\
+& 1 \\
+& & 1
+\end{bmatrix}, \begin{bmatrix}
+& 1 \\
+1 \\
+& & 1
+\end{bmatrix} \right\rbrace,$$
+$$\left\lbrace \begin{bmatrix}
+1 \\
+& 1 \\
+& & 1
+\end{bmatrix}, \begin{bmatrix}
+& & 1 \\
+& 1 \\
+1
+\end{bmatrix} \right\rbrace, \left\lbrace \begin{bmatrix}
+1 \\
+& 1 \\
+& & 1
+\end{bmatrix}, \begin{bmatrix}
+1 \\
+& & 1 \\
+& 1
+\end{bmatrix} \right\rbrace,$$
+$$\left\lbrace \begin{bmatrix}
+1 \\
+& 1 \\
+& & 1
+\end{bmatrix}, \begin{bmatrix}
+& 1 \\
+& & 1 \\
+1
+\end{bmatrix}, \begin{bmatrix}
+& & 1 \\
+1 \\
+& 1
+\end{bmatrix} \right\rbrace,$$
+$$\left\lbrace \begin{bmatrix}
+1 \\
+& 1 \\
+& & 1
+\end{bmatrix}, \begin{bmatrix}
+& 1 \\
+& & 1 \\
+1
+\end{bmatrix}, \begin{bmatrix}
+& & 1 \\
+1 \\
+& 1
+\end{bmatrix}, \right.$$
+$$\left.\begin{bmatrix}
+& 1 \\
+1 \\
+& & 1
+\end{bmatrix}, \begin{bmatrix}
+& & 1 \\
+& 1 \\
+1
+\end{bmatrix}, \begin{bmatrix}
+1 \\
+& & 1 \\
+& 1
+\end{bmatrix} \right\rbrace$$
+Since
+$$\begin{bmatrix}
+& 1 \\
+& & 1 \\
+1
+\end{bmatrix}\begin{bmatrix}
+& 1 \\
+1 \\
+& & 1
+\end{bmatrix}\begin{bmatrix}
+& & 1 \\
+1 \\
+& 1
+\end{bmatrix}$$
+$$= \begin{bmatrix}
+& 1 \\
+& & 1 \\
+1
+\end{bmatrix}\begin{bmatrix}
+1 \\
+& & 1 \\
+& 1
+\end{bmatrix} = \begin{bmatrix}
+& & 1 \\
+& 1 \\
+1
+\end{bmatrix}$$
+Then
+$$\left\lbrace \begin{bmatrix}
+1 \\
+& 1 \\
+& & 1
+\end{bmatrix}, \begin{bmatrix}
+& 1 \\
+1 \\
+& & 1
+\end{bmatrix} \right\rbrace$$
+is not normal. Similarly, once can show that 
+$$\left\lbrace \begin{bmatrix}
+1 \\
+& 1 \\
+& & 1
+\end{bmatrix}, \begin{bmatrix}
+& & 1 \\
+& 1 \\
+1
+\end{bmatrix} \right\rbrace, \left\lbrace \begin{bmatrix}
+1 \\
+& 1 \\
+& & 1
+\end{bmatrix}, \begin{bmatrix}
+1 \\
+& & 1 \\
+& 1
+\end{bmatrix} \right\rbrace$$
+are also not normal. Furthermore,
+$$A_3 = \left\lbrace \begin{bmatrix}
+1 \\
+& 1 \\
+& & 1
+\end{bmatrix}, \begin{bmatrix}
+& 1 \\
+& & 1 \\
+1
+\end{bmatrix}, \begin{bmatrix}
+& & 1 \\
+1 \\
+& 1
+\end{bmatrix} \right\rbrace$$
+is a normal subgroup of $S_3$, since $A_3$ is the kernel of the sign homomorphism. Thus, $\left\lbrace I \right\rbrace$, $A_3$, $S_3$ are the normal subgroups of $S_3$.
+\item[(b)]
+$$\left\lbrace 1 \right\rbrace, \left\lbrace 1, -1 \right\rbrace, \left\lbrace 1, i, -1, -i \right\rbrace, \left\lbrace 1, j, -1, -j \right\rbrace, \left\lbrace 1, k, -1, -k \right\rbrace,$$
+$$\left\lbrace 1, -1, i, -i, j, -j, k, -k \right\rbrace$$
+Since $\left\lbrace 1, -1 \right\rbrace$ is the center of the quaternion group, it is also a normal subgroup. Further,
+$$(-j)i(j) = -(jij) = -(jk) = i$$
+$$= (j)i(-j) = (k)(-i)(-k) = (-k)(-i)(k)$$
+And
+$$(-k)i(k) = -(kik) = kj = -i$$
+$$= (k)i(-k) = (j)(-i)(-j) = (-j)(-i)(j)$$
+Thus $\left\lbrace 1, i, -1, i \right\rbrace$ is normal. Similarly, $\left\lbrace 1, j, -1, -j \right\rbrace$ and $\left\lbrace 1, k , -1, -k \right\rbrace$ are normal. Thus all subgroups of the quaternion group are normal.
+\end{itemize}
+\item[(9)]
+\begin{itemize}
+\item[(a)]
+$$(\varphi \circ \psi)(ab) = \varphi(\psi(ab)) = \varphi(\psi(a)\psi(b))$$
+$$= \varphi(\psi(a))\varphi(\psi(b)) = (\varphi \circ \psi)(a)(\varphi \circ \psi)(b)$$
+\item[(b)]
+Let $K_\psi$ be the kernel of $\psi$. For $a \in K_\psi$, then $\varphi(\psi(a)) = \varphi(1) = 1$. So, $K_\psi \subseteq K$, where $K$ is the kernel of $\varphi \circ \psi$. 
+
+In general, $a \in K$ if $\psi(a) \in K_\varphi$, where $K_\varphi$ is the kernel of $\varphi$. 
+\end{itemize}
+\item[(10)]
+Suppose $\varphi(x) = \varphi(y)$. Then 
+$$\varphi(xy^{-1}) = \varphi(x)\varphi(y^{-1}) = varphi(x)\varphi(y)^{-1} = \varphi(x)\varphi(x)^{-1} = 1$$
+Thus, $xy^{-1} \in \text{ker }\varphi$
+
+Suppose $xy^{-1} \in \text{ker }\varphi$. Then
+$$1 = \varphi(xy^{-1}) = \varphi(x)\varphi(y^{-1}) = \varphi(x)\varphi(y)^{-1} \rightarrow \varphi(y) = \varphi(x)$$
+\item[(11)]
+For all $i$, $\varphi(x^i) = y^i$. If $i = m$, then $\varphi(x^m) = \varphi(1) = 1$. Since $y^m = n$, then, $n$ divides $m$.
+\item[(12)]
+Let
+$$X = \begin{bmatrix}
+A & B \\
+0 & D
+\end{bmatrix}, X' = \begin{bmatrix}
+A' & B' \\
+0 & D'
+\end{bmatrix}$$
+Observe that $\det X = (\det A)(\det D) \neq 0$, so $X \in GL_r(\mathbb{R})$. And,
+$$XX' = \begin{bmatrix}
+A & B \\
+0 & D
+\end{bmatrix}\begin{bmatrix}
+A' & B' \\
+0 & D'
+\end{bmatrix} = \begin{bmatrix}
+AA' & AB' + BD' \\
+0 & DD'
+\end{bmatrix}$$
+Since $AA' \in GL_r(\mathbb{R})$ and $DD' \in GL_{n-r}(\mathbb{R})$, then $XX' \in P$.
+
+Furthermore, trivially $I \in P$. And, let
+$$X^{-1} = \begin{bmatrix}
+A^{-1} & -A^{-1}BD^{-1}\\
+0 & D^{-1}
+\end{bmatrix}$$
+Then
+$$XX^{-1} = \begin{bmatrix}
+A & B \\
+0 & D
+\end{bmatrix}\begin{bmatrix}
+A^{-1} & -A^{-1}BD^{-1}\\
+0 & D^{-1}
+\end{bmatrix}$$
+$$= \begin{bmatrix}
+AA^{-1} & -AA^{-1}BD^{-1} + BD^{-1} \\
+0 & DD^{-1} 
+\end{bmatrix} = \begin{bmatrix}
+I_r & 0 \\
+0 & I_{n-r}
+\end{bmatrix}$$
+And
+$$X^{-1}X = \begin{bmatrix}
+A^{-1} & -A^{-1}BD^{-1}\\
+0 & D^{-1}
+\end{bmatrix}\begin{bmatrix}
+A & B \\
+0 & D
+\end{bmatrix}$$
+$$= \begin{bmatrix}
+A^{-1}A & A^{-1}B - A^{-1}BD^{-1}D \\
+0 & D^{-1}D
+\end{bmatrix} = \begin{bmatrix}
+I_r & 0 \\
+0 & I_{n-r}
+\end{bmatrix}$$
+Thus, $X^{-1} \in P$. So, $P$ is a subgroup of $GL_n(\mathbb{R})$.
+Denote $\varphi$ to be the map sending $X$ to $A$. Then for $X, X' \in P$, then $\varphi(XX') = AA' = \varphi(X)\varphi(X')$. So, $\varphi$ is a homomorphism.
+
+The kernel of $P$ is all $X \in P$ such that $A = I_r$.
+\item[(13)]
+\begin{itemize}
+\item[(a)]
+Let
+$$a_1 = gh_1g^{-1}, a_2 = gh_2g^{-1}$$
+Then
+$$a_1a_2 = gh_1g^{-1}gh_2g^{-1} = gh_1h_2g^{-1}$$
+So, $a_1a_2 \in gHg^{-1}$. 
+
+Further, $g1g^{-1} = gg^{-1} = 1$, so $1 \in gHg^{-1}$. And, Let $a^{-1} = gh^{-1}g^{-1}$. Then, $aa^{-1} = ghg^{-1}gh^{-1}g^{-1} = ghh^{-1}g^{-1} = gg^{-1} = 1$, and $a^{-1}a = gh^{-1}g^{-1}ghg^{-1} = gh^{-1}hg^{-1} = gg^{-1} = 1$. Thus, $gHg^{-1}$ is a subgroup of $G$.
+\item[(b)]
+Suppose $H$ is normal. Then for all $g \in G$ and for $h \in H$, $ghg^{-1} \in H$. So, $gHg^{-1} \subseteq H$. And, let $a = ghg^{-1}$. Then $h = g^{-1}ag$, so $h \in gHg^{-1}$. Sp $H \subseteq gHg^{-1}$. Thus, $H = gHg^{-1}$.
+
+Suppose for all $g \in G$, $gHg^{-1} = H$. Then, for all $h \in H$, $ghg^{-1} \in H$. Then, $H$ is normal. 
+\end{itemize}
+\item[(14)]
+Let $a = g^{-1}$. Since $N$ is normal, then $g^{-1}ng = ana^{-1} \in N$
+\item[(15)]
+Let $x, y \in H$. Then $\varphi(xy) = \varphi(x)\varphi(y) = \psi(x)\psi(y) = \psi(xy)$. So, $xy \in H$. Further, since $1 = \varphi(1) = \psi(1)$, then $1 \in H$. And, $\varphi(x^{-1}) = \varphi(x)^{-1} = \psi(x)^{-1} = \psi(x^{-1})$. Then, $x^{-1} \in H$. So, $H$ is a subgroup of $G$.
+\item[(16)]
+Since $1 = \varphi(1) = \varphi(x^r) = \varphi(x)^r$, then the order of $\varphi(x)$ divides $r$.
+\item[(17)]
+Let $Z$ be the center of a group $G$. So for $z \in Z$, then for all $g \in G$, then $zg = gz \rightarrow gzg^{-1} = z \in Z$. So, $Z$ is a normal subgroup.
+\item[(18)]
+Since for all $A \in GL_n(\mathbb{R})$, $cIA = A(cI)$, then $Z \subseteq Z'$, where $Z'$ is the center of $GL_n(\mathbb{R})$. 
+
+Let $z \in Z'$, then $zA = Az \rightarrow (zA)_{ij} = (Az)_{ij} \rightarrow \sum_{x=1}^n z_{ix}A_{xj} = \sum_{y=1}^n A_{iy}z_{yj}$. For $x \neq i$, if $A_{xj} = 0$, and for all $y$, $A_{iy} = 0$, then if $x \neq i$, $z_{ix} = 0$. Similarly, $z_{xi} = 0$. But, if $A_{xj} = A_{iy} = 0$ for all $x \neq i, y \neq j$, then we have $z_{ii}A_{ij} = A_{ij}z_{jj} \rightarrow z_{ii} = z_{jj}$. Thus, $Z' \subseteq Z$. Therefore, $Z = Z'$.
+\item[(19)]
+Let $a$ be the single element of $G$ with order 2. Consider $a' = bab^{-1}$, where $b \in G$. Since $|a'| = |a| = 2$, then $a' = a$. So $a = bab^{-1} \rightarrow ab = ba$. So $a$ is in the center of the group.
+\item[(20)]
+\begin{itemize}
+\item[(a)]
+Let $A, B \in U$. Clearly, $\det A = \det B = 1$, so $A, B \in SL_3(\mathbb{R})$. And,
+$$AB = \begin{bmatrix}
+1 & * & * \\
+& 1 & * \\
+& & 1
+\end{bmatrix}\begin{bmatrix}
+1 & * & * \\
+& 1 & * \\
+& & 1
+\end{bmatrix} = \begin{bmatrix}
+1 & * & * \\
+& 1 & * \\
+& & 1
+\end{bmatrix}$$
+So $AB \in U$. Clearly also, $I \in U$, and let
+$$A = \begin{bmatrix}
+1 & a & b \\
+& 1 & c \\
+& & 1
+\end{bmatrix}$$
+Then
+$$A^{-1} = \begin{bmatrix}
+1 & -a & ac - b \\
+& 1 & -c \\
+& & 1
+\end{bmatrix}$$
+Since $AA^{-1} = A^{-1}A = I$, and $A^{-1} \in U$, then $U$ is a subgroup if $SL_3(\mathbb{R})$.
+\item[(b)]
+Consider
+$$B = \begin{bmatrix}
+1 \\
+1 & 1 \\
+1 & 1 & 1
+\end{bmatrix}$$
+Then
+$$B^{-1} = \begin{bmatrix}
+1 & \\
+-1 & 1 \\
+& -1 & 1
+\end{bmatrix}$$
+Let
+$$A = \begin{bmatrix}
+1 & 1 & 1 \\
+& 1 & 1 \\
+& & 1
+\end{bmatrix}$$
+Then
+$$BAB^{-1} = \begin{bmatrix}
+1 \\
+1 & 1 \\
+1 & 1 & 1
+\end{bmatrix}\begin{bmatrix}
+1 & 1 & 1 \\
+& 1 & 1 \\
+& & 1
+\end{bmatrix}\begin{bmatrix}
+1 & \\
+-1 & 1 \\
+& -1 & 1
+\end{bmatrix}$$
+$$= \begin{bmatrix}
+1 \\
+1 & 1 \\
+1 & 1 & 1
+\end{bmatrix}\begin{bmatrix}
+& & 1 \\
+-1 & & 1 \\
+& -1 & 1
+\end{bmatrix} = \begin{bmatrix}
+& & 1 \\
+-1 & & 2 \\
+-1 & -1 & 3
+\end{bmatrix}$$
+Since $BAB^{-1} \not \in U$, then $U$ is a normal subgroup of $SL_3(\mathbb{R})$.
+\item[(c)]
+Consider
+$$A = \begin{bmatrix}
+1 & a & b \\
+& 1 & c \\
+& & 1
+\end{bmatrix}, X = \begin{bmatrix}
+1 & d & e \\
+& 1 & f \\
+& & 1
+\end{bmatrix}$$
+If $A$ is in the center of $U$, then $AX = XA$. So
+$$\begin{bmatrix}
+1 & a & b \\
+& 1 & c \\
+& & 1
+\end{bmatrix}\begin{bmatrix}
+1 & d & e \\
+& 1 & f \\
+& & 1
+\end{bmatrix} = \begin{bmatrix}
+1 & d & e \\
+& 1 & f \\
+& & 1
+\end{bmatrix}\begin{bmatrix}
+1 & a & b \\
+& 1 & c \\
+& & 1
+\end{bmatrix}$$
+$$\rightarrow \begin{bmatrix}
+1 & a + d & b + e + af \\
+& 1 & c + f \\
+& & 1
+\end{bmatrix} = \begin{bmatrix}
+1 & a + d & b + e + cd \\
+& 1 & c + f \\
+& & 1
+\end{bmatrix}$$
+So $b + e + af = b + e + cd \rightarrow af = cd$. Since $f$ and $d$ are arbitrary, then $a = c = 0$. So the center of $U$ is matrices of the form:
+$$\begin{bmatrix}
+1 & & a \\
+& 1 \\
+& & 1
+\end{bmatrix}$$
+\end{itemize}
+\item[(21)]
+Consider 
+$$A = \begin{bmatrix}
+1 & 1 \\
+& 1
+\end{bmatrix}, B = \begin{bmatrix}
+1 \\
+i & 1
+\end{bmatrix}, B^{-1} = \begin{bmatrix}
+1 \\
+-i & 1
+\end{bmatrix}$$
+Then
+$$BAB^{-1} = \begin{bmatrix}
+1 \\
+i & 1
+\end{bmatrix}\begin{bmatrix}
+1 & 1 \\
+& 1
+\end{bmatrix}\begin{bmatrix}
+1 & \\
+-i & 1
+\end{bmatrix}$$
+$$= \begin{bmatrix}
+1 \\
+i & 1
+\end{bmatrix}\begin{bmatrix}
+1 - i & 1\\
+-i & 1
+\end{bmatrix} = \begin{bmatrix}
+1-i & 1 \\
+1 & i+1
+\end{bmatrix}$$
+Since $BAB^{-1} \not \in GL_2(\mathbb{R})$, then $GL_2(\mathbb{R})$ is not a normal subgroup of $GL_2(\mathbb{C})$.
+\item[(22)]
+\begin{itemize}
+\item[(a)]
+Suppose $x \in G$ generates $G$. Let $n$ be the order $x$. Then for $a = x^i \in G$, for some $i < n$,
+$$\varphi(a) = \varphi(x^i) = \varphi(x)^i$$
+Since $\varphi$ is surjective, then
+$$\left\lbrace 1, \varphi(x), \varphi(x)^2, ..., \varphi(x)^{n-1} \right\rbrace = G'$$
+Since $\varphi(x)^n = 1$, then the order of $\varphi(x)$ divides $n$. Let $m$ be the order of $\varphi(x)$. Then
+$$\left\lbrace 1, \varphi(x), \varphi(x)^2, ..., \varphi(x)^{m-1} \right\rbrace = G'$$
+So $G'$ is a cyclic group generated by $\varphi(x)$.
+\item[(b)]
+Let $a', b' \in G'$ such that $\varphi(a) = a', \varphi(b) = b'$ for $a, b \in G$ Then
+$$a'b' = \varphi(a)\varphi(b) = \varphi(ab) = \varphi(ba) = \varphi(b)\varphi(a) = b'a'$$
+Thus, $G'$ is abelian.
+\end{itemize}
+\item[(23)]
+Let $a, b \in N$ Let $c = ab \in N$. Then $\varphi(c) = \varphi(ab) = \varphi(a)\varphi(b)$. So, $\varphi(a)\varphi(b) \in N$. And, trivially $1 = \varphi(1) \in \varphi(N)$. And, $\varphi(a)^{-1} = \varphi(a^{-1}) \in \varphi(N)$. So, $\varphi(N)$ is a subgroup of $G'$.
+
+Let $a' = \varphi(a) \in \varphi(N)$. Then for $g' \in G'$ such that $\varphi(g) = g'$ where $c = gag^{-1}$ (so that $c \in N$ and $\varphi(c) \in \varphi(N)$), then
+$$\varphi(c) = \varphi(gag^{-1}) = g'a'g'^{-1}$$
+Thus, $\varphi(N)$ is a normal subgroup of $G'$.
+\end{itemize}
+\end{document}
