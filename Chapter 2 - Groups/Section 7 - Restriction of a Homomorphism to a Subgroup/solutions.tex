@@ -1,0 +1,58 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, graphicx}
+\begin{document}
+\title{Chapter 2: Groups \\ Section 7: Restriction of a Subgroup to a Homomorphism}
+\author{Alec Mouri}
+
+\maketitle
+\section*{Exercises}
+\begin{itemize}
+\item[(1)]
+$|\text{im }\varphi|$ divides both $G$ and $G'$, so since $|G|$ and $|G'|$ have no common factors, then $|\text{im }\varphi| = 1$. Since $\varphi(1) = 1$, then for all $x$, $\varphi(x) = 1$.
+\item[(2)] Consider $S_4$. Consider
+$$A = \begin{bmatrix}
+& 1 \\
+1 \\
+& & 1 \\
+& & & 1
+\end{bmatrix}, B = \begin{bmatrix}
+& 1 \\
+1 \\
+& & & 1 \\
+& & 1
+\end{bmatrix}$$
+Note that $A^2 = B^2 = I_4$, and $\det A = -1$ and $\det B = 1$.
+\item[(3)]
+\begin{itemize}
+\item[(a)]
+First, consider $H$ to be a nontrivial subgroup. Then for some $x, y$, $xH \neq yH$. Then $xH \cap yH = \emptyset$.
+
+Now consider arbitrary subgroups $H$ and $K$. Suppose $xH \cap yK$ is nonempty. Then there exists some $a \in xH \cap yK$, where for some $h \in H, k \in K$, $xh = yk$. So, $aH = xH$ and $aK = yK$. So $xH \cap yK = aH \cap aK$. So $z \in aH \cap aK \rightarrow z \in aH, aK \rightarrow a^{-1}z \in H \cap K \rightarrow z \in a(H \cap K)$.
+\item[(b)]
+Suppose $[G:H]$ and $[G:K]$ are finite. Then for $a \in G$, then $a(H \cap K) = aH \cap aK$. Since there are finite $aH$ and $aK$, then there is finite $aH \cap aK$. So $[G:H\cap K]$ is finite.
+\end{itemize}
+\item[(4)]
+Let $a, b \in K \cap H$. Then $ab \in H$, and $ab \in K$, so $ab \in K \cap H$. And, $1 \in K \cap H$. And, if $a \in K \cap H$, then $a \in K$ and $a \in H$, so $a^{-1} \in K$ and $a^{-1} \in H$, so $a^{-1} \in K \cap H$. So, $K \cap H$ is a subgroup of both $H$ and $K$.
+
+Suppose $K$ is a normal subgroup of $G$. Then for $g \in G, k \in K$, then $gkg^{-1} = k' \in K$. Consider $k' \in K \cap H$. Then for $a, h \in H$, $hk'h^{-1} \in H, K$. Thus, $H \cap K$ is a normal subgroup of $H$.
+\item[(5)]
+Let $x \in HN$. Then for $h \in H, n \in N$, $x = hn$. Suppose $hnh^{-1} = n'$, for some $n' \in N$. Then $n = h^{-1}n'h$, so $x = hh^{-1}n'h = n'h \rightarrow x \in NH$. So $HN \subseteq NH$. Similarly, $NH \subseteq HN$. So $HN = NH$. 
+
+Let $h_1n_1, h_2n_2 \in HN$. Then for some $n' \in N, h' \in H$, $h_1n_1h_2n_2 = h_1h'n'n_2 \in HN$. And, $1 \in HN$. And, let $hn \in HN$. Note that $n^{-1}h^{-1} \in HN$, and $hnn^{-1}h^{-1} = 1$, so $(hn)^{-1} \in HN$. So $HN$ is a subgroup.
+\item[(6)]
+Let $kh \in KH$. Then $\varphi(kh) = \varphi(k)\varphi(h)$, so $kh \in \varphi^{-1}(\varphi(H))$. And, let $x \in \varphi^{-1}(\varphi(H))$. Then for some $h \in H$, $\varphi(x) = \varphi(h)$. For $k \in K$, $\varphi(x) = \varphi(kh) \rightarrow x \in KH$. Thus $KH = \varphi^{-1}(\varphi(H))$.
+\item[(7)]
+Consider two subgroups $A$ and $B$ of order 5. Since 5 is prime, then $A \cap B$ is either 1 or 5. Suppose there are at least 8 such subgroups. Suppose for any two subgroups $A, B$, $|A \cap B| = 1$, ie. $A \cap B = \left\lbrace 1 \right\rbrace$. Then $30 = |G| \geq 8(4) + 1 = 33$. Contradiction. So for some $A, B$, $A = B$. So, we must have at most 7 distinct subgroups of order 5.
+\item[(8)]
+Let $A, B \in G$, where $A \neq B$, and $A$ and $B$ contain $N$ Suppose for sake of contradiction that $\varphi(A) = \varphi(B)$. Without loss of generality assume that there exists some $a \in A$, and $a \not \in B$, so $a \not \in N$. Then $\varphi(ab) = \varphi(a)\varphi(b) \in \varphi(B)$. Then, for some $b' \in B$, $\varphi(a)\varphi(b) = \varphi(b')$. If $b \in N$, then $\varphi(a) = \varphi(b')$, so $a \in B$. Otherwise, then $1 = \varphi(b'b^{-1}a^{-1}) \rightarrow b'b^{-1}a^{-1} \in N \rightarrow a \in B$. This is a contradiction. Thus, $\varphi(A) \neq \varphi(B)$, so $\varphi$ is injective on subgroups of $G$. 
+
+Consider $H' \leq G'$. For $h \in H'$, since $\varphi$ is surjective, then for some $g \in G$, $\varphi(g) = h$. Define $H = \left\lbrace g \in G : \varphi(g) \in H' \right\rbrace$. For $a, b \in H$, then $\varphi(ab) = \varphi(a)\varphi(b) \in H'$. And, $1 \in H$. And, $\varphi(a)^{-1} = \varphi(a^{-1}) \in H' \rightarrow a^{-1} \in H$. Thus, $H$ is a group. So $\varphi$ is surjective on subgroups of $G$.
+
+Thus, $\varphi$ is a bijective correspondence.
+
+Normal subgroups corresponding follows from Proposition 7.4.
+\item[(9)]
+$$G \leftrightarrow G', \left\lbrace 1, x^6 \right\rbrace \leftrightarrow \left\lbrace 1 \right\rbrace,$$
+$$\left\lbrace 1, x^3, x^6, x^9 \right\rbrace \leftrightarrow \left\lbrace 1, y^3 \right\rbrace, \left\lbrace 1, x^2, x^4, x^6, x^8, x^{10} \right\rbrace \leftrightarrow \left\lbrace 1, y^2, y^4 \right\rbrace$$
+\end{itemize}
+\end{document}
