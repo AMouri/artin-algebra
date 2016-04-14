@@ -1,0 +1,173 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\begin{document}
+\title{Chapter 2: Groups \\ Section 8: Products of Groups}
+\author{Alec Mouri}
+
+\maketitle`
+\section*{Exercises}
+\begin{itemize}
+\item[(1)]
+Let $(g, g') \in G \times G'$. There are $|G|$ possible values of $g$, and $|G'|$ possible values of $g'$. Then $|G \times G'| = |G||G'|$.
+\item[(2)]
+Consider $X = \left\lbrace 1, x, x^2 \right\rbrace$ and $Y = \left\lbrace 1, y \right\rbrace$. $X$ and $Y$ are nontrivial groups, and $S_3 = XY$.
+\item[(3)]
+Let $G$ be a finite cyclic group of order $rs$, and let $R$ and $S$ be cyclic groups of orders $r$ and $s$ respectively.
+
+Suppose $G \simeq R \times S$. Then there exists an isomorphism $\varphi: G \mapsto R \times S$. Let $g \in G$ and $(a, b) \in R \times S$ such that $\varphi(g) = (a, b)$. Note that $|g| = |(a, b)|$. If $g$ generates $G$, then $|g| = |(a, b)| = rs \rightarrow (a^{rs}, b^{rs}) = 1$. Suppose $c = gcd(r, s) \neq 1$, so $r = cr'$ and $s = cs'$. So $(a, b)^{r's'c} = (a^{r's'c}, b^{r's'c}) = (a^{rs'}, b^{r's}) = (1, 1)$. But since $r's'c < rs$, then $|(a, b)| < rs$. So, $\varphi$ is not an isomorphism. By contradiction, $r, s$ have no common factor.
+
+Suppose $r$ and $s$ have no common factors. Define $\varphi(g) = (a, b)$, where $a, b, g$ generate $R, S, G$ respectively. Then for $i < rs$, $\varphi(g^i) = (a, b)^i$. So $\varphi(g^ig^j) = \varphi(g^{i+j}) = (a, b)^{i + j} = (a, b)^i(a, b)^j$. So $\varphi$ is a homomorphism.
+
+Suppose $g^i \neq g^j$, ie. $i \neq j$ where $i, j < rs$. If $\varphi(g^i) = \varphi(g^j)$, then $(a, b)^i = (a, b)^j \rightarrow a^i = a^j, b^i = b^j$. If $a^i = a^j$, then $r$ divides both $j - i$. Similarly, if $b^i = b^j$, then $s$ divides both $j - i$. But since $gcd(r, s) = 1$, then this implies $rs$ divides $j - i$. So if $j - i < rs$, then $j = i$. So, $\varphi$ is injective. And, for $m, n, c, d$ $(a^m, b^n) = (a^{cr + m}, b^{ds + n}) = (a^i, b^i) = \varphi(g^i)$ for some $i$. So $\varphi$ is surjective, and thus $\varphi$ is an isomorphism.
+\item[(4)]
+\begin{itemize}
+\item[(a)]
+Since $G$ is abelian, then $H$ and $K$ are normal. And, $H \cap K = \left\lbrace 1 \right\rbrace$. Consider $g \in G$. If $g > 0$, then for some $k \in K$, $g = k \rightarrow g \in HK$. If $g < 0$, then $g = -k \rightarrow g \in HK$. So $G = HK$. Thus, $G \simeq H \times K$.
+\item[(b)]
+Let
+$$g = \begin{bmatrix}
+a & b \\
+& c
+\end{bmatrix}, g^{-1} = \begin{bmatrix}
+a^{-1} & -ba^{-1}c^{-1} \\
+& c^{-1}
+\end{bmatrix}, k = \begin{bmatrix}
+1 & d \\
+& 1
+\end{bmatrix}$$
+Then
+$$gkg^{-1} = \begin{bmatrix}
+a & b \\
+& c
+\end{bmatrix}\begin{bmatrix}
+1 & d \\
+& 1
+\end{bmatrix}\begin{bmatrix}
+a^{-1} & -ba^{-1}c^{-1} \\
+& c^{-1}
+\end{bmatrix}$$
+$$= \begin{bmatrix}
+a & b \\
+& c
+\end{bmatrix}\begin{bmatrix}
+a^{-1} & dc^{-1} - ba^{-1}c^{-1} \\
+& c^{-1}
+\end{bmatrix} = \begin{bmatrix}
+1 & adc^{-1} \\
+& 1
+\end{bmatrix} \in K$$
+And, since $H$ is in the center of $G$, then $H$ is normal. And, $H \cap K = \left\lbrace I \right\rbrace$. And, for $g \in G$, $a \neq 0, b \neq 0$,
+$$g = \begin{bmatrix}
+a & b \\
+& c
+\end{bmatrix} = \begin{bmatrix}
+a \\
+& c
+\end{bmatrix}\begin{bmatrix}
+1 & a^{-1}b\\
+& 1
+\end{bmatrix} \in HK$$
+So, $HK = G$. So, $G \simeq H \times K$.
+\item[(c)]
+Since $C^\times$ is abelian, then $H$ and $K$ are normal. And, $H \cap K = \left\lbrace 1 \right\rbrace$. Consider $a + bi \in C^\times$. Then 
+$$a + bi = \left(\frac{a}{\sqrt{a^2+b^2}} + \frac{b}{\sqrt{a^2+b^2}}i\right)\frac{1}{a^2+b^2} \in HK$$
+So, $HK = G$. So $G \simeq H \times K$.
+\end{itemize}
+\item[(5)]
+Suppose $(g_1, g_2)$ generates $G_1 \times G_2$. Then for some $i$, $(g_1, g_2)^i = (1, g)$, where $g \neq 1$. Since $G_1$, $G_2$ are infinite cyclic, then for $g_1^i = 1$, then $i = 0 \rightarrow g = 1$. Since no generator then exists, then $G_1 \times G_2$ is not infinite cyclic.
+\item[(6)]
+Consider the two groups $A, B$. Let $(a, b) \in A \times B$ be part of the center of $A \times B$. Then for $(c, d) \in C \times D$, then $(c, d)(a, b) = (a, b)(c, d)$. Then $(ca, db) = (ac, bd) \rightarrow ca = ac, db = bd$, so $a$ is part of the center of $A$, and $b$ is part of the center of $B$. So, the center of $A \times B$ is part of the product of the centers of $A$ and $B$.
+
+Let $a \in A$ and $b \in B$ be parts of the centers of $A$ and $B$. Then for $c \in A, d \in D$, $ac = ca$ and $bd = db$. Then $(a, b)(c, d) = (ac, bd) = (ca, db) = (c, d)(a, b)$, so $(a, b)$ is part of the center of $A \times B$.
+
+Thus, the product of the centers of $A$ and $B$ is precisely the center of $A \times B$.
+\item[(7)]
+\begin{itemize}
+\item[(a)]
+Suppose $HK$ is a subgroup. Note for any $kh \in KH$, $(kh)^{-1} = h^{-1}k^{-1} \in HK$, so $KH \subseteq HK$. And, since for $h, k$, $(hk)^{-1} = k^{-1}h^{-1} \in KH$. So $HK \subseteq KH$. Then $HK = KH$.
+
+Let $HK = KH$. Let $h_1, k_1, h_2k_2 \in HK$. First, note that $k_1h_2 = h_3k_3 \in HK$. Then $h_1k_1h_2k_2 = h_1h_3k_3k_2 \in HK$. And, clearly $1 \in HK$. And, for $hk \in HK$, note that $k^{-1}h^{-1} \in HK$, and $hkk^{-1}h^{-1} = 1$. So, $HK$ is a subgroup.
+\item[(b)]
+Consider the subgroups of $S_3$
+$$A = \left\lbrace \begin{bmatrix}
+1 \\
+& 1 \\
+& & 1
+\end{bmatrix}, \begin{bmatrix}
+& 1 \\
+1 \\
+& & 1
+\end{bmatrix} \right\rbrace, B = \left\lbrace \begin{bmatrix}
+1 \\
+& 1 \\
+& & 1
+\end{bmatrix}, \begin{bmatrix}
+1 \\
+& & 1 \\
+& 1
+\end{bmatrix} \right\rbrace$$
+Then
+$$AB = \left\lbrace \begin{bmatrix}
+1 \\
+& 1 \\
+& & 1
+\end{bmatrix}, \begin{bmatrix}
+& 1 \\
+1 \\
+& & 1
+\end{bmatrix}, \begin{bmatrix}
+1 \\
+& & 1 \\
+& 1
+\end{bmatrix}, \begin{bmatrix}
+& & 1 \\
+1 \\
+& 1
+\end{bmatrix} \right\rbrace$$
+But
+$$BA = \left\lbrace \begin{bmatrix}
+1 \\
+& 1 \\
+& & 1
+\end{bmatrix}, \begin{bmatrix}
+& 1 \\
+1 \\
+& & 1
+\end{bmatrix}, \begin{bmatrix}
+1 \\
+& & 1 \\
+& 1
+\end{bmatrix}, \begin{bmatrix}
+& 1 \\
+& & 1 \\
+1
+\end{bmatrix} \right\rbrace$$
+So $AB \neq BA$.
+\end{itemize}
+\item[(8)]
+Let $A, B$ be normal subgroups of orders 3 and 5 respectively. Then $AB \leq G$. And, since $A \cap B = \left\lbrace 1 \right\rbrace$, then $AB$ is isomorphic to $A \times B$. Since $|(a, b)| = 15$, then $AB$ has an element that is order $15$.
+\item[(9)]
+Suppose $h_1k_1 = h_2k_2$. Then $h_2^{-1}h_1 = k_2k_1^{-1} \in H, K$. Since $H \cap K = \left\lbrace 1 \right\rbrace$, then $h_1 = h_2$ and $k_2 = k_1$. So, $|HK| = ab = |G|$, so $HK = G$.
+
+Let $G = \left\lbrace 1, x, ..., x^7 \right\rbrace, H = \left\lbrace 1, x^4 \right\rbrace, K = \left\lbrace 1, x^2, x^4, x^6 \right\rbrace$. Since $H \times K$ has no elements of order 8, then $G$ is not isomorphic to $H \times K$.
+\item[(10)]
+Consider $(x, y)^k$. If $k = lcm(m ,n)$, then $(x, y)^k = (1, 1)$. Suppose $i < k$, where $(x, y)^i = (1, 1)$. Then $x^i = y^i = 1$. But $i$ is a multiple of $m$ and $n$, a contradiction since $k$ is the least such number by definition. Thus, $|(x, y)| = lcm(m, n)$
+\item[(11)]
+\begin{itemize}
+\item[(a)]
+Since $G$ is abelian, then $H$ and $K$ are normal. And, $H \cap K = \left\lbrace 1 \right\rbrace$. And, since $|H||K| = |G|$ and $HK \leq G$, then $HK = G$. Thus, $G$ is isomorphic to $H \times N$.
+\item[(b)]
+Since the left cosets of $N$ correspond to the fibres of $\varphi$, then for $g \in G$ we can write $g = hn$, where $h \in H, n \in N$. So, we can define $\tau(g) = (h, n)$. Clearly, $\tau$ is a bijection.
+
+Consider $S_3$ and the subgroup $A = \left\lbrace 1, y \right\rbrace$, where $\varphi: S_3 \rightarrow S_3 \times A$ is a bijection:
+
+$$\varphi(1) = (1, 1), \varphi(y) = (y, 1), \varphi(x) = (1, x),$$
+$$\varphi(x^2) = (1, x^2), \varphi(yx) = (y, x), \varphi(yx^2) = (y, x^2)$$
+And
+$$\varphi(yxyx^2) = \varphi(yyx^2x^2) = \varphi(x) = (1, x)$$
+But
+$$\varphi(yx)\varphi(yx^2) = (y, x)(y, x^2) = (1, 1) \neq \varphi(x)$$
+Thus $\varphi$ is not an isomorphism.
+\end{itemize}
+\end{itemize}
+\end{document}
