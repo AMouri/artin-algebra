@@ -1,0 +1,72 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb}
+\begin{document}
+\title{Chapter 2: Groups \\ Section 9: Modular Arithmetic}
+\author{Alec Mouri}
+
+\maketitle`
+\section*{Exercises}
+\begin{itemize}
+\item[(1)]
+$$(7 + 14)(3 - 16)\equiv (21)(-13) \equiv (4)(4) \equiv 16 \mod 17$$
+\item[(2)]
+\begin{itemize}
+\item[(a)]
+$$0^2 \equiv 0 \mod 4$$
+$$1^2 \equiv 1 \mod 4$$
+$$2^2 \equiv 4 \equiv 0 \mod 4$$
+$$3^2 \equiv 9 \equiv 1 \mod 4$$
+So $a^2 \mod 4$ is always either 0 or 1.
+\item[(b)]
+$$0^2 \equiv 0 \mod 8$$
+$$1^2 \equiv 1 \mod 8$$
+$$2^2 \equiv 4 \mod 8$$
+$$3^2 \equiv 9 \equiv 1 \mod 8$$
+$$4^2 \equiv 16 \equiv 0 \mod 8$$
+$$5^2 \equiv 25 \equiv 1 \mod 8$$
+$$6^2 \equiv 36 \equiv 4 \mod 8$$
+$$7^2 \equiv 49 \equiv 1 \mod 8$$
+So $a^2 \mod 8$ is always either 0, 1, or 4.
+\end{itemize}
+\item[(3)]
+\begin{itemize}
+\item[(a)]
+$$(0)(2) \equiv 0 \mod 6$$
+$$(1)(2) \equiv 2 \mod 6$$
+$$(2)(2) \equiv 4 \mod 6$$
+$$(3)(2) \equiv 6 \equiv 0 \mod 6$$
+$$(4)(2) \equiv 8 \equiv 2 \mod 6$$
+$$(5)(2) \equiv 10 \equiv 4 \mod 6$$
+So, $2$ has no inverse modulo 6.
+\item[(b)]
+Suppose $a$ is the inverse of 2 modulo $n$. Then for some $b \in \mathbb{Z}$,
+$$1 = 2a + bn \rightarrow n = (1 - 2a)b^{-1}$$
+Since $1 - 2a$ is not even, then $n$ is odd.
+\end{itemize}
+\item[(4)]
+Note that $(10)^i \equiv 1^i \equiv 1 \mod 9$. So,
+$$a = d_0 + 10d_1 + ... + 10^nd_n \equiv d_0 + d_1 + ... + d_n \mod 9$$
+\item[(5)]
+\begin{itemize}
+\item[(a)]
+$$x = 2^{-1}5 \equiv (5)(5) \equiv 7 \mod 9$$
+\item[(b)]
+$$2x \equiv 5$$ has no solution modulo 6, since the possible values of $2x$ are $0, 2, 4$ modulo 6.
+\end{itemize}
+\item[(6)]
+For all $n$, $x + y \equiv 2$ has a solution: $x = y = 1$. Note if $n = 1$, then $0 \equiv 1 \equiv 2$ modulo $n$, so the statement is trivially true.
+
+If $2x - 3y \equiv 3 \mod n$, then $2x - 3y - 3$ divides $n$. If $x = 0, y = -1$, then $2x - 3y - 3 = 0$. 0 divides all integers, so the statement has a solution for all $n$.
+\item[(7)]
+$$(\overline{a}\cdot\overline{b})\cdot\overline{c} = ((a + cn)(b + dn))(c + en)$$
+$$= (a + cn)((b + dn)(c + en)) = \overline{a}\cdot(\overline{b}\cdot\overline{c})$$
+
+$$\overline{a}\cdot\overline{b} = (a + cn)(b + dn) = (b + dn)(a + cn) = \overline{b}\cdot\overline{a}$$
+\item[(8)]
+From Proposition 2.6, $1 = an + bm$. Then
+$$1 \equiv an + bm \mod m \rightarrow 1 \equiv an \mod m$$
+Since $gcd(n, m) = 1$, then $n^{-1} \equiv a \mod m$.
+
+Similarly, $m^{-1} \equiv b \mod n$.
+\end{itemize}
+\end{document}
