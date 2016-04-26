@@ -1,0 +1,198 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb}
+\begin{document}
+\title{Chapter 2: Groups \\ Section 10: Quotient Groups}
+\author{Alec Mouri}
+
+\maketitle`
+\section*{Exercises}
+\begin{itemize}
+\item[(1)]
+Let
+$$G = \begin{bmatrix}
+b & c \\
+& d
+\end{bmatrix} \rightarrow G^{-1} = \begin{bmatrix}
+1/b & -c/(bd) \\
+& 1/d
+\end{bmatrix}$$
+\begin{itemize}
+\item[(a)]
+$$GAG^{-1} = \begin{bmatrix}
+b & c \\
+& d
+\end{bmatrix}\begin{bmatrix}
+1 & a_{12} \\
+& a_{22}
+\end{bmatrix}\begin{bmatrix}
+1/b & -c/(bd) \\
+& 1/d
+\end{bmatrix}$$
+$$= \begin{bmatrix}
+b & c \\
+& d
+\end{bmatrix}\begin{bmatrix}
+1/b & -c/(bd) + a_{12}/d \\
+& a_{22}/d
+\end{bmatrix} = \begin{bmatrix}
+1 & -c/d + a_{12}b/d + ca_{22}/d \\
+& a_{22}
+\end{bmatrix}$$
+So $a_{11} = 1$ describes a normal subgroup $H$ of $G$. Define
+$$\varphi(B) = \varphi\left(\begin{bmatrix}
+a_{11} & a_{12} \\
+& a_{22}
+\end{bmatrix}\right) = a_{11} \in \mathbb{R}^\times$$
+Clearly, $\varphi$ is a surjective homomorphism, and $H = \text{ker }\varphi$. So, $G/H \simeq \mathbb{R}^\times$.
+\item[(b)]
+$$GAG^{-1} = \begin{bmatrix}
+b & c \\
+& d
+\end{bmatrix}\begin{bmatrix}
+a_{11} & \\
+& a_{22}
+\end{bmatrix}\begin{bmatrix}
+1/b & -c/(bd) \\
+& 1/d
+\end{bmatrix}$$
+$$= \begin{bmatrix}
+b & c \\
+& d
+\end{bmatrix}\begin{bmatrix}
+a_{11}/b & -a_{11}c/(bd) \\
+& a_{22}/d
+\end{bmatrix} = \begin{bmatrix}
+a_{11} & -a_{11}c/d + a_{22}c/d \\
+& a_{22}
+\end{bmatrix}$$
+So if $a_{11} = 1, a_{22} = 2$, $c = d$, then
+$$GAG^{-1} = \begin{bmatrix}
+1 & 1 \\
+& 2
+\end{bmatrix} \not \in H$$
+So, $a_{12} = 0$ does not describe a normal subgroup of $G$.
+\item[(c)]
+$$GAG^{-1} = \begin{bmatrix}
+b & c \\
+& d
+\end{bmatrix}\begin{bmatrix}
+a_{11} & a_{12} \\
+& a_{11}
+\end{bmatrix}\begin{bmatrix}
+1/b & -c/(bd) \\
+& 1/d
+\end{bmatrix}$$
+$$= \begin{bmatrix}
+b & c \\
+& d
+\end{bmatrix}\begin{bmatrix}
+a_{11}/b & -ca_{11}/(bd) + a_{12}/d \\
+& a_{11}/d
+\end{bmatrix} = \begin{bmatrix}
+a_{11} & a_{12}b/d \\
+& a_{11}
+\end{bmatrix}$$
+So $a_{11} = a_{22}$ defines a subgroup $H$ of $G$. Define
+$$\varphi\left( \begin{bmatrix}
+a_{11} & a_{12} \\
+& a_{22}
+\end{bmatrix}\right) = a_{11}a_{22}^{-1} \in \mathbb{R}^\times$$
+Clearly, $\varphi$ is a surjective homomorphism, and $H = \text{ker }\varphi$. So, $G/H \simeq \mathbb{R}^\times$.
+\item[(d)]
+$$GAG^{-1} = \begin{bmatrix}
+b & c \\
+& d
+\end{bmatrix}\begin{bmatrix}
+1 & a_{12} \\
+& 1
+\end{bmatrix}\begin{bmatrix}
+1/b & -c/(bd) \\
+& 1/d
+\end{bmatrix}$$
+$$\begin{bmatrix}
+b & c \\
+& d
+\end{bmatrix}\begin{bmatrix}
+1/b & -c/(bd) + a_{12}/d \\
+& 1/d
+\end{bmatrix} = \begin{bmatrix}
+1 & -c/d + ba_{12}/d + c/d \\
+& 1
+\end{bmatrix}$$
+So $a_{11} = a_{22} = 1$ describes a normal subgroup $H$ of $G$. Define
+$$\varphi\left( \begin{bmatrix}
+a_{11} & a_{12}\\
+& a_{22}
+\end{bmatrix}\right) = (a_{11}, a_{22}) \in \mathbb{R}^\times \times  \mathbb{R}^\times$$
+Clearly, $\varphi$ is a surjective homomorphism, and $H = \text{ker }\varphi$. So, $G/H \simeq \mathbb{R}^\times \times \mathbb{R}^\times$.
+\end{itemize}
+\item[(2)]
+Let $an_1 \in aN, bn_2 \in bN$. Note first that for some $n_3 \in N$, $n_1b = bn_3$, since $N$ is normal. Then
+$$an_1bn_2 = abn_3n_2 \in abN$$
+And, let $abn \in abN$. Note that for some $m \in N$, $bn = mb$. So,
+$$abn = amb = amb1 \in (aN)(bN)$$
+So, $(aN)(bN) = abN$.
+\item[(3)]
+Consider $AN = B$. Since $a \in AN$, and $a \in NA$, then $AN = NA$. So, $N$ is normal, and since $A$ is arbitrary, and the cosets of $N$ form a partition, then the cosets of $N$ is clearly $P$.
+\item[(4)]
+\begin{itemize}
+\item[(a)]
+$$(1H)(xH) = \left\lbrace x, x^2, xy, x^2y \right\rbrace$$
+$$(1H)(x^2H) = \left\lbrace x, x^2, xy, x^2y \right\rbrace$$
+Note that $xy \in xH$, but $xH = \left\lbrace x, xy \right\rbrace$, so $(1H)(xH)$ and $(1H)(x^2H)$ are not cosets.
+\item[(b)]
+Let $G$ be a cyclic group of order 6 with generator $g$. Let $x = g^2$ and $y = g^3$. Then $x^3 = 1, y^2 = 1, xy = yx$. And, $g = x^2y, g^4 = x^2, g^5 = xy$, so $x, y$ generate $G$.
+\item[(c)]
+$$(1H)(xH) = \left\lbrace x, xy \right\rbrace = xH$$
+$$(1H)(x^2H) = \left\lbrace x^2, x^2y \right\rbrace = x^2H$$
+The generators from part b) describe an abelian group, so $H$ is a normal subgroup, whereas in part (a) $H$ was not a normal subgroup, so 10.1 did not hold.
+\end{itemize}
+\item[(5)]
+Define $\varphi(a) = \text{sgn }a$. Clearly, $\varphi$ is a surjective homomorphism. And, $P = \text{ker }\varphi$. So, $\mathbb{R}^\times \simeq \text{sgn }a$.
+\item[(6)]
+$$(a + bi)H = \left\lbrace a+bi, -a-bi, -b + ai, b - ai \right\rbrace$$
+Note that $(a+bi)H = (-a-bi)H = (-b+ai)H = (b-ai)H$.
+
+Define 
+$$\varphi(a + bi) = (a+bi)^4$$
+Clearly, $\varphi$ is a surjective homomorphism. And, $\text{ker }\varphi = H$. So, $G/H \simeq G$.
+\item[(7)]
+All subgroups of $H$ are normal: let $N$ be a subgroup of $H$. Then for $h \in H$, $n \in N$,
+$$hnh^{-1} = h(-h^{-1}n) = -hh^{-1}n = -n = n^{-1} \in N$$
+If $N = H$ or $N = \left\lbrace 1 \right\rbrace$, then $N/H = N$.
+
+Let $N = \left\lbrace 1, -1 \right\rbrace$. Define $\varphi(\pm i) = (1, -1), \varphi(\pm j) = (-1, 1), \varphi(\pm k) = (-1, -1), \varphi(\pm 1) = (1, 1)$. Clearly, $\varphi$ is surjective onto $(\pm 1, \pm 1) \simeq V_4$. And, $\varphi(ab) = \varphi(a)\varphi(b)$, so $\varphi$ is a homomorphism. And, $\text{ker }\varphi = N$. Thus, $H/N \simeq V_4$.
+
+Let $N = \left\lbrace 1, -1, i, -i \right\rbrace$. Define $\varphi(a)$ as folllows: if $a \in N$, then $\varphi(a) = 1$, otherwise $\varphi(a) = -1$. If $a, b \in N$ or $a, b \not \in N$, then $\varphi(ab) = 1$. Otherwise, $\varphi(ab) = -1$. So $\varphi$ is an isomorphism, and is surjective onto $\left\lbrace 1, -1 \right\rbrace$. And, $\text{ker }\varphi = N$. Thus, $H/N \simeq \left\lbrace 1, -1 \right\rbrace$.
+\item[(8)]
+Let $g \in G, h \in H$. Then $\det(ghg^{-1}) = \det(g)\det(h)\det(g^{-1}) = \det(h)\det(g)\det(g)^{-1} = \det{h} > 0$. So, $H$ is a normal subgroup.
+
+Define $\varphi(g) = \text{sgn}(\det(g))$. For $a, b \in G$, then $\varphi(ab) = \text{sgn}(\det(ab)) = \text{sgn}(\det(a)\det(b)) = \text{sgn}(\det(a))\text{sgn}(\det(b)) = \varphi(a)\varphi(b)$. So $\varphi$ is a homomorphism, and it is surjective onto $\left\lbrace 1, -1 \right\rbrace$. And, $\text{ker }\varphi = H$. Thus, $G/H \simeq \left\lbrace 1, -1 \right\rbrace$.
+\item[(9)]
+Let $(g, g') \in G \times G'$, and $(h, 1) \in G \times 1$. Then $(g, g')(h, 1)(g, g')^{-1} = (ghg^{-1}, 1) \in G \times 1$. So $G \times 1$ is a normal subgroup of $G \times G'$. And, define $\varphi((h, 1)) = h$. Clearly, $\varphi$ is a bijection, and $\varphi((h_1, 1)(h_2, 1)) = \varphi((h_1h_2, 1)) = h_1h_2 = \varphi((h_1, 1))\varphi((h_2, 1))$. So, $G \times 1 \simeq G$. And, define $\tau((g, g')) = g'$. Clearly, $\tau$ is surjective. And, $\tau((g_1, g_1')(g_2, g_2')) = \tau((g_1g_2, g_1'g_2')) = g_1'g_2' = \tau((g_1, g_1'))\tau((g_2, g_2'))$. And, $\text{ker }\tau = G \times 1$. Thus, $(G \times G')/(G \times 1) \simeq G'$.
+\item[(10)]
+Define $\varphi(a + bi) = \frac{1}{\sqrt{a^2+b^2}}(a + bi)$. Then for $a + bi, c = di$,
+$$\varphi((a+bi)(c+di)) = \varphi(ac - bd + (ad + bc)i)$$
+$$ = \frac{ac - bd + (ad + bc)i}{\sqrt{(ac - bd)^2 + (ad + bc)^2}} = \frac{ac - bd + (ad + bc)i}{\sqrt{a^2c^2 + b^2d^2 + a^2d^2 + b^2c^2}}$$
+$$ = \frac{(a + bi)(c + di)}{\sqrt{(a^2 + b^2)(c^2+d^2)}} = \varphi(a+bi)\varphi(c+di)$$
+So, $\varphi$ is a homomorphism, and it is surjective onto $U$. And, $\text{ker }\varphi = P$. So, $\mathbb{C}^\times/P \simeq U$.
+
+Define $\tau(a+bi) = \sqrt{a^2 + b^2}$. Then for $a+bi, c+di$,
+$$\tau((a+bi)(c+di)) = \tau(ac - bd + (ad + bc)i)$$
+$$= \sqrt{(ac - bd)^2 + (ad + bc)^2} = \sqrt{a^2c^2 + b^2d^2 + a^2d^2 + b^2c^2}$$
+$$= \sqrt{(a^2+b^2)(c^2+d^2} = \tau(a+bi)\tau(c+di)$$
+So, $\tau$ is a homomorphism, and it is surjective onto $P^+$, the subgroup of positive reals. And, $\text{ker }\varphi = U$. So, $\mathbb{C}^\times/P \simeq P^+$.
+\item[(11)]
+Let $a = p + r$, where $p \in \mathbb{Z}$, and $0 \leq r < 1$. Define $\varphi(a) = r$. Then for $a_1 = p_1 + r_1, a_2 = p_2 + r_2 \in \mathbb{R}$, with $r_1 + r_2 = p_3 + r_3$. Then
+$$\varphi(a_1 + a_2) = \varphi(p_1 + r_1 + p_2 + r_2)$$
+$$= \varphi((p_1 + p_2 + p_3) + r_3) = r_3 = \varphi(a_1) + \varphi(a_2)$$
+So $\varphi$ is a homomorphism, and it is surjective onto $[0, 1]$. And, $\text{ker }\varphi = \mathbb{Z}^+$. So, $\mathbb{R}^+/\mathbb{Z}^+ \simeq [0, 1)$ modulo 1.
+
+Let $a = 2\pi p + r$, where $p \in \mathbb{Z}$, and $0 \leq r < 2\pi$. Define $\varphi(a) = r$. Then for $a_1 = 2 \pi p_1 + r_1, a_2 = 2\pi p_2 + r_2 \in \mathbb{R}$, with $r_1 + r_2 = 2\pi p_3 + r_3$. Then
+$$\varphi(a_1 + a_2) = \varphi(2\pi p_1 + r_1 + 2\pi p_2 + r_2)$$
+$$= \varphi(2\pi(p_1 + p_2 + p_3) + r_3) = r_3 = \varphi(a_1) + \varphi(a_2)$$
+So $\varphi$ is a homomorphism, and it is surjective onto $[0, 2\pi]$. And, $\text{ker }\varphi = \mathbb{Z}^+$. So, $\mathbb{R}^+/2\pi\mathbb{Z}^+ \simeq [0, 2\pi)$ modulo $2\pi$.
+
+Let $a \in [0, 1)$ modulo 1. Define $f(a) = 2\pi a \in [0, 2\pi)$ modulo $2\pi$. Clearly, $f$ is a bijection and is an isomorphism. So, $\mathbb{R}^+/\mathbb{Z}^+ \simeq \mathbb{R}^+/2\pi\mathbb{Z}^+$.
+\end{itemize}
+\end{document}
