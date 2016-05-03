@@ -1,0 +1,78 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb}
+\begin{document}
+\title{Chapter 2: Groups \\ Miscellaneous Problems}
+\author{Alec Mouri}
+
+\maketitle
+\section*{Exercises}
+\begin{itemize}
+\item[(1)]
+$$\prod_{j = 0}^{m-1} e^{\frac{j2\pi}{m}i} = e^{\frac{2\pi}{m}i\left(\sum_{j=0}^{m-1}j\right)} = e^{\pi(m-1)i} = (e^{\pi i})^{m-1} = (-1)^{m-1}$$
+\item[(2)]
+For all automorphisms $f$, $f(1) = 1$ and $f(-1) = -1$. And, if $f(i) = a$, then $f(-i) = -a$. So, each automorphism $f$ can be described by $f(i)$ and $f(j)$: there are 6 possibilities for $f(i)$, and given $f(i)$ there are 4 possibilities for $f(j)$. With these facts, it is trivial to compute $Aut(Q_8)$.
+\item[(3)]
+Let $|G| = 2n$. For $a \in G$, if $|a| \neq 2$, then either $a = 1$, or $a \neq a^{-1}$. Counting these elements, there is an odd number of elements. Therefore, there must be at least one element of order 2.
+\item[(4)]
+$$G = |H|[G : H], G = |K|[G : K] \rightarrow |H|[G : H] = |K|[G : K]$$
+$$|H| = |K|[H : K] \rightarrow |K|[H : K][G : H] = |K|[G : K]$$
+$$\rightarrow [G : K] = [G : H][H : K]$$
+\item[(5)]
+$\varphi: S \rightarrow T$ is an isomorphism of semigroups if for $a, b \in S$, $\varphi(ab) = \varphi(a)\varphi(b)$, and $\varphi$ is a bijection.
+
+If $|S| = \infty$, and $s$ generates $S$, then $S \simeq (\mathbb{Z}^+ \geq 0)$, that is the additive semigroup of positive integers, that is described by the map $\varphi(s) = 1$.
+
+If $|S| = n < \infty$, and $s$ generates $S$, then for some $0 \leq k < n$, then $s^n = s^k$. Then $\left\lbrace s^k, ..., s^{n-1} \right\rbrace$ forms a cyclic subgroup.
+\item[(6)]
+Since $S$ satisfies the Cancellation Laws, then for $a, b, c \in S$, if $ab = ac$, then $b = c$. Therefore, for some $x \in S, ax = 1 \rightarrow a, x$ have inverses. Therefore, $S$ is a group.
+\item[(7)]
+\begin{itemize}
+\item[(a)]
+Note that the path from $a$ onto itself is $f(t) = a \forall t$, so $a \simeq a$.
+
+If $a \sim b$, then $f(t)$ is a path joining $a$ and $b$. Then $g(t) = f(1 - t)$ is a path joining $b$ and $a$. So, $b \sim a$.
+
+If $a \sim b$ and $b \sim c$, then $f(t)$ is a path joining $a$ and $b$, and $g(t)$ is a path joining $b$ and $c$. Define $h(t)$ as follows: If $t \in [0, 1/2]$, then $h(t) = f(2t)$. If $t \in [1/2, 1]$, then $h(t) = g(2t - 1)$. Since for all $t$, $h(t) \in S$, then $a \sim c$.
+\item[(b)]
+Since $\sim$ is an equivalence relation on $S$, then $\sim$ partitions $S$. Since a subset $S$ is path connected if all points in $S$ follow $\sim$, then by definition $S$ is partitioned by path connected subsets.
+\item[(c)]
+$\left\lbrace x^2 + y^2 = 1 \right\rbrace, \left\lbrace xy = 0 \right\rbrace$ are path connected since they are continuous loci. $\left\lbrace xy = 1 \right\rbrace$ is not continuous at $x = 0$ or $y = 0$, so it is not path connected.
+\end{itemize}
+\item[(8)]
+\begin{itemize}
+\item[(a)]
+Note that $AC, BD \in G$. Let $f(t)$ be the path from $A$ to $B$, and $g(t)$ be the path from $C$ to $D$. Then $f(0)g(0) = AC$, and $f(1)g(1) = BD$. And, $f(t)g(t) \in G$. So, $f(t)g(t)$ is a path from $AC$ to $BD$.
+\item[(b)]
+Let $A \in G$ where there is a path from $A$ to $I$. Then for $B \in G$, there is a path from $BA$ to $B$. So, there is a path from $BAB^{-1}$ to $BB^{-1} = I$. So, therefore the set of matrices connected to $I$ forms a connected component.
+\end{itemize}
+\item[(9)]
+\begin{itemize}
+\item[(a)]
+Let $E$ be an elementary matrix of the first kind, where $e_{ij} = a, i \neq j$. Note that $E \in SL_n(\mathbb{R})$. And, there is a path $f(t)$ in $SL_n(\mathbb{R})$ from $E$ to $I$ defined as an operation on $e_{ij}$: $e_{ij}(t) = (1 - t)a$. For $A \in SL_n(\mathbb{R})$, then there is a path from $A$ to $I$. Thus $SL_n(\mathbb{R})$ is path connected.
+\item[(b)]
+Let $E$ be an elementary matrix of the third kind, where $e_{ii} = a$. There is a path $f(t)$ from $E$ to $I$ defined as an operation on $e_{ii}$: $e_{ii}(t) = 1 + (1 - t)(a - 1)$. So, elementary matrices of the third kind is a path connected subset.
+
+So, for $A \in GL_n(\mathbb{R})$, since $A$ can be written as a product of elementary matrices of the first and third kinds, there is a path from $A$ to $I$ within the union of the elementary matrices of the first and third kinds.
+\end{itemize}
+\item[(10)]
+\begin{itemize}
+\item[(a)]
+For $g \in G$, then for some $x$, $x = hgk \rightarrow h^{-1}xk^{-1} = g \in HgK$. So, $g$ is contained in some double coset. So the double cosets of $G$ covers all of $G$.
+
+Suppose $x \in G$ is contained in $Hg_1K$ and $Hg_2K$. So, for some $h_1, h_2 \in H, k_1, k_2 \in K$, we have $h_1g_1k_1 = h_2g_2k_2 \rightarrow h_2^{-1}h_1g_1k_1k_2^{-1} = g_2 \in Hg_1K \rightarrow Hg_2K \subseteq Hg_1K$. Similarly, $g_1 \in Hg_2K \rightarrow Hg_1K \subseteq Hg_2K$. So, $Hg_1K = Hg_2K$. So, the double cosets are disjoint, and therefore partition $G$.
+\item[(b)]
+Consider $S_3$. Let $A = \left\lbrace 1, y \right\rbrace$ and $B = \left\lbrace 1, xy \right\rbrace$ be subgroups of $S_3$. Then
+$$BA = \left\lbrace 1, x, xy, y \right\rbrace$$
+But
+$$Bx^2A = \left\lbrace x^2, x^2y \right\rbrace$$
+So, not all double cosets have the same order.
+\end{itemize}
+\item[(11)]
+Suppose $H$ is normal. Then for $h_1, h_2, h_3 \in H$, then $h_1g = gh_3$, so $h_1gh_2 = gh_3h_2 \in gH$. So, $HgH \subseteq gH$. Similarly, $gh_4 = gh_2h_3 = h_1gh_3$, so $gH \subseteq HgH$. Thus, $HgH = gH$.
+
+Suppose $H$ is not normal. Clearly, $gH \in HgH$. And, there must exist some $h_1 \in H$ such that for some other $h_2 \in H$, $h_1gh_2 \not \in gH$: otherwise $H$ is normal. Thus $gH$ is a proper subset of $HgH$.
+\item[(12)]
+Let $A \in GL_n(\mathbb{R})$. Since $A$ is invertible, then $A$ can be written as $LPU$, where $L$ is a lower triangular matrix, $P$ is a permutation matrix, and $U$ is a upper triangular matrix with diagonal entries all 1. Then, for $B \in H, C \in K$, then
+$$BAC = BLPUC \in HPK$$
+\end{itemize}
+\end{document}
