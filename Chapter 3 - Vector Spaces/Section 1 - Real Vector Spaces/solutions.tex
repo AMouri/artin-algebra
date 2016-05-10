@@ -1,0 +1,52 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb}
+\begin{document}
+\title{Chapter 3: Vector Spaces \\ Section 1: Real Vector Spaces}
+\author{Alec Mouri}
+
+\maketitle
+\section*{Exercises}
+\begin{itemize}
+\item[(1)]
+\begin{itemize}
+\item[(a)]
+Let $A, B$ be symmetric matrices. Then, $A + B = (A + B)^\top$. And, for $c \in \mathbb{R}$, $cA = cA^\top$. So, addition and scalar multiplication are closed rules of composition. So the symmetric matrices form a subspace.
+\item[(b)]
+The invertible matrices do not form a subspace. Consider
+$$A = \begin{bmatrix}
+1 \\
+& 1
+\end{bmatrix}, B = \begin{bmatrix}
+& 1 \\
+1
+\end{bmatrix}$$
+Then $\det(A + B) = 0$, so $A + B$ is not invertible.
+\item[(c)]
+Let $A, B$ be upper triangular matrices. Then, $A + B$ is also upper triangular. And, for $c \in \mathbb{R}$, $cA$ is also upper triangular. So, addition and scalar multiplication are closed rules of composition. So the upper triangular matrices form a subspace.
+\end{itemize}
+\item[(2)]
+Consider the subspaces $\mathcal{A}, \mathcal{B}$. If $a, b \in \mathcal{A} \cap \mathcal{B}$, then $a + b \in \mathcal{A}$ and $a + b \in \mathcal{B}$, so $a + b \in \mathcal{A} \cap \mathcal{B}$. And, for $c \in \mathbb{R}$, similarly $ca \in \mathcal{A}$, and $cb \in \mathcal{B}$. So, $\mathcal{A} \cap \mathcal{B}$ is a subspace.
+\item[(3)]
+Let $cv = cw, c \neq 0$. Then $cv - cw = 0 \rightarrow c(v - w) = 0 \rightarrow v - w = 0 \rightarrow v = w$.
+\item[(4)]
+If $W$ is a subspace, then $W^+$ forms an abelian group. So, if $w \in W$, then necessairly $-w \in W$.
+\item[(5)]
+Clearly, the zero vector forms a subspace of $\mathbb{R}^3$.
+
+Let $(x_1, y_1, z_1), (cx_1, cy_1, cz_1) \in \mathbb{R}^3$ be collinear passing through the origin. Then $(x_1, y_1, z_1) + (cx_1, cy_1, cz_1) = ((c + 1)x_1, (c + 1)y_1, (c + 1)z_1)$ lies on the same line. And, for $d \in \mathbb{R}^3$, $(dx_1, dy_1, dz_1)$ is also collinear.
+
+Let $v_1 = (x_1, y_1, z_1), v_2 = (x_2, y_2, z_2) \in \mathbb{R}^3$ that are not collinear. Then $v_1, v_2$ is coplanar to some plane. Clearly, $(x_1, y_1, z_1) + (x_2, y_2, z_2)$ also lies in the same plane. And, for $d \in \mathbb{R}^3$, $(dx_1, dy_1, dz_1)$ is also coplanar.
+
+And, clearly $\mathbb{R}^3$ is a subspace of itself: any three vectors that are not coplanar to each other forms $\mathbb{R}^3$.
+\item[(6)]
+Let $(x_1, x_2, x_3)$ be a solution. Then, $2x_1 - x_2 - 2x_3 = 0 \rightarrow x_1 = x_2/2 + x_3$. So, the solution has the form $(x_2/2 + x_3, x_2, x_3)$. And, letting $x_2/2 = y_2$. Then, the solution has the form $(y_2 + x_3, 2y_2, x_3)$.
+\item[(7)]
+Every solution has the form
+$$c_1u_1 + c_2u_2 = \begin{bmatrix}
+2c_1 \\
+2c_1 + 2c_2 \\
+c_1 - c_2
+\end{bmatrix}$$
+where $c_1, c_2$ are arbitrary constants.
+\end{itemize}
+\end{document}
