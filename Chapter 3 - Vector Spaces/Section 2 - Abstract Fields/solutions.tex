@@ -1,0 +1,353 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb}
+\begin{document}
+\title{Chapter 3: Vector Spaces \\ Section 2: Abstract Fields}
+\author{Alec Mouri}
+
+\maketitle
+\section*{Exercises}
+\begin{itemize}
+\item[(1)]
+Let $a_1 + b_1\sqrt{2}, a_2 + b_2\sqrt{2} \in F$. Then:
+$$a_1 + b_1\sqrt{2} + a_2 + b_2\sqrt{2} = (a_1 + a_2) + (b_1 + b_2)\sqrt{2} \in F$$
+$$-(a_1 + b_1\sqrt{2}) = -a_1 + (-b_1)\sqrt{2} \in F$$
+$$(a_1 + b_1\sqrt{2})(a_2 + b_2\sqrt{2}) = a_1a_2 + 2b_1b_2 + (a_1b_2 + a_2b_1)\sqrt{2} \in F$$
+$$1 \in F$$
+$$\left(a_1 + b_1\sqrt{2}\right)\left(\frac{a_1}{a_1^2 - 2b_1^2} - \frac{b_1}{a_1^2 - 2b_1^2}\sqrt{2}\right)$$
+$$=\frac{a_1^2}{a_1^2 - 2b_1^2} - \frac{2b_1^2}{a_1^2 - 2b_1^2} + \frac{a_1b_1}{a_1^2 - 2b_1^2}\sqrt{2} - \frac{a_1b_1}{a_1^2 - 2b_1^2}\sqrt{2} = 1$$
+$$\rightarrow (a_1 + b_1\sqrt{2})^{-1} \in F$$
+Thus, $F$ is a field.
+\item[(2)]
+There is no such subset. If a subset $S$ is closed under division, then if $a \in S$, then $a^{-1} \in S$. But then $aa^{-1} = 1 \in S$. So, $S$ must contain 1.
+\item[(3)]
+Since $F^+$ is a subgroup of $\mathbb{C}^+$, then $F^+$ is abelian.
+
+Since $F^\times$ is a subgroup of $\mathbb{C}^\times$, then $F^\times$ is abelian.
+
+Let $a_1 + b_1i, a_2 + b_2i, a_3 + b_3i \in F$. Then
+$$(a_1 + b_1i + a_2 + b_2i)(a_3 + b_3i) = ((a_1 + a_2) + (b_1 + b_2)i)(a_3 + b_3i)$$
+$$= (a_1+ a_2)a_3 - (b_1 + b_2)b_3 + ((a_1 +a_2)b_3 + (b_1 + b_2)a_3)i$$
+$$= a_1a_3 + a_2a_3 - b_1b_3 - b_2b_3 + (a_1b_3 + a_2b_3 + a_3b_1 + a_3b_2)i$$
+$$= (a_1 + b_1i)(a_3 + b_3i) + (a_2 + b_2i)(a_3 + b_3i)$$
+Thus, the distributive law holds, and $F$ is a subfield of $\mathbb{C}$.
+\item[(4)]
+Let $w \in W$, and $v \in V$, where $v \not \in W$. Note for all $x \in V$, we can write $x$ as $x = w + v$, for any $w, v$. Then, define $\varphi(x) = \varphi(v + w) = w$. That is, $\varphi(x)$ is the projection of $x$ onto $W$. Since $W$ is the kernel of $\varphi$, then there exists some $A$ such that $W$ is the solution set of $Ax = 0$.
+\item[(5)]
+Suppose $W$ is a subspace by 2.12. By (a) and (b), $W$ is closed under addition and scalar multiplication.
+
+Suppose $W$ is closed under addition and scalar multiplication. Then, for $w, w' \in W, w + w' \in W$, and for $c \in F$, then $cw \in W$. And, $(-1)w = -w \in W$. So, $0 = w - w \in W$. Thus, $W$ is a subspace.
+\item[(6)]
+Since multiplication is associative and commutative, then $F^\times$ is abelian. Since $F^\times$ is a group, then it contains an identity: 1.
+
+If $F^\times$ is abelian, then multiplication is associative and commutative. And, since $F^\times$ does not contain 0, then $0 \neq 1$.
+
+Suppose 0 = 1. Then, $1 = 0 = 0 + 0 = 1 + 1$. This would mean that the real numbers are not a field.
+\item[(7)]
+A homomorphism $\varphi$ from a vector space $V$ to a vector space $V'$ both over the same field $F$ is a map $\varphi: V \rightarrow V'$ satisfying, for $v, v' \in V, c \in F$:
+$$\varphi(v + v') = \varphi(v) + \varphi(v'), \varphi(vv') = \varphi(v)\varphi(v')$$
+Suppose for $v \neq u$, $\varphi(v) = \varphi(u)$. Then $\varphi(v - u) = \varphi(v) - \varphi(u) = 0$. So, $\varphi((v - u)(v - u)^{-1}) = \varphi(v-u)\varphi((v-u)^{-1}) = 0$, and $\varphi((v - u)(v - u)^{-1}) = \varphi(1) = 1$. So, $0 = 1$, a contradiction. Thus, $\varphi$ must be injective.
+\item[(8)]
+$$5 \equiv 1 \mod 2 \rightarrow 5^{-1} \equiv 1 \mod 2$$
+$$5 \equiv 2 \mod 3 \rightarrow 5^{-1} \equiv 2 \mod 3$$
+$$5^{-1} \equiv 3 \mod 7$$
+$$5^{-1} \equiv 9 \mod 11$$
+$$5^{-1} \equiv 8 \mod 13$$
+\item[(9)]
+$$(x^2 + 3x + 1)(x^3 + 4x^2 + 2x + 2)$$
+$$= x^5 + 3x^4 + x^3 + 4x^4 + 12x^3 + 4x^2 + 2x^3 + 6x + 2 + 2x^2 + 6x + 2$$
+$$= x^5 + 7x^4 + 15x^3 + 6x^2 + 12x + 4$$
+\begin{itemize}
+\item[(a)]
+$$x^5 + 7x^4 + 15x^3 + 6x^2 + 12x + 4 \mod 5$$
+$$\equiv 2x^4 + x^2 + 3x + 4 \mod 5$$
+\item[(b)]
+$$x^5 + 7x^4 + 15x^3 + 6x^2 + 12x + 4 \mod 7$$
+$$\equiv x^5 + x^3 + 6x^2 + 5x + 4 \mod 7$$
+\end{itemize}
+\item[(10)]
+\begin{itemize}
+\item[(a)]
+$$A = \begin{bmatrix}
+8 & 3 \\
+2 & 6
+\end{bmatrix}, A^{-1} = \frac{1}{42}\begin{bmatrix}
+6 & -3 \\
+-2 & 8
+\end{bmatrix} = \begin{bmatrix}
+1/7 & -1/14 \\
+-1/21 & 4/21
+\end{bmatrix},$$
+$$B = \begin{bmatrix}
+3 \\
+-1
+\end{bmatrix}, A^{-1}B = \begin{bmatrix}
+1/2 \\
+-1/3
+\end{bmatrix}$$
+\begin{itemize}
+\item[p = 5]
+$$A^{-1}B = \begin{bmatrix}
+2^{-1} \\
+(-1)3^{-1}
+\end{bmatrix} = \begin{bmatrix}
+3 \\
+3
+\end{bmatrix}$$
+\item[p = 11]
+$$A^{-1}B = \begin{bmatrix}
+2^{-1} \\
+(-1)3^{-1}
+\end{bmatrix} = \begin{bmatrix}
+6 \\
+7
+\end{bmatrix}$$
+\item[p = 17]
+$$A^{-1}B = \begin{bmatrix}
+2^{-1} \\
+(-1)3^{-1}
+\end{bmatrix} = \begin{bmatrix}
+9 \\
+11
+\end{bmatrix}$$
+\end{itemize}
+\item[(b)]
+When $p = 7$, then $A$ is not invertible, so there are no solutions.
+\end{itemize}
+\item[(11)]
+$$\det \begin{bmatrix}
+1 & 2 \\
+& 3 & -1 \\
+-2 & & 2
+\end{bmatrix} = 1(6) - 2(-2) = 10 = (2)(5)$$
+$A$ is invertible for all primes excluding 2 and 5.
+\item[(12)]
+$$A = \begin{bmatrix}
+1 & 1 & 0 \\
+1 & 0 & 1 \\
+1 & -1 & -1
+\end{bmatrix}, B = \begin{bmatrix}
+0 \\
+0 \\
+0
+\end{bmatrix}, C = \begin{bmatrix}
+1 \\
+-1 \\
+1
+\end{bmatrix}, A^{-1} = \frac{1}{3}\begin{bmatrix}
+1 & 1 & 1 \\
+2 & -1 & -1 \\
+-1 & 2 & -1
+\end{bmatrix} $$
+\begin{itemize}
+\item[(a)]
+$$AX = B \rightarrow X = A^{-1}B = \frac{1}{3}\begin{bmatrix}
+1 & 1 & 1 \\
+2 & -1 & -1 \\
+-1 & 2 & -1
+\end{bmatrix}\begin{bmatrix}
+0 \\
+0 \\
+0
+\end{bmatrix} = \begin{bmatrix}
+0 \\
+0 \\
+0
+\end{bmatrix}$$
+$$AX = C \rightarrow X = A^{-1}C = \frac{1}{3}\begin{bmatrix}
+1 & 1 & 1 \\
+2 & -1 & -1 \\
+-1 & 2 & -1
+\end{bmatrix}\begin{bmatrix}
+1 \\
+-1 \\
+1
+\end{bmatrix} = \begin{bmatrix}
+1/3 \\
+2/3 \\
+-4/3
+\end{bmatrix}$$
+\item[(b)]
+$$A^{-1} \rightarrow \begin{bmatrix}
+1 & 1 & 1 \\
+0 & 1 & 1 \\
+1 & 0 & 1
+\end{bmatrix}, C \rightarrow \begin{bmatrix}
+1 \\
+1 \\
+1
+\end{bmatrix}$$
+$$X = A^{-1}B = \begin{bmatrix}
+1 & 1 & 1 \\
+0 & 1 & 1 \\
+1 & 0 & 1
+\end{bmatrix}\begin{bmatrix}
+0 \\
+0 \\
+0
+\end{bmatrix} = \begin{bmatrix}
+0 \\
+0 \\
+0
+\end{bmatrix}$$
+$$X = A^{-1}C = \begin{bmatrix}
+1 & 1 & 1 \\
+0 & 1 & 1 \\
+1 & 0 & 1
+\end{bmatrix}\begin{bmatrix}
+1 \\
+1 \\
+1
+\end{bmatrix} = \begin{bmatrix}
+1 \\
+0 \\
+0
+\end{bmatrix}$$
+\item[(c)]
+$$C \rightarrow \begin{bmatrix}
+1 \\
+2 \\
+1
+\end{bmatrix}$$
+$$AX = B \rightarrow$$
+$$\begin{bmatrix}
+1 & 1 & 0 & 0 \\
+1 & 0 & 1 & 0 \\
+1 & 2 & 2 & 0
+\end{bmatrix} \rightarrow \begin{bmatrix}
+1 & 1 & 0 & 0 \\
+0 & 2 & 1 & 0 \\
+0 & 1 & 2 & 0
+\end{bmatrix} \rightarrow \begin{bmatrix}
+1 & 1 & 0 & 0 \\
+0 & 2 & 1 & 0 \\
+0 & 0 & 0 & 0
+\end{bmatrix} \rightarrow \begin{bmatrix}
+1 & 0 & 1& 0 \\
+0 & 2 & 1 & 0 \\
+0 & 0 & 0 & 0
+\end{bmatrix}$$
+$$\rightarrow X = \begin{bmatrix}
+2x \\
+x \\
+x
+\end{bmatrix}$$
+$$AX = C \rightarrow $$
+$$\begin{bmatrix}
+1 & 1 & 0 & 1 \\
+1 & 0 & 1 & 2 \\
+1 & 2 & 2 & 1
+\end{bmatrix} \rightarrow \begin{bmatrix}
+1 & 1 & 0 & 1 \\
+0 & 2 & 1 & 1 \\
+0 & 1 & 2 & 0
+\end{bmatrix} \rightarrow \begin{bmatrix}
+1 & 1 & 0 & 1 \\
+0 & 2 & 1 & 1 \\
+0 & 0 & 0 & 1
+\end{bmatrix} \rightarrow \begin{bmatrix}
+1 & 0 & 1 & 2 \\
+0 & 2 & 1 & 1 \\
+0 & 0 & 0 & 1
+\end{bmatrix}$$
+$$\rightarrow \text{no solution}$$
+\item[(d)]
+$$A^{-1} \rightarrow \begin{bmatrix}
+5 & 5 & 5 \\
+3 & 2 & 2 \\
+2 & 3 & 2
+\end{bmatrix}, C \rightarrow \begin{bmatrix}
+1 \\
+6 \\
+1
+\end{bmatrix}$$
+$$X = A^{-1}B = \begin{bmatrix}
+5 & 5 & 5 \\
+3 & 2 & 2 \\
+2 & 3 & 2
+\end{bmatrix}\begin{bmatrix}
+0 \\
+0 \\
+0
+\end{bmatrix} = \begin{bmatrix}
+0 \\
+0 \\
+0
+\end{bmatrix}$$
+$$X = A^{-1}C = \begin{bmatrix}
+5 & 5 & 5 \\
+3 & 2 & 2 \\
+2 & 3 & 2
+\end{bmatrix}\begin{bmatrix}
+1 \\
+6 \\
+1
+\end{bmatrix} = \begin{bmatrix}
+5 \\
+3 \\
+1
+\end{bmatrix}$$
+\end{itemize}
+\item[(13)]
+\begin{itemize}
+\item[p=2:]
+$$a = 1$$
+\item[p=3:]
+$$a = 2, a^2 = 1$$
+\item[p=5:]
+$$a = 3, a^2 = 4, a^3 = 2, a^4 = 1$$
+\item[p=7:]
+$$a = 3, a^2 = 2, a^3 = 6, a^4 = 4, a^5 = 5, a^6 = 1$$
+\item[p=11:]
+$$a = 7, a^2 = 5, a^3 = 2, a^4 = 3, a^5 = 10,$$
+$$a^6 = 4, a^7 = 6, a^8 = 9, a^9 = 8, a^{10} = 1$$
+\item[p=13:]
+$$a = 11, a^2 = 4, a^3 = 5, a^4 = 3, a^5 = 7, a^6 = 12,$$
+$$a^7 = 2, a^8 = 9, a^9 = 8, a^{10} = 10, a^{11} = 6, a^{12} = 1$$
+\item[p=17:]
+$$a = 11, a^2 = 2, a^3 = 5, a^4 = 4, a^5 = 10, a^6 = 8, a^7 = 3, a^8 = 16,$$
+$$a^9 = 6, a^{10} = 15, a^{11} = 12, a^{12} = 13, a^{13} = 7, a^{14} = 9, a^{15} = 14, a^{16}= 1$$
+\item[p=19:]
+$$a = 13, a^2 = 17, a^3 = 12, a^4 = 4, a^5 = 14, a^6 = 11,$$
+$$a^7 = 10, a^8 = 16, a^9 = 18, a^{10} = 6, a^{11} = 2,$$
+$$a^{12} = 7, a^{13} = 15, a^{14} = 5, a^{15} = 8, a^{16} = 9, a^{17} = 3, a^{18} = 1$$
+\end{itemize}
+\item[(14)]
+\begin{itemize}
+\item[(a)]
+Let $a$ be the generator of $\mathbb{F}_p^\times$. For $b \in \mathbb{F}_p^\times$, $a^m = b$ for some $1 \leq m \leq p$. Then, $b^{p - 1} = (a^m)^{p - 1} = (a^{p-1})^m = 1^m = 1$. So, if $b$ is not congruent to 0, then $b^{p - 1} \equiv 1 \mod p$.
+\item[(b)]
+From part (a), if $b$ is not congruent to 0, then $b^{p - 1} \equiv 1 \mod p$. Then, $b^p \equiv b \mod p$. If $b$ is congruent to 0, then $b^p \equiv 0$. So, $b^p \equiv b \mod p$.
+\end{itemize}
+\item[(15)]
+\begin{itemize}
+\item[(a)]
+Note that $(p - 1)^2 = p^2 - 2p + 1 \rightarrow (p - 1)^2 \equiv 1 \mod p$. And, since $\mathbb{F}_p^\times$ is cyclic, then $p - 1$ is the unique element of order 2. Thus, the product of all elements of $F_p^\times$ modulo $p$ is $p - 1 \equiv -1$.
+\item[(b)]
+Directly followng from part (a), $(p - 1)! \equiv -1 \mod p$.
+\end{itemize}
+\item[(16)]
+True. If $AX = B$ has an integer solution, since there is no division then clearly each equation $a_{i1}x_1 + a_{i2}x_2 + ... + a_{in}x_n = b_i$ is also true modulo $p$, for any $p$. So $AX = B$ also has a solution in $\mathbb{F}_p$.
+\item[(17)]
+Let
+$$A = \begin{bmatrix}
+1 & 0 \\
+0 & 1
+\end{bmatrix}, B = \begin{bmatrix}
+0 & 0 \\
+0 & 0
+\end{bmatrix}, C = \begin{bmatrix}
+1 & 1 \\
+1 & 0
+\end{bmatrix}, D = \begin{bmatrix}
+0 & 1 \\
+1 & 1
+\end{bmatrix}$$
+Note that matrix addition is commutative, and both addition and multiplication are associative and follow the distributive law. So, to prove that $\mathcal{A} = \left\lbrace A, B, C, D \right\rbrace$, is a field, it follows that addition and multiplication are closed on this set, and that multiplication is commutative. Also, note that $\mathcal{A}^\times = \left\lbrace A, C, D \right\rbrace$.
+Then,
+$$A + B = A, A + C = D, A + D = C, B + C = C, B + D = D, C + D = A$$
+$$AC = CA = C, AD = DA = D, CD = DC = A$$
+So, $\mathcal{A}$ is a field.
+\item[(18)]
+Let $p$ be a prime, and $a$ be any integer not divisible by $p$, ie. $gcd(a, p) = 1$. Then, there exists some $r, s$ such that $1 = ra + sp \rightarrow ra \equiv 1 \mod p$. So, $a$ has a multiplicative inverse $r$.
+\end{itemize}
+\end{document}
