@@ -1,0 +1,171 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb}
+\begin{document}
+\title{Chapter 3: Vector Spaces \\ Section 3: Bases and Dimension}
+\author{Alec Mouri}
+
+\maketitle
+\section*{Exercises}
+\begin{itemize}
+\item[(1)]
+Let $v_1 = (1, 2, -1, 0), v_2 = (4, 8, -4, -3), v_3 = (0, 1, 3, 4), v_4 = (2, 5, 1, 4)$. Let's solve $c_1v_1 + c_2v_2 + c_3v_3 + c_4v_4 = 0$. Then
+$$\begin{bmatrix}
+1 & 4 & 0 & 2 \\
+2 & 8 & 1 & 5 \\
+-1 & -4 & 3 & 1 \\
+0 & -3 & 4 & 4
+\end{bmatrix} \rightarrow \begin{bmatrix}
+1 & 4 & 0 & 2 \\
+0 & 0 & 1 & 1 \\
+0 & 0 & 3 & 3 \\
+0 & -3 & 4 & 4
+\end{bmatrix} \rightarrow \begin{bmatrix}
+1 & 4 & 0 & 2 \\
+0 & -3 & 4 & 4 \\
+0 & 0 & 3 & 3 \\
+0 & 0 & 0 & 0
+\end{bmatrix}$$
+So, $v_4 \in Span(v_1, v_2, v_3)$. In particular: $v_4 = 2v_1 + v_3$. So, $v_1, v_2, v_3$ forms a basis.
+\item[(2)]
+$$\begin{bmatrix}
+2 & 1 & 2 & 3 \\
+1 & 1 & 3 & 0
+\end{bmatrix} \rightarrow \begin{bmatrix}
+2 & 1 & 2 & 3 \\
+0 & 0.5 & 2 & -1.5
+\end{bmatrix}$$
+So, we can describe the solutions of $X$ as:
+$$X = \begin{bmatrix}
+x_3 - 3x_4 \\
+3x_4 - 4x_3 \\
+x_3 \\
+x_4
+\end{bmatrix}$$
+with arbitrary $x_3, x_4$. So, a basis for $W$ is:
+$$\begin{bmatrix}
+1 \\
+-4 \\
+1 \\
+0
+\end{bmatrix}, \begin{bmatrix}
+-3 \\
+3 \\
+0 \\
+1
+\end{bmatrix}$$
+\item[(3)]
+\begin{itemize}
+\item[(a)]
+Suppose $v_1, ..., v_n$ is a linearly independent set, and $v_1, ..., v_i$ is linearly dependent. Then, for some $c_1, ..., c_i$ not all 0, $c_1v_1 + ... + c_iv_i = 0$. But then $c_1v_1 + ... + c_iv_i + 0v_{i+1} + ... + 0v_n = 0$. So, $v_1, ..., v_n$ is linearly dependent, a contradiction. Thus, $v_1, ..., v_i$ must be linearly independent.
+\item[(b)]
+A reordering of a basis maintains the same properties of a basis: its vectors remain a minimally spanning set (order is not relevant for this property).
+\end{itemize}
+\item[(4)]
+Let $r = 0$. Since $0 \in V$, then the 0 subspace of dimension 0 is contained in $V$.
+
+Let $r > 0$. Let $v_1, ..., v_n$ be a basis for $V$. For any $c_1, ..., c_r$, $w = c_1v_1 + ... + c_rv_r \in V$. From the previous exercise, $v_1, ..., v_r$ is linearly independent, and thus defines a basis of some subspace $V_r$ with dimension $r$.
+\item[(5)]
+Let $A$ be a symmetric $n \times n$ matrix. So, for each entry $a_{ij}$ of $A$, $a_{ij} = a_{ji}$. We can construct a basis of the symmetric matrices in the following way: For $i \leq j$: set $a_{ij} = a_{ji} = 1$, and set all other entries of the matrix to 0.
+\item[(6)]
+If $A$ is invertible, then $AX = 0$ has only the trivial solution. So, the columns of $A$ are linearly independent.
+
+If the columns of $A$ are linearly independent, then $AX = 0$ has only the trivial solution. Thus, $A$ is invertible.
+\item[(7)]
+Consider $c_1x^3 + c_2\sin x + c_3\cos x = 0$. Set $x = 0$. Then it must be the case that $c_3 = 0$. So, now consider $c_1x^3 + c_2\sin x = 0$. Let $x = 1$, then $c_1 + c_2\sin 1 = 0$. Let $x = \frac{\pi}{6}$, then $\frac{\pi^3}{256}c_1 + \frac{1}{2}c_2 = 0$. Clearly, the only solution is $c_1 = c_2 = 0$. Thus, $x^3, \sin x, \cos x$ are linearly independent.
+\item[(8)]
+Let $x_1, ..., x_n$ be the rows of $A$. Let $Span(x_1, ..., x_n) = V$. Let $v \in V$, so $a_1x_1 + ... + a_nx_n = v$ for some $a_1, ..., a_n$. Now we shall consider each elementary matrix:
+
+Elementary operation of the first kind, corresponding to replacing $x_j$ with $x_j + cx_i$. Let $v = a_1x_1 + ... + a_ix_i + ... + a_jx_j + ... + a_nx_n$. And, $v = a_1x_1 + ... + (a_i - a_jc)x_i + ... + a_j(x_j + cx_i) + ... + a_n$.  So, an elementary operation of the first kind preserves the span of the rows.
+
+Elementary operation of the second kind, corresponding to swapping $x_i$ and $x_j$. Clearly, this operation preserves the span of the rows.
+
+Elementary operation of the third kind, corresponding to replacing $x_i$ with $cx_i$. Let $v = a_1x_1 + ... + a_ix_i + ... + a_nx_n$. And, $v = a_1x_1 + ... + \frac{a_i}{c}cx_i + ... + a_nx_n$. So, an elementary operation of the third kind preserves the span of the rows.
+
+Since each elementary operation preserves the span of the rows of $A$, then a series of elementary operations on the rows of $A$ will also preserve the span of the rows of $A$. So, the rows of $A'$ spans the span of the rows of $A$.
+\item[(9)]
+Let $v_1, ..., v_n$ be a basis for $V$. Define a map from $V$ to real vector space $V_r$: for $v = (a_1 + b_1i, ..., a_m + b_mi)$, then $\varphi(v) = (a_1, ..., a_m, b_1, ..., b_m)$. Clearly, $V_r$ is a vector space. And, let $\alpha(v) = (a_1, ..., a_m, 0, ..., 0), \beta(v) = (0, ..., 0, b_1, ..., b_m)$. Then, $\alpha(v_1), ..., \alpha(v_n), \beta(v_1), ..., \beta(v_n)$ spans $V_r$: For $v = (c_1 + d_1i)v_1 + ... + (c_n + d_ni)v_n$, then $\varphi(v) = (c_1 - d_1)\alpha(v_1) + ... + (c_n - d_n)\alpha(v_n) + (c_1 + d_1)\beta(v_1) + ... + (c_n + d_n)\beta(v_n)$. Furthermore, $\alpha(v_1), ..., \alpha(v_n), \beta(v_1), ..., \beta(v_n)$ is a minimal spanning set: clearly then $V$ would have dimension $< n$. Thus, $V_r$ has dimension $2n$.
+\item[(10)]
+Let $A, B$ be hermitian matrices. Then $cA + dB$ is hermitian: $ca_{ij} + db_{ij} = c\overline{a}_{ji} + d\overline{b}_{ji} = \overline{ca_{ji} + b_{ji}}$.
+
+A basis for this space is: the $n$ matrices with a single 1 on the diagonal, the $n(n - 1)/2$ matrices with a single pair of ones at positions $ij$ and $ji$, and the $n(n - 1)/2$ matrices with an $i$ at position $ij$, and a $-i$ at position $ji$. The dimension of this space is thuse $n^2$.
+\item[(11)]
+There are $p^n$ elements in $\mathbb{F}_p^n$.
+\item[(12)]
+$$\left\lbrace \begin{bmatrix}
+1 \\
+0
+\end{bmatrix}, \begin{bmatrix}
+0 \\
+1
+\end{bmatrix} \right\rbrace, \left\lbrace \begin{bmatrix}
+1 \\
+0
+\end{bmatrix}, \begin{bmatrix}
+1 \\
+1
+\end{bmatrix} \right\rbrace, \left\lbrace
+\begin{bmatrix}
+0 \\
+1
+\end{bmatrix}, \begin{bmatrix}
+1 \\
+1
+\end{bmatrix} \right\rbrace$$
+\item[(13)]
+Dimension 0: 1 subspace
+
+Dimension 1: There are $5^3 - 1 = 124$ vectors that can span a 1 dimensional subspace. For each vector, there are $5 - 1$ vectors that span this same subspace. So, there are $\frac{124}{4} = 31$ subspaces.
+
+Dimension 2: There are $(5^3 - 1)(5^3 - 5)/2$ pairs of vectors that can span a 2 dimensional subspace. For each pair of vectors, there are $(5^2 - 1)(5^2 - 5)/2$ pairs that span this same subspace. So, there are $\frac{(5^3 - 1)(5^3 - 5)}{(5^2 - 1)(5^2 - 5)} = \frac{124}{4} = 31$ subspaces.
+
+Dimension 3: 1 subspace
+\item[(14)]
+\begin{itemize}
+\item[(a)]
+Dimension 0: 1 subspace
+
+Dimension 1: There are $p^3 - 1$ vectors that can span a 1 dimensional subspace. For each vector, there are $p - 1$ vectors that span this same subspace. So, there are $\frac{p^3 - 1}{p - 1} = p^2 + p + 1$ subspaces.
+
+Dimension 2: There are $(p^3 - 1)(p^3 - p)/2$ vectors that can span a 2 dimensional subspace. For each pair of vectors, there are $(p^2 - 1)(p^2 - p)/2$ pairs that span this same subspace. So, there are $p^2 + p + 1$ subspaces.
+
+Dimension 3: 1 subspace
+\item[(b)]
+Dimension 0: 1 subspace
+
+Dimension 1: There are $p^4 - 1$ vectors that can span a 1 dimensional subspace. For each vector, there are $p - 1$ vectors that span this same subspace. So, there are $\frac{p^4 - 1}{p - 1} = (p^2 + 1)(p + 1) = p^3 + p^2 + p + 1$ subspaces.
+
+Dimension 2: There are $(p^4 - 1)(p^4 - p)/2$ vectors that can span a 2 dimensional subspace. For each pair of vectors, there are $(p^2 - 1)(p^2 - p)/2$ pairs that span this same subspace. So, there are $\frac{(p^2 + 1)(p^2 - 1)p(p^3 - 1)}{(p^2 - 1)p(p - 1)} = (p^2 + 1)(p^2 + p + 1) = p^4 + p^3 + 2p^2 + p + 1$ subspaces.
+
+Dimension 3: There are $(p^4 - 1)(p^4 - p)(p^4 - p^2)/6$ vectors that can span a 2 dimensional subspace. For each pair of vectors, there are $(p^3 - 1)(p^3 - p)(p^3 - p^2)/6$ pairs that span this same subspace. So, there are $\frac{(p^2 + 1)(p^2 - 1)p(p^3 - 1)p^2(p^2 - 1)}{(p^3 - 1)p(p^2 - 1)p^2(p-1)} = (p^2 + 1)(p + 1) = p^3 + p^2 + p + 1$ subspaces
+
+Dimension 4: 1 subspace
+\end{itemize}
+\item[(15)]
+\begin{itemize}
+\item[(a)]
+Let
+$$A = \begin{bmatrix}
+0 & 1 \\
+1 & 0
+\end{bmatrix}, B = \begin{bmatrix}
+1 & 1 \\
+1 & 0
+\end{bmatrix}$$
+Then, $A^2 = 1$, and $B^3 = 1$. So, $A$ and $B$ generate $GL_2(F)$. And, let $\varphi(A) = y$, $\varphi(B) = x$. Clearly then, $GL_2(F) \simeq S_3$.
+\item[(b)]
+Let $A = \begin{bmatrix}
+a & b \\
+c & d
+\end{bmatrix} \in GL_2(F)$. Then, $\det A = ad - bc \neq 0 \mod 3$. Since $ad = 1$ if $a = 1, d = 1$ or $a = 2, d = 2$, and $ad = 0$ if $a = 0, d = 2$ or $d = 0, a = 2$ or $a = 0, d = 0$ or $a = 0, d = 1$ or $a = 1, d = 0$, and $ad = 2$ if $a = 2, d = 1$ or $a = 1, d = 2$. So, there are $(2)(7) + (5)(4) + (2)(7) = 48$ possibilities for $A$. So $|GL_2(F)| = 48$.
+
+Let $A \in SL_2(F)$. Then, $\det A = ad - bc = 1 \mod 3$. So, if $ad = 1$, then $bc = 0$. If $ad = 2$, then $bc = 1$. If $ad = 0$, then $bc = 2$. So there are $(2)(5) + (2)(2) + (5)(2) = 24$ possibilities. So $|SL_2(F)| = 24$.
+\end{itemize}
+\item[(16)]
+\begin{itemize}
+\item[(a)]
+If $W$ is a subspace of $V$, then there exists some spanning set $w_1, ..., w_k$ of $W$. Since $W \neq V$, then there exists some vector $v \in V$ such that $v \not \in W$, that is, $v$ is not a linear combination of $w_1, ..., w_k$. So, we can add $v$ to this spanning set. If $span(w_1, ..., w_k, v) = V$, then we have $span(v) = U$, and we are done. Otherwise, then we can continue this same process until have a set of vectors $v_1, ..., v_m$ such that $spam(v_1, ..., v_m) = U$. Since none of these vectors are members of $W$, then $U \cap W = 0$.
+\item[(b)]
+Suppose $\dim W + \dim U > \dim V$ and $W \cap U = 0$. Let $w_1, ..., w_k$ be a basis for $W$, and $u_1, ..., u_m$ be a basis for $U$. Then $w_1, ..., w_k, u_1, ..., u_m$ is a basis for a subspace of $V$, denoted $X$. But $\dim X \leq \dim V$ by definition of a subspace. By contradiction then, $\dim W + \dim U \leq \dim V$.
+\end{itemize}
+\end{itemize}
+\end{document}
