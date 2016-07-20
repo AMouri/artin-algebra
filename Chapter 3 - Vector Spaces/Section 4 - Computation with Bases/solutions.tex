@@ -1,0 +1,177 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, mathdots}
+\begin{document}
+\title{Chapter 3: Vector Spaces \\ Section 4: Computation with Bases}
+\author{Alec Mouri}
+
+\maketitle
+\section*{Exercises}
+\begin{itemize}
+\item[(1)]
+$$E = B'P \rightarrow \begin{bmatrix}
+1 & 0 \\
+0 & 1
+\end{bmatrix} = \begin{bmatrix}
+1 & 2 \\
+3 & 2
+\end{bmatrix}\begin{bmatrix}
+p_{11} & p_{12} \\
+p_{21} & p_{22}
+\end{bmatrix}$$
+$$\rightarrow \begin{bmatrix}
+1 & 0 \\
+0 & 1
+\end{bmatrix} = \begin{bmatrix}
+p_{11} + 2p_{21} & p_{12} + 2p_{22} \\
+3p_{11} + 2p_{21} & 3p_{12} + 2p_{22}
+\end{bmatrix}$$
+$$\rightarrow P = \begin{bmatrix}
+-1/2 & 1/2 \\
+3/4 & -3/4
+\end{bmatrix}$$
+\item[(2)]
+$$I = BP \rightarrow P = B$$
+$$\rightarrow P = \begin{bmatrix}
+& & 1 \\
+& \iddots \\
+1
+\end{bmatrix}$$
+\item[(3)]
+$$E = B'P \rightarrow \begin{bmatrix}
+1 & 0 \\
+0 & 1
+\end{bmatrix} = \begin{bmatrix}
+1 & 1 \\
+1 & -1
+\end{bmatrix}\begin{bmatrix}
+p_{11} & p_{12} \\
+p_{21} & p_{22}
+\end{bmatrix}$$
+$$\rightarrow \begin{bmatrix}
+1 & 0 \\
+0 & 1
+\end{bmatrix}\begin{bmatrix}
+p_{11} + p_{21} & p_{12} + p_{22} \\
+p_{11} - p_{21} & p_{12} - p_{22}
+\end{bmatrix}$$
+$$\rightarrow P = \begin{bmatrix}
+1/2 & 1/2 \\
+1/2 & -1/2
+\end{bmatrix}$$
+\item[(4)]
+$$E = B'P \rightarrow \begin{bmatrix}
+1 & 0 \\
+0 & 1
+\end{bmatrix} = \begin{bmatrix}
+1 & -1/2 \\
+0 & \sqrt{3}/2
+\end{bmatrix}\begin{bmatrix}
+p_{11} & p_{12} \\
+p_{21} & p_{22}
+\end{bmatrix}$$
+$$\rightarrow \begin{bmatrix}
+1 & 0 \\
+0 & 1
+\end{bmatrix} = \begin{bmatrix}
+p_{11} - p_{21}/2 & p_{12} - p_{22}/2 \\
+\sqrt{3}p_{21}/2 & \sqrt{3}p_{22}/2
+\end{bmatrix}$$
+$$\rightarrow P = \begin{bmatrix}
+1 & 1/\sqrt{3} \\
+0 & 2/\sqrt{3}
+\end{bmatrix}$$
+\item[(5)]
+\begin{itemize}
+\item[(i)]
+If we can find a $P$ such that $B = EP$, then $B$ is a basis for $\mathbb{R}^3$, since $E$ is a basis. Clearly, $$P = B = \begin{bmatrix}
+1 & 2 & 3 \\
+2 & 1 & 1 \\
+0 & 2 & 1
+\end{bmatrix}$$
+\item[(ii)]
+$$ \begin{bmatrix}
+1 & 2 & 3 \\
+2 & 1 & 1 \\
+0 & 2 & 1
+\end{bmatrix}\begin{bmatrix}
+x_1 \\
+x_2 \\
+x_3
+\end{bmatrix} = \begin{bmatrix}
+1 \\
+2 \\
+3
+\end{bmatrix}$$
+$$\rightarrow \begin{bmatrix}
+x_1 \\
+x_2 \\
+x_3
+\end{bmatrix} = \begin{bmatrix}
+-1/7 & 4/7 & -1/7 \\
+-2/7 & 1/7 & 5/7 \\
+4/7 & -2/7 & -3/7
+\end{bmatrix}\begin{bmatrix}
+1 \\
+2 \\
+3
+\end{bmatrix} = \begin{bmatrix}
+4/7 \\
+15/7 \\
+-9/7
+\end{bmatrix}$$
+\item[(iii)]
+$$B' = \begin{bmatrix}
+0 & 1 & 2 \\
+1 & 0 & 1 \\
+0 & 1 & 0
+\end{bmatrix}$$1
+$$B = B'P \rightarrow BB'^{-1} = P$$
+$$\rightarrow \begin{bmatrix}
+-1/2 & 1 & 1/2 \\
+0 & 0 & 1 \\
+1/2 & 0 & -1/2
+\end{bmatrix}\begin{bmatrix}
+1 & 2 & 3 \\
+2 & 1 & 1 \\
+0 & 2 & 1
+\end{bmatrix} = P$$
+$$\rightarrow P = \begin{bmatrix}
+3/2 & 1 & 0 \\
+0 & 2 & 1 \\
+1/2 & 0 & 1
+\end{bmatrix}$$
+\item[(iv)]
+$B$ must be invertible. So, $p$ and $\det B$ must be relatively prime. So, $B$ is a basis of $\mathbb{F}_p^3$ for all $p$ excluding $p = 7$.
+\end{itemize}
+\item[(6)]
+The two bases are related by: $[B] = [B']P$. $[B']$ is invertible, so therefore $P = [B']^{-1}[B]$.
+\item[(7)]
+Note that each step corresponds to elementary matrices. There exists some $P$ such that $B = B'P$. Since $P$ is invertible, then we can write $P$ as a product of elementary matrices, proving the statement.
+\item[(8)]
+Since $L$ is in the span of $S$, then there exists a matrix $A$ such that $SA = L$. Let $U$ be a linear combination of vectors of $L$: $U = LC = SAC$. If $AC$ is the 0 matrix, then $U = 0$. If $AC = 0$ has a nontrivial solution (solving for $C$), then $L$ is linearly dependent. But if $|S| < |L|$, then $AC = 0$ has a nontrivial solution: therefore $|S| \geq |L|$.
+\item[(9)]
+Let $(v_1, ..., v_n)$ be a basis of $F^n$. Then, $\varphi((v_1, ..., v_n)) = [v_1 | ... | v_n]$. Clearly, $\varphi$ is injective, and surjective onto $GL_n(F)$.
+\item[(10)]
+$$\frac{(81^3 - 1)}{81 - 1} = 6643$$
+\item[(11)]
+\begin{itemize}
+\item[(a)]
+$$|SL_2(F)| = \frac{1}{p - 1}(p^2 - 1)(p^2 - p) = p(p^2 - 1)$$
+\item[(b)]
+$$|GL_n(F)| = (p^n - 1)(p^n - p)...(p^n - p^{n - 1})$$
+$$|SL_n(f)| = \frac{1}{p - 1}|GL_n(F)|$$
+$$|\mathcal{B}| = |GL_n(F)|$$
+\end{itemize}
+\item[(12)]
+\begin{itemize}
+\item[(a)]
+Suppose $B$ is the left inverse of $A$. Note that if $n - m$ rows of zeros are added to the bottom of $A$ to form $A'$, then the left inverse $B'$ also contains $B$. But, since $B'$ does not exist, then $B$ also does not exist.
+
+More concretely, suppose $B$ exists. Since $(BA)_{ii} = 1$, then now column of $A$ can be all 0s. Then, consider the first row of $BA$. The $i$th element of the first row is 
+$$c_i = \sum_{j} a_{ji}b_{1j}$$
+Since $c_2 = ... = c_n = 0$ with $m < n$, then $b_{11} = ... = b_{1m}$. But then $c_1 = 0$, a contradiction. Thus, $B$ cannot exist.
+\item[(b)]
+Define $P, P'$ such that $B = B'P', B' = BP$, ie. $P, P'$ are matrices of change of basis. So, $P'P = I, PP' = I$. So, $P' = P^{-1}, P = P'^{-1}$. Thus, $m = n$.
+\end{itemize}
+\end{itemize}
+\end{document}
